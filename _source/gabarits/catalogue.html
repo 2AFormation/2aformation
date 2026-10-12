@@ -226,10 +226,11 @@ td.d{white-space:nowrap;color:var(--muted)}
       <div class="eyebrow">Nos résultats depuis {{ bilan.debut }}</div>
       <dl>
         <div><dt>{{ bilan.stagiaires }}</dt><dd>professionnels formés, sur {{ bilan.sessions }} sessions dans {{ bilan.departements }} départements</dd></div>
-        <div><dt>{{ site.chiffres.satisfaction_formation }} %</dt><dd>de stagiaires satisfaits ({{ site.chiffres.satisfaction_source }})</dd></div>
+        <div><dt>{{ site.chiffres.satisfaction_formation }} %</dt><dd>des notes de satisfaction à 4 ou 5 sur 5 ({{ site.chiffres.satisfaction_source }})</dd></div>
         <div><dt>{{ vae_tot.diplomes }} / {{ vae_tot.presentes }}</dt><dd>candidats VAE diplômés en {{ site.chiffres.annee }}{% if vae_tot.partielles %}, {{ vae_tot.partielles }} en validation partielle{% endif %}</dd></div>
         <div><dt>{{ site.chiffres.vae_satisfaction }} %</dt><dd>de candidats VAE satisfaits</dd></div>
       </dl>
+      <p class="q" style="font-size:.8em">Méthode de calcul. {{ site.chiffres.methode_formation }} {{ site.chiffres.methode_vae }}</p>
       <p class="q"><b>Certifié Qualiopi</b> au titre des catégories : {{ site.legal.qualiopi.categories|join(' ; ')|lower }}. Certificat n° {{ site.legal.qualiopi.numero }} ({{ site.legal.qualiopi.certificateur }}), valable jusqu'au {{ site.legal.qualiopi.validite }}.</p>
     </aside>
   </div>

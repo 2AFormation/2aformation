@@ -46,6 +46,10 @@ chiffres:
   satisfaction_formation: 93
   satisfaction_source: "questionnaires 2026"
   recommandation: 98
+  # Méthodes de calcul publiées (indicateur 2 du référentiel Qualiopi modifié par le décret n° 2026-728)
+  recommandation_detail: "58 réponses « oui » sur 59 réponses à la question"
+  methode_formation: "Satisfaction : part des notes de 4 ou 5 sur 5 données aux 8 questions de satisfaction du questionnaire de fin de formation. Recommandation : part des réponses « oui » à la question sur la recommandation de la formation (58 sur 59 réponses). Base : 86 questionnaires remplis par les stagiaires de 10 sessions, de janvier à septembre 2026."
+  methode_vae: "Résultats VAE : candidats accompagnés par 2A Formation et présentés au jury en 2025 ; « diplômés » = validation totale, « validation partielle » = un ou plusieurs blocs validés. Satisfaction : réponses au questionnaire de fin d'accompagnement."
   vae_satisfaction: 100
   # Une ligne par diplôme présenté dans l'année
   vae_resultats:
