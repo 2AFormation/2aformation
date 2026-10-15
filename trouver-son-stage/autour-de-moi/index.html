@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
-<link rel="stylesheet" href="../../assets/css/site.css?v=202610131742">
+<link rel="stylesheet" href="../../assets/css/site.css?v=202610151844">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Trouver un stage autour de chez moi","inLanguage":"fr","description":"Recherche par distance parmi les structures sociales et médico-sociales de France pour trouver un stage en travail social.","audience":{"@type":"EducationalAudience","educationalRole":"student"},"isBasedOn":"https://www.data.gouv.fr/datasets/finess-extraction-du-fichier-des-etablissements/","url":"https://2aformation.com/trouver-son-stage/autour-de-moi/","publisher":{"@type":"Organization","name":"2aFormation","url":"https://2aformation.com"}}</script><style>
 .finder{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--ochre);border-radius:12px;padding:20px 22px;margin-top:22px}
 .finder .row{display:grid;grid-template-columns:1fr 150px auto;gap:12px;align-items:end}
@@ -62,6 +62,12 @@
 .carte-note{font-size:.8rem;color:var(--muted);margin:-10px 0 18px}
 .pop b{display:block;margin-bottom:4px}.pop ul{margin:0;padding-left:16px;max-height:180px;overflow:auto}.pop li{margin:2px 0}
 @media (max-width:700px){.finder .row,.tools{grid-template-columns:1fr}#carte{height:340px}}
+@media (max-width:700px){ #secteurs{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;-webkit-overflow-scrolling:touch}#secteurs button{flex:0 0 auto}}
+.outils{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
+.outils a{display:block;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink)}
+.outils a b{display:block;color:var(--green);font-family:var(--display);margin-bottom:4px}
+.outils a span{font-size:.88rem;color:var(--muted)}
+.outils a:hover{border-color:var(--green)}
 </style></head>
 <body>
 <a class="skip" href="#contenu">Aller au contenu</a>
@@ -120,7 +126,13 @@
 </div></section>
 
 <section class="alt"><div class="wrap">
-<div class="cta"><div><h2>Avant d'appeler : le kit candidature</h2><p>Script d'appel, trame de lettre, mails d'envoi, de relance et de remerciement. Gratuit.</p></div><a class="btn" href="../../trouver-son-stage/kit-candidature/index.html" data-goatcounter-click="stage-lien-kit-autour">Ouvrir le kit</a></div>
+<div class="head"><p class="eyebrow">Vos outils gratuits</p><h2>Après la recherche : appeler, écrire, relancer</h2></div>
+<div class="outils">
+<a href="../../trouver-son-stage/kit-candidature/index.html" data-goatcounter-click="stage-lien-kit-autour"><b>Kit candidature</b><span>Script d'appel, trame de lettre, mails d'envoi, de relance et de remerciement</span></a>
+<a href="../../documents/checklist-trouver-son-stage-2A-Formation.pdf" download data-goatcounter-click="telechargement-checklist-stage-autour"><b>Checklist PDF</b><span>Les étapes de la recherche de stage sur une page, à imprimer</span></a>
+<a href="../../trouver-son-stage/retroplanning/index.html" data-goatcounter-click="stage-outil-retroplanning-autour"><b>Mon rétroplanning</b><span>Quand chercher, appeler, relancer, à ajouter à votre agenda</span></a>
+<a href="../../trouver-son-stage/faq/index.html" data-goatcounter-click="stage-outil-faq-autour"><b>FAQ du stage</b><span>Gratification, convention, vos droits</span></a>
+</div>
 </div></section>
 
 <div class="panier" id="panier" hidden><div class="wrap"><div><b id="pn">0 structure</b> dans ma liste<small>Enregistrée dans ce navigateur uniquement.</small></div><div class="acts"><button class="btn primary" id="dl" type="button">Télécharger mon tableau Excel</button><button class="btn ghost" id="impr-btn" type="button">Imprimer</button><button class="btn ghost" id="part-btn" type="button">Partager</button><button class="btn ghost" id="clear" type="button">Vider</button></div></div></div>
@@ -306,7 +318,7 @@ save();
     </div>
   </div>
 </footer>
-<script src="../../assets/js/site.js?v=202610131742"></script>
+<script src="../../assets/js/site.js?v=202610151844"></script>
 <script data-goatcounter="https://2aformation.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
