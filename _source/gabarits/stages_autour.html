@@ -44,6 +44,12 @@
 .carte-note{font-size:.8rem;color:var(--muted);margin:-10px 0 18px}
 .pop b{display:block;margin-bottom:4px}.pop ul{margin:0;padding-left:16px;max-height:180px;overflow:auto}.pop li{margin:2px 0}
 @media (max-width:700px){.finder .row,.tools{grid-template-columns:1fr}#carte{height:340px}}
+@media (max-width:700px){ #secteurs{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;-webkit-overflow-scrolling:touch}#secteurs button{flex:0 0 auto}}
+.outils{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
+.outils a{display:block;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink)}
+.outils a b{display:block;color:var(--green);font-family:var(--display);margin-bottom:4px}
+.outils a span{font-size:.88rem;color:var(--muted)}
+.outils a:hover{border-color:var(--green)}
 </style>{% endblock %}
 {% block contenu %}
 <div class="wrap">
@@ -83,7 +89,13 @@
 </div></section>
 
 <section class="alt"><div class="wrap">
-<div class="cta"><div><h2>Avant d'appeler : le kit candidature</h2><p>Script d'appel, trame de lettre, mails d'envoi, de relance et de remerciement. Gratuit.</p></div><a class="btn" href="{{ R }}trouver-son-stage/kit-candidature/index.html" data-goatcounter-click="stage-lien-kit-autour">Ouvrir le kit</a></div>
+<div class="head"><p class="eyebrow">Vos outils gratuits</p><h2>Après la recherche : appeler, écrire, relancer</h2></div>
+<div class="outils">
+<a href="{{ R }}trouver-son-stage/kit-candidature/index.html" data-goatcounter-click="stage-lien-kit-autour"><b>Kit candidature</b><span>Script d'appel, trame de lettre, mails d'envoi, de relance et de remerciement</span></a>
+<a href="{{ R }}documents/checklist-trouver-son-stage-2A-Formation.pdf" download data-goatcounter-click="telechargement-checklist-stage-autour"><b>Checklist PDF</b><span>Les étapes de la recherche de stage sur une page, à imprimer</span></a>
+<a href="{{ R }}trouver-son-stage/retroplanning/index.html" data-goatcounter-click="stage-outil-retroplanning-autour"><b>Mon rétroplanning</b><span>Quand chercher, appeler, relancer, à ajouter à votre agenda</span></a>
+<a href="{{ R }}trouver-son-stage/faq/index.html" data-goatcounter-click="stage-outil-faq-autour"><b>FAQ du stage</b><span>Gratification, convention, vos droits</span></a>
+</div>
 </div></section>
 
 <div class="panier" id="panier" hidden><div class="wrap"><div><b id="pn">0 structure</b> dans ma liste<small>Enregistrée dans ce navigateur uniquement.</small></div><div class="acts"><button class="btn primary" id="dl" type="button">Télécharger mon tableau Excel</button><button class="btn ghost" id="impr-btn" type="button">Imprimer</button><button class="btn ghost" id="part-btn" type="button">Partager</button><button class="btn ghost" id="clear" type="button">Vider</button></div></div></div>

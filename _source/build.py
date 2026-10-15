@@ -150,7 +150,7 @@ def main():
         f = par_slug.get(x.get("formation") or "")
         sessions.append({"dep": str(x["departement"]), "annee": int(a), "mois": f"{mois[int(m) - 1]} {a}", "cle": f"{a}-{m}",
                          "titre": x["titre"], "theme": x.get("theme") or (f["theme"] if f else ""),
-                         "lien": f"formations/{f['slug']}/index.html" if f else "", "stagiaires": x.get("stagiaires"), "estime": bool(x.get("estime"))})
+                         "lien": f"{f['slug']}/index.html" if f else "", "stagiaires": x.get("stagiaires"), "estime": bool(x.get("estime"))})
     sessions.sort(key=lambda s: s["cle"], reverse=True)
     deps_actifs = sorted({s["dep"] for s in sessions})
     carte_stats = {"sessions": len(sessions), "departements": len(deps_actifs),
