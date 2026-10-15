@@ -1,6 +1,7 @@
 # Pages « Trouver son stage de … » par formation (trouver-son-stage/formation/<slug>/).
 # Règles de formation pratique vérifiées le 09/10/2026 sur Légifrance (arrêtés du 6 octobre 2025)
 # et sur les textes antérieurs (arrêté ME du 20 juin 2007, fiches DREETS Auvergne-Rhône-Alpes 2024).
+# 15/10/2026 : ME mis à jour (arrêté du 5 juillet 2024, en vigueur au 1er septembre 2024) et DEAES ajouté (arrêté du 30 août 2021), vérifiés sur Légifrance ; « verifie » = date propre à une formation.
 # « types » : libellés exacts de l'annuaire (champ t), pour le lien « autour de chez moi ».
 verification: 09/10/2026
 formations:
@@ -24,11 +25,12 @@ formations:
   titre: moniteur-éducateur
   de: "de moniteur-éducateur"
   intro: "Le moniteur-éducateur partage le quotidien des personnes accompagnées : lever, repas, activités, coucher. La formation dure deux ans et les stages y tiennent une place centrale."
-  nouveau: "28 semaines de formation pratique (980 heures) sur deux ans, sous la forme de deux ou trois stages d'au moins 8 semaines chacun. L'un des stages doit obligatoirement se dérouler dans une structure qui héberge les personnes accompagnées, et les stages doivent montrer des expériences diversifiées (publics, façons d'intervenir)."
-  referent: "Si vous êtes déjà en poste de moniteur-éducateur, au moins un stage de 8 semaines se fait hors de votre employeur, auprès d'un public différent."
-  ancien: ""
-  source_nouveau: ["Arrêté du 20 juin 2007 relatif au DEME (Bulletin officiel)", "https://www.education.gouv.fr/bo/2007/31/MTSA0755914A.htm"]
-  source_ancien: []
+  verifie: 15/10/2026
+  nouveau: "Pour les étudiants entrés en formation à partir de septembre 2024 : 1 050 heures de formation pratique (30 semaines à 35 heures), sur au moins deux sites distincts. Une période doit obligatoirement se dérouler dans une structure qui accueille du public en hébergement. Les heures se répartissent entre les trois blocs de compétences : 455 heures (accompagnement socio-éducatif), 420 heures (projet éducatif spécialisé) et 175 heures (travail d'équipe et partenarial)."
+  referent: "Chaque période est encadrée par un référent titulaire du diplôme de moniteur-éducateur ou, à défaut, par un professionnel en fonction d'encadrement dans l'action sociale ou médico-sociale. Si vous êtes déjà en poste de moniteur-éducateur, vous pouvez faire la formation pratique chez votre employeur, mais dans un autre service ou auprès d'un autre public ; une partie peut se faire sur votre poste."
+  ancien: "Entrés avant septembre 2024 (arrêté du 20 juin 2007, aujourd'hui abrogé) : 28 semaines de formation pratique (980 heures), en deux ou trois stages d'au moins 8 semaines."
+  source_nouveau: ["Arrêté du 5 juillet 2024 relatif au DEME (Légifrance)", "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000049889174"]
+  source_ancien: ["Arrêté du 20 juin 2007 relatif au DEME (Bulletin officiel)", "https://www.education.gouv.fr/bo/2007/31/MTSA0755914A.htm"]
   types: [MECS, "Foyer de l'enfance", Lieu de vie et d'accueil, IME, ITEP / DITEP, Foyer de vie, "Foyer d'hébergement", Foyer non médicalisé, FAM, Accueil médicalisé, MAS, CHRS, "Placement (PJJ)"]
   conseils:
   - "Gardez en tête l'obligation d'un stage avec hébergement : MECS, foyer de vie, foyer d'hébergement, FAM, MAS, CHRS… Cherchez-le en priorité."
@@ -94,3 +96,19 @@ formations:
   - "Hors annuaire : CCAS, bailleurs sociaux, centres sociaux, CAF et services sociaux départementaux accueillent aussi des CESF."
   - "Le budget, le logement et l'accès aux droits sont vos points forts : choisissez un terrain où vous les mettrez en pratique."
   - "Un an, c'est court : commencez vos recherches dès la rentrée, voire avant."
+- slug: accompagnant-educatif-et-social
+  sigle: DEAES
+  titre: accompagnant éducatif et social
+  de: "d'accompagnant éducatif et social"
+  verifie: 15/10/2026
+  intro: "L'accompagnant éducatif et social (AES) aide au quotidien des personnes en situation de handicap, âgées ou en perte d'autonomie, en établissement ou à domicile : gestes de la vie quotidienne, activités, lien social. La formation dure de 10 à 24 mois et les stages en sont le cœur."
+  nouveau: "Parcours complet : 840 heures de formation pratique (24 semaines), réparties sur au moins deux stages qui couvrent les cinq blocs de compétences. En parcours partiel, la durée dépend du nombre de blocs à valider (168 heures par bloc), avec au moins un stage."
+  referent: "Un référent professionnel est désigné pour chaque stage : il vous encadre et remplit votre évaluation. Si vous travaillez déjà comme accompagnant, vous faites au moins 140 heures de formation pratique sur un site qualifiant."
+  ancien: ""
+  source_nouveau: ["Arrêté du 30 août 2021 relatif au DEAES (Légifrance)", "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000043990824"]
+  source_ancien: []
+  types: [MAS, FAM, Accueil médicalisé, Foyer de vie, Foyer non médicalisé, "Foyer d'hébergement", Établissement polyhandicap, IME, SAMSAH, SAVS, Accueil familial spécialisé, Lits halte soins santé]
+  conseils:
+  - "Variez les publics entre vos stages, par exemple des adultes en situation de handicap puis des enfants, ou un établissement puis un service à domicile : c'est ce qui vous permettra de couvrir les cinq blocs de compétences."
+  - "Les EHPAD et les services d'aide et de soins à domicile accueillent aussi beaucoup d'AES, mais ils ne figurent pas dans notre annuaire : cherchez-les à part, auprès de votre établissement de formation ou dans les annuaires du département."
+  - "À l'appel, demandez si la structure emploie déjà des AES : un référent du même métier vous aidera à comprendre le poste et à préparer vos évaluations."

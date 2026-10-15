@@ -35,7 +35,7 @@
 <section style="padding-top:0"><div class="wrap" style="max-width:900px">
 <div class="head"><p class="eyebrow">Ce que dit la formation</p><h2>Les stages du {{ f.sigle }}</h2></div>
 <div class="regle"><h3>La durée et l'organisation</h3><p>{{ f.nouveau }}</p>{% if f.ancien %}<p class="anc">{{ f.ancien }}</p>{% endif %}
-<p class="src">Sources : <a href="{{ f.source_nouveau[1] }}" target="_blank" rel="noopener">{{ f.source_nouveau[0] }}</a>{% if f.source_ancien %} · <a href="{{ f.source_ancien[1] }}" target="_blank" rel="noopener">{{ f.source_ancien[0] }}</a>{% endif %} (vérifié le {{ v }}). Votre établissement de formation précise le calendrier et les attendus de chaque stage : c'est lui qui fait foi.</p></div>
+<p class="src">Sources : <a href="{{ f.source_nouveau[1] }}" target="_blank" rel="noopener">{{ f.source_nouveau[0] }}</a>{% if f.source_ancien %} · <a href="{{ f.source_ancien[1] }}" target="_blank" rel="noopener">{{ f.source_ancien[0] }}</a>{% endif %} (vérifié le {{ f.get('verifie') or v }}). Votre établissement de formation précise le calendrier et les attendus de chaque stage : c'est lui qui fait foi.</p></div>
 <p class="ref"><b>À vérifier dès l'appel.</b> {{ f.referent }}</p>
 
 <div class="head" style="margin-top:34px"><p class="eyebrow">Où chercher</p><h2>Les structures où chercher</h2></div>
