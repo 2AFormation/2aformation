@@ -1,9 +1,9 @@
 # Pages « Trouver son stage de … » par formation (trouver-son-stage/formation/<slug>/).
 # Règles de formation pratique vérifiées le 09/10/2026 sur Légifrance (arrêtés du 6 octobre 2025)
 # et sur les textes antérieurs (arrêté ME du 20 juin 2007, fiches DREETS Auvergne-Rhône-Alpes 2024).
-# 15/10/2026 : ME mis à jour (arrêté du 5 juillet 2024, en vigueur au 1er septembre 2024) et DEAES ajouté (arrêté du 30 août 2021), vérifiés sur Légifrance ; « verifie » = date propre à une formation.
+# 15/10/2026 : ME mis à jour (arrêté du 5 juillet 2024, en vigueur au 1er septembre 2024) et DEAES ajouté (arrêté du 30 août 2021), vérifiés sur Légifrance . 15/10/2026 : ES, ASS, EJE, ETS et CESF revérifiés sur Légifrance (règles exactes, précisions sur les référents).
 # « types » : libellés exacts de l'annuaire (champ t), pour le lien « autour de chez moi ».
-verification: 09/10/2026
+verification: 15/10/2026
 formations:
 - slug: educateur-specialise
   sigle: DEES
@@ -11,7 +11,7 @@ formations:
   de: "d'éducateur spécialisé"
   intro: "L'éducateur spécialisé accompagne des enfants, des adolescents ou des adultes en difficulté, au quotidien et dans la durée. Les stages sont le cœur de la formation : ils comptent autant que les cours pour valider les compétences."
   nouveau: "Pour les étudiants entrés en formation à partir de septembre 2026 : 55 semaines de formation pratique (1 925 heures) sur trois ans. Une première période de 9 à 13 semaines pendant la première année, sur deux à trois sites, pour découvrir les champs du métier ; puis 42 à 46 semaines sur deux ou trois sites."
-  referent: "Après la première période, au moins les deux tiers des stages doivent être encadrés par un référent titulaire du diplôme d'État d'éducateur spécialisé. Posez la question dès l'appel : y aura-t-il un éducateur spécialisé diplômé pour vous suivre ?"
+  referent: "La première période est encadrée par un référent qui a au moins un diplôme de même niveau. Ensuite, au moins les deux tiers des stages doivent être encadrés par un référent titulaire du diplôme d'État d'éducateur spécialisé. Posez la question dès l'appel : y aura-t-il un éducateur spécialisé diplômé pour vous suivre ?"
   ancien: "Entrés avant septembre 2026 : 2 100 heures de stage (60 semaines) sur trois ans, auprès d'un référent professionnel éducateur spécialisé."
   source_nouveau: ["Arrêté du 6 octobre 2025 relatif au DEES (Légifrance)", "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000052384644"]
   source_ancien: ["Fiche DEES, DREETS Auvergne-Rhône-Alpes (2024)", "https://auvergne-rhone-alpes.dreets.gouv.fr/sites/auvergne-rhone-alpes.dreets.gouv.fr/IMG/pdf/es_2024.pdf"]
@@ -25,7 +25,6 @@ formations:
   titre: moniteur-éducateur
   de: "de moniteur-éducateur"
   intro: "Le moniteur-éducateur partage le quotidien des personnes accompagnées : lever, repas, activités, coucher. La formation dure deux ans et les stages y tiennent une place centrale."
-  verifie: 15/10/2026
   nouveau: "Pour les étudiants entrés en formation à partir de septembre 2024 : 1 050 heures de formation pratique (30 semaines à 35 heures), sur au moins deux sites distincts. Une période doit obligatoirement se dérouler dans une structure qui accueille du public en hébergement. Les heures se répartissent entre les trois blocs de compétences : 455 heures (accompagnement socio-éducatif), 420 heures (projet éducatif spécialisé) et 175 heures (travail d'équipe et partenarial)."
   referent: "Chaque période est encadrée par un référent titulaire du diplôme de moniteur-éducateur ou, à défaut, par un professionnel en fonction d'encadrement dans l'action sociale ou médico-sociale. Si vous êtes déjà en poste de moniteur-éducateur, vous pouvez faire la formation pratique chez votre employeur, mais dans un autre service ou auprès d'un autre public ; une partie peut se faire sur votre poste."
   ancien: "Entrés avant septembre 2024 (arrêté du 20 juin 2007, aujourd'hui abrogé) : 28 semaines de formation pratique (980 heures), en deux ou trois stages d'au moins 8 semaines."
@@ -42,7 +41,7 @@ formations:
   de: "d'assistant de service social"
   intro: "L'assistant de service social accompagne les personnes et les familles dans l'accès à leurs droits, la protection et l'insertion. Ses stages se font souvent dans des services publics, absents de notre annuaire : pensez-y."
   nouveau: "Pour les étudiants entrés en formation à partir de septembre 2026 : 55 semaines de formation pratique (1 925 heures) sur trois ans. Une première période de 9 à 13 semaines pendant la première année, sur deux à trois sites ; puis 42 à 46 semaines sur deux ou trois sites."
-  referent: "Après la première période, au moins les deux tiers des stages doivent être encadrés par un référent titulaire du diplôme d'État d'assistant de service social : vérifiez qu'il y a un ou une ASS dans le service."
+  referent: "La première période est encadrée par un référent qui a au moins un diplôme de même niveau. Ensuite, au moins les deux tiers des stages doivent être encadrés par un référent titulaire du diplôme d'État d'assistant de service social : vérifiez qu'il y a un ou une ASS dans le service."
   ancien: "Entrés avant septembre 2026 : 1 820 heures de formation pratique (52 semaines) sur trois ans."
   source_nouveau: ["Arrêté du 6 octobre 2025 relatif au DEASS (Légifrance)", "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000052384266"]
   source_ancien: ["Fiche DEASS, DREETS Auvergne-Rhône-Alpes (2024)", "https://auvergne-rhone-alpes.dreets.gouv.fr/sites/auvergne-rhone-alpes.dreets.gouv.fr/IMG/pdf/ass_2024.pdf"]
@@ -57,7 +56,7 @@ formations:
   de: "d'éducateur de jeunes enfants"
   intro: "L'éducateur de jeunes enfants accompagne les enfants de 0 à 7 ans et leurs parents. Les crèches ne sont pas dans notre annuaire (elles figurent sur monenfant.fr), mais beaucoup d'autres lieux accueillent des stagiaires EJE."
   nouveau: "Pour les étudiants entrés en formation à partir de septembre 2026 : 55 semaines de formation pratique (1 925 heures) sur trois ans. Une première période de 9 à 13 semaines pendant la première année, sur deux à trois sites ; puis 42 à 46 semaines sur deux ou trois sites."
-  referent: "Après la première période, au moins les deux tiers des stages doivent être encadrés par un référent titulaire du diplôme d'État d'éducateur de jeunes enfants."
+  referent: "La première période est encadrée par un référent qui a au moins un diplôme de même niveau. Ensuite, au moins les deux tiers des stages doivent être encadrés par un référent titulaire du diplôme d'État d'éducateur de jeunes enfants."
   ancien: "Entrés avant septembre 2026 : 2 100 heures de stage (60 semaines) sur trois ans."
   source_nouveau: ["Arrêté du 6 octobre 2025 relatif au DEEJE (Légifrance)", "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000052384514"]
   source_ancien: ["Fiche DEEJE, DREETS Auvergne-Rhône-Alpes (2024)", "https://auvergne-rhone-alpes.dreets.gouv.fr/sites/auvergne-rhone-alpes.dreets.gouv.fr/IMG/pdf/eje_2024.pdf"]
@@ -72,7 +71,7 @@ formations:
   de: "d'éducateur technique spécialisé"
   intro: "L'éducateur technique spécialisé utilise un métier technique (cuisine, menuiserie, espaces verts…) comme support d'accompagnement et d'insertion professionnelle."
   nouveau: "Pour les étudiants entrés en formation à partir de septembre 2026 : 55 semaines de formation pratique (1 925 heures) sur trois ans. Une première période de 9 à 13 semaines pendant la première année, sur deux à trois sites ; puis 42 à 46 semaines sur deux ou trois sites."
-  referent: "Après la première période, au moins les deux tiers des stages doivent être encadrés par un référent titulaire du diplôme d'État d'éducateur technique spécialisé : ils sont moins nombreux, vérifiez-le dès l'appel."
+  referent: "La première période est encadrée par un référent qui a au moins un diplôme de même niveau. Ensuite, au moins les deux tiers des stages doivent être encadrés par un référent titulaire du diplôme d'État d'éducateur technique spécialisé : ils sont moins nombreux, vérifiez-le dès l'appel."
   ancien: "Entrés avant septembre 2026 : renseignez-vous auprès de votre établissement de formation, qui applique les règles en vigueur lors de votre entrée."
   source_nouveau: ["Arrêté du 6 octobre 2025 relatif au DEETS (Légifrance)", "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000052384774"]
   source_ancien: []
@@ -87,7 +86,7 @@ formations:
   de: "de conseiller en économie sociale familiale"
   intro: "Le conseiller en économie sociale familiale accompagne les personnes dans leur vie quotidienne : budget, logement, alimentation, accès aux droits. La formation dure un an après le BTS ESF (ou un autre diplôme d'État)."
   nouveau: "16 semaines de formation pratique (560 heures) sur l'année de formation. Les nouvelles règles du diplôme entrent en vigueur en septembre 2027 avec la même durée de stage ; la répartition peut varier selon votre profil d'entrée."
-  referent: "Renseignez-vous auprès de votre établissement sur le nombre de stages et le profil du référent attendu."
+  referent: "À partir de septembre 2027, la formation pratique se fait sur un ou deux sites, encadrée par un référent titulaire du diplôme d'État de CESF : vérifiez dès l'appel qu'il y a un ou une CESF dans le service. D'ici là, renseignez-vous auprès de votre établissement sur le nombre de stages et le profil du référent attendu."
   ancien: ""
   source_nouveau: ["Arrêté du 6 octobre 2025 relatif au DECESF (Légifrance)", "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000052384399"]
   source_ancien: ["Fiche DECESF, DREETS Auvergne-Rhône-Alpes (2024)", "https://auvergne-rhone-alpes.dreets.gouv.fr/sites/auvergne-rhone-alpes.dreets.gouv.fr/IMG/pdf/cesf_2024.pdf"]
@@ -100,7 +99,6 @@ formations:
   sigle: DEAES
   titre: accompagnant éducatif et social
   de: "d'accompagnant éducatif et social"
-  verifie: 15/10/2026
   intro: "L'accompagnant éducatif et social (AES) aide au quotidien des personnes en situation de handicap, âgées ou en perte d'autonomie, en établissement ou à domicile : gestes de la vie quotidienne, activités, lien social. La formation dure de 10 à 24 mois et les stages en sont le cœur."
   nouveau: "Parcours complet : 840 heures de formation pratique (24 semaines), réparties sur au moins deux stages qui couvrent les cinq blocs de compétences. En parcours partiel, la durée dépend du nombre de blocs à valider (168 heures par bloc), avec au moins un stage."
   referent: "Un référent professionnel est désigné pour chaque stage : il vous encadre et remplit votre évaluation. Si vous travaillez déjà comme accompagnant, vous faites au moins 140 heures de formation pratique sur un site qualifiant."
