@@ -27,7 +27,7 @@
 .more{margin-top:18px;text-align:center}
 .fil{font-size:.8rem;color:var(--muted);margin:-4px 0 14px}
 .src{font-size:.84rem;color:var(--muted);margin-top:26px;max-width:none}
-.tools{display:grid;grid-template-columns:1fr 240px;gap:12px;margin-bottom:12px}
+.tools{display:grid;grid-template-columns:1fr 220px 280px;gap:12px;margin-bottom:12px}
 .addall{font:700 .88rem var(--body);background:none;border:0;color:var(--green);text-decoration:underline;cursor:pointer;padding:0}
 .vide{background:var(--ochre-soft);border-radius:12px;padding:22px 24px}
 .panier{position:sticky;bottom:0;z-index:9;background:var(--ink);color:var(--paper);border-top:3px solid var(--ochre)}
@@ -50,6 +50,19 @@
 .outils a b{display:block;color:var(--green);font-family:var(--display);margin-bottom:4px}
 .outils a span{font-size:.88rem;color:var(--muted)}
 .outils a:hover{border-color:var(--green)}
+#suivi .bilan{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 18px}
+#suivi .bilan span{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:.88rem}
+#suivi .bilan b{color:var(--green)}
+#suivi .sv{display:grid;grid-template-columns:1fr auto auto;gap:6px 14px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:10px}
+#suivi .sv h3{font-size:1rem;margin:0}
+#suivi .sv small{display:block;color:var(--muted);font-size:.84rem}
+#suivi .sv select{font:inherit;padding:6px 8px;border:1px solid var(--line);border-radius:8px;background:var(--paper)}
+#suivi .sv .rm{background:none;border:0;color:var(--muted);font-size:1.3rem;cursor:pointer;padding:2px 6px}
+#suivi .sv .rel{display:inline-block;margin-top:4px;background:#FFF2CC;color:var(--ink);border-radius:6px;padding:1px 8px;font-size:.8rem;font-weight:700}
+#suivi .sv.fin{opacity:.6}
+#suivi .sv.ok{border-color:var(--green);background:var(--green-soft)}
+@media (max-width:700px){ #suivi .sv{grid-template-columns:1fr auto} #suivi .sv select{grid-column:1/-1;width:100%}}
+@media (max-width:700px){.panier small{display:none}.panier .wrap{padding-block:8px;gap:6px 10px}.panier b{font-size:1rem}.panier .acts{gap:6px}.panier .btn{padding:7px 12px;font-size:.88rem;min-height:0}}
 </style>{% endblock %}
 {% block contenu %}
 <div class="wrap">
@@ -80,12 +93,20 @@
 <div class="tools">
 <label>Affiner (nom, type, commune, gestionnaire)<input id="q" type="search" placeholder="Ex. MECS, IME, foyer…"></label>
 <label>Type de structure<select id="ty"><option value="">Tous les types</option></select></label>
+<label>Ma formation<select id="fo"><option value="">Toutes les formations</option></select></label>
 </div>
 <p class="count"><span id="count" aria-live="polite"></span> · <button class="addall" id="addall" type="button">Ajouter ces résultats à ma liste</button></p>
 <div class="list" id="list"></div>
 <div class="more"><button class="btn ghost" id="more" type="button">Afficher plus</button></div>
 </div>
 <p class="src">Données issues du Fichier national des établissements sanitaires et sociaux (FINESS), ministère chargé de la santé et des solidarités, publiées sur data.gouv.fr sous Licence Ouverte (extraction du 04/05/2026). Position approximative de chaque structure calculée à partir de sa commune (données ouvertes Etalab et base officielle des codes postaux de La Poste) : comptez la distance comme un ordre de grandeur. Vérifiez les coordonnées avant d'appeler. 2A Formation n'est pas lié à ces structures. La mention « Accueille des stagiaires » et l'adresse de candidature sont indiquées par les structures elles-mêmes ; pour les autres, nous ne savons pas si elles accueillent des stagiaires. Une erreur ? <a href="mailto:2aa.formation@gmail.com?subject=Annuaire%20des%20stages%20(autour%20de%20moi)">Écrivez-nous</a>. Vous gérez une structure ? <a href="{{ R }}trouver-son-stage/accueillir-des-stagiaires/index.html">Indiquez l'adresse où recevoir les candidatures de stage</a>.</p>
+</div></section>
+
+<section id="suivi" class="alt" hidden><div class="wrap">
+<div class="head"><p class="eyebrow">Ma liste</p><h2>Le suivi de mes candidatures</h2></div>
+<p style="font-size:.95rem">Indiquez où vous en êtes avec chaque structure : la date est notée automatiquement, et une candidature envoyée depuis 10 jours sans nouvelle est signalée « À relancer ». Tout reste enregistré dans ce navigateur, rien ne nous est envoyé. Le tableau Excel reprend ce suivi.</p>
+<div class="bilan" id="sbilan"></div>
+<div id="slist"></div>
 </div></section>
 
 <section class="alt"><div class="wrap">
@@ -98,7 +119,7 @@
 </div>
 </div></section>
 
-<div class="panier" id="panier" hidden><div class="wrap"><div><b id="pn">0 structure</b> dans ma liste<small>Enregistrée dans ce navigateur uniquement.</small></div><div class="acts"><button class="btn primary" id="dl" type="button">Télécharger mon tableau Excel</button><button class="btn ghost" id="impr-btn" type="button">Imprimer</button><button class="btn ghost" id="part-btn" type="button">Partager</button><button class="btn ghost" id="clear" type="button">Vider</button></div></div></div>
+<div class="panier" id="panier" hidden><div class="wrap"><div><b id="pn">0 structure</b> dans ma liste<small>Enregistrée dans ce navigateur uniquement.</small></div><div class="acts"><button class="btn primary" id="suivi-btn" type="button" aria-expanded="false">Suivre mes candidatures</button><button class="btn ghost" id="dl" type="button">Tableau Excel</button><button class="btn ghost" id="impr-btn" type="button">Imprimer</button><button class="btn ghost" id="part-btn" type="button">Partager</button><button class="btn ghost" id="clear" type="button">Vider</button></div></div></div>
 <script>
 const GM={{ guide_map|safe }};
 const DEPS={{ index_dep|safe }}, SECT={{ secteurs|safe }}, BASE='{{ R }}trouver-son-stage/donnees/';
@@ -107,9 +128,17 @@ const $=id=>document.getElementById(id);
 const norm=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[-']/g,' ').replace(/\bst\b/g,'saint').replace(/\s+/g,' ').trim();
 const km=(a,b,c,d)=>{const r=Math.PI/180,x=Math.sin((c-a)*r/2)**2+Math.cos(a*r)*Math.cos(c*r)*Math.sin((d-b)*r/2)**2;return 12742*Math.asin(Math.sqrt(x));};
 let PRE=null; try{const t=new URLSearchParams(location.search).get('type'); if(t) PRE=new Set(t.split('|'));}catch(e){}
+const FO={{ fo_stage|safe }}; let FOSEL=null;
+const gc=(p,t)=>{try{if(window.goatcounter&&window.goatcounter.count) window.goatcounter.count({path:p,title:t||p,event:true});}catch(e){}};
+const ST=[['','À contacter'],['appele','Appelée'],['envoye','Candidature envoyée'],['relance','Relancée'],['entretien','Entretien'],['accepte','Acceptée'],['refuse','Refusée'],['sans','Pas de réponse']];
+const STL=Object.fromEntries(ST);
+const today=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');};
+const frd=s=>s?s.split('-').reverse().join('/'):'';
+const arelancer=d=>d.st==='envoye'&&d.dt&&d.dt.envoye&&(Date.now()-new Date(d.dt.envoye+'T12:00:00'))/864e5>=10;
+try{const fs=new URLSearchParams(location.search).get('formation'); const f=FO.find(x=>x[0]===fs); if(f){FOSEL=f; PRE=new Set(f[3]);}}catch(e){}
 let COM=null, comP=null, cache={}, here=null, all=[], cur='', shown=24, lastRes=[];
 const KEY='2a-stages-autour'; let sel={}; try{sel=JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){}
-function save(){try{localStorage.setItem(KEY,JSON.stringify(sel));}catch(e){} const n=Object.keys(sel).length; $('panier').hidden=!n; $('pn').textContent=n+(n>1?' structures':' structure');}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(sel));}catch(e){} const n=Object.keys(sel).length; $('panier').hidden=!n; $('pn').textContent=n+(n>1?' structures':' structure'); if(!n) $('suivi').hidden=true; if(!$('suivi').hidden) drawSuivi();}
 function loadCom(){if(!comP) comP=fetch(BASE+'communes.json').then(r=>r.json()).then(j=>{COM=j.map(c=>({n:c[0],cp:c[1],la:c[2],lo:c[3],k:norm(c[0])}));return COM;});return comP;}
 const ville=$('ville'), sug=$('sug'); let opts=[], act=-1, pick=null;
 ville.addEventListener('focus',loadCom,{once:true});
@@ -130,18 +159,18 @@ $('finder').onsubmit=async e=>{e.preventDefault(); if(pick) return run({la:pick.
 $('rayon').onchange=()=>{if(here) run(Object.assign({},here,{go:false}));};
 $('loc').onclick=()=>{const b=$('loc'); if(!navigator.geolocation){b.textContent='Localisation indisponible sur cet appareil';return;} b.textContent='Localisation en cours…';
   navigator.geolocation.getCurrentPosition(p=>{b.textContent='📍 Utiliser ma position';ville.value='Ma position';pick=null;run({la:p.coords.latitude,lo:p.coords.longitude,nom:'votre position'});},()=>{b.textContent='📍 Position refusée : tapez votre commune';},{enableHighAccuracy:false,timeout:10000,maximumAge:600000});};
-async function run(h){here=h; const r=+$('rayon').value;
+async function run(h){const quiet=!!h.quiet; delete h.quiet; here=h; const r=+$('rayon').value;
   const need=DEPS.filter(d=>km(h.la,h.lo,d[3],d[4])<=r+d[5]);
   $('avant').hidden=true; $('apres').hidden=false; $('titre').textContent='Chargement…';
   try{await Promise.all(need.filter(d=>!cache[d[0]]).map(d=>fetch(BASE+d[0]+'.json').then(x=>x.json()).then(j=>{cache[d[0]]=j;})));}catch(e){$('titre').textContent='Le chargement a échoué. Vérifiez votre connexion et réessayez.';return;}
   all=[]; need.forEach(d=>cache[d[0]].forEach(s=>{const k=km(h.la,h.lo,s.la,s.lo); if(k<=r) all.push(Object.assign({}, s, {km:k, dep:d[0]}));}));
   all.sort((a,b)=>a.km-b.km||a.n.localeCompare(b.n,'fr'));
   const nT=PRE?all.filter(d=>PRE.has(d.t)).length:all.length;
-  $('titre').textContent=nT+(nT>1?' structures':' structure')+(PRE?' ('+[...PRE].join(', ')+')':'')+' à moins de '+r+' km de '+(h.nom==='votre position'?'votre position':h.nom);
+  $('titre').textContent=nT+(nT>1?' structures':' structure')+(FOSEL?' pour un stage '+FOSEL[1]:(PRE?' ('+[...PRE].join(', ')+')':''))+' à moins de '+r+' km de '+(h.nom==='votre position'?'votre position':h.nom);
   cur=''; shown=24; $('q').value=''; $('ty').value=''; draw();
   if(h.go!==false&&window.innerWidth<900) setTimeout(()=>$('apres').scrollIntoView({behavior:'smooth',block:'start'}),50);
   try{if(location.hash!=='#'+h.la.toFixed(3)+','+h.lo.toFixed(3)+','+r) history.replaceState(null,'','#'+(h.nom==='votre position'?'':encodeURIComponent(h.nom)+'@')+h.la.toFixed(3)+','+h.lo.toFixed(3)+','+r);}catch(e){}
-  try{if(window.goatcounter&&window.goatcounter.count) window.goatcounter.count({path:'recherche-stage-autour-'+r+'km',title:'Recherche autour de moi',event:true});}catch(e){}
+  if(!quiet) try{if(window.goatcounter&&window.goatcounter.count) window.goatcounter.count({path:'recherche-stage-autour-'+r+'km',title:'Recherche autour de moi',event:true});}catch(e){}
 }
 const fmt=k=>k<1?'< 1 km':(k<10?k.toFixed(1).replace('.',','):Math.round(k))+' km';
 function btn(k,l,c){const b=document.createElement('button');b.type='button';b.textContent=l+' ('+c+')';b.setAttribute('aria-pressed',k===cur);b.onclick=()=>{cur=k;shown=24;$('ty').value='';draw();};return b;}
@@ -149,7 +178,7 @@ function draw(){const sec=$('secteurs'), ty=$('ty');
   const A=PRE?all.filter(d=>PRE.has(d.t)):all; sec.innerHTML=''; sec.append(btn('','Tous',A.length));
   SECT.forEach(s=>{const c=A.filter(d=>d.s===s[0]).length; if(c) sec.append(btn(s[0],s[1],c));});
   if(here||cur) $('fil').textContent=cur?'Formations concernées le plus souvent : '+S[cur][2]+'.':'';
-  if(PRE){const f=$('fil'); f.innerHTML=(cur?f.textContent+' ':'')+'Filtre : <b>'+[...PRE].join(', ')+'</b> · <a href="#" id="nopre">voir tous les types</a>'; $('nopre').onclick=e=>{e.preventDefault();PRE=null;try{history.replaceState(null,'',location.pathname+location.hash);}catch(x){} draw();};}
+  if(PRE){const f=$('fil'); f.innerHTML=(cur?f.textContent+' ':'')+(FOSEL?'Filtre : <b>les structures où les étudiants '+FOSEL[1]+' font le plus souvent leurs stages</b> ('+PRE.size+' types)':'Filtre : <b>'+[...PRE].join(', ')+'</b>')+' · <a href="#" id="nopre">voir tous les types</a>'; $('nopre').onclick=e=>{e.preventDefault();PRE=null;FOSEL=null;$('fo').value='';try{history.replaceState(null,'',location.pathname+location.hash);}catch(x){} draw();};}
   const base=all.filter(d=>(!cur||d.s===cur)&&(!PRE||PRE.has(d.t)));
   const types=[...new Set(base.map(d=>d.t))].sort((a,b)=>a.localeCompare(b,'fr'));
   const keep=ty.value; ty.innerHTML='<option value="">Tous les types</option>'+types.map(t=>'<option'+(t===keep?' selected':'')+'>'+t+'</option>').join('');
@@ -158,7 +187,7 @@ function draw(){const sec=$('secteurs'), ty=$('ty');
   lastRes=res;
   $('count').textContent=res.length+(res.length>1?' structures':' structure');
   $('list').innerHTML=res.length?res.slice(0,shown).map(d=>{const m='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(d.n+' '+d.a+' '+d.cp+' '+d.v), on=!!sel[d.f];
-    return '<article class="st'+(on?' sel':'')+'"><span class="top2"><a class="ty" href="{{ R }}trouver-son-stage/structures/index.html#'+(GM[d.t]||'')+'" title="C\'est quoi ?">'+d.t+' <span class="q" aria-hidden="true">?</span></a>'+(d.km!=null?'<span class="km">'+fmt(d.km)+'</span>':'')+'</span><h3>'+d.n+'</h3>'+(d.m?'<span class="acc">✓ Accueille des stagiaires'+(d.fo?' · '+d.fo:'')+'</span>':'')+'<span class="ad">'+(d.a?d.a+', ':'')+d.cp+' '+d.v+'</span>'+(d.g?'<span class="ge">Géré par : '+d.g+'</span>':'')+(d.pe?'<span class="ge">Périodes : '+d.pe+'</span>':'')+'<span class="ln">'+(d.m?'<a href="mailto:'+d.m+'?subject='+encodeURIComponent('Demande de stage')+'" data-goatcounter-click="stage-candidater-mail">Candidater par mail</a>':'')+(d.p?'<a href="tel:'+d.p.replace(/ /g,'')+'">'+d.p+'</a>':'<span class="muted" style="font-weight:400">Téléphone non renseigné</span>')+'<a href="'+m+'" target="_blank" rel="noopener">Carte</a><a href="https://www.google.com/search?q='+encodeURIComponent(d.n+' '+d.v)+'" target="_blank" rel="noopener">Chercher le site</a></span><button class="add" type="button" data-f="'+d.f+'" aria-pressed="'+on+'">'+(on?'✓ Dans ma liste':'+ Ajouter à ma liste')+'</button><span class="gere">Vous gérez cette structure ? <a href="{{ R }}trouver-son-stage/accueillir-des-stagiaires/index.html?f='+d.f+'&n='+encodeURIComponent(d.n)+'&v='+encodeURIComponent(d.v)+'">Indiquez votre adresse stages</a></span></article>';}).join('')
+    return '<article class="st'+(on?' sel':'')+'"><span class="top2"><a class="ty" href="{{ R }}trouver-son-stage/structures/index.html#'+(GM[d.t]||'')+'" title="C\'est quoi ?">'+d.t+' <span class="q" aria-hidden="true">?</span></a>'+(d.km!=null?'<span class="km">'+fmt(d.km)+'</span>':'')+'</span><h3>'+d.n+'</h3>'+(d.m?'<span class="acc">✓ Accueille des stagiaires'+(d.fo?' · '+d.fo:'')+'</span>':'')+'<span class="ad">'+(d.a?d.a+', ':'')+d.cp+' '+d.v+'</span>'+(d.g?'<span class="ge">Géré par : '+d.g+'</span>':'')+(d.pe?'<span class="ge">Périodes : '+d.pe+'</span>':'')+'<span class="ln">'+(d.m?'<a href="mailto:'+d.m+'?subject='+encodeURIComponent('Demande de stage')+'" data-goatcounter-click="stage-candidater-mail">Candidater par mail</a>':'')+(d.p?'<a href="tel:'+d.p.replace(/ /g,'')+'">'+d.p+'</a>':'<span class="muted" style="font-weight:400">Téléphone non renseigné</span>')+'<a href="'+m+'" target="_blank" rel="noopener">Carte</a><a href="https://www.google.com/search?q='+encodeURIComponent(d.n+' '+d.v)+'" target="_blank" rel="noopener">Chercher le site</a></span><button class="add" type="button" data-f="'+d.f+'" aria-pressed="'+on+'">'+(on?'✓ Dans ma liste'+(sel[d.f].st?' · '+STL[sel[d.f].st]:''):'+ Ajouter à ma liste')+'</button><span class="gere">Vous gérez cette structure ? <a href="{{ R }}trouver-son-stage/accueillir-des-stagiaires/index.html?f='+d.f+'&n='+encodeURIComponent(d.n)+'&v='+encodeURIComponent(d.v)+'">Indiquez votre adresse stages</a></span></article>';}).join('')
     :'<div class="vide" style="grid-column:1/-1"><b>Aucune structure dans ce rayon.</b> Essayez une distance plus grande ou un autre secteur.</div>';
   $('more').parentElement.style.display=res.length>shown?'':'none';
   if(MAP&&!$('carte').hidden) drawMap();
@@ -183,9 +212,10 @@ $('vcarte').onclick=async()=>{const b=$('vcarte'), c=$('carte'), open=c.hidden; 
   setTimeout(()=>{MAP.invalidateSize(); drawMap();},50);};
 const keepRow=d=>{const o=Object.assign({},d); o.km=d.km==null?null:Math.round(d.km*10)/10; delete o.la; delete o.lo; return o;};
 $('q').oninput=()=>{shown=24;draw();}; $('ty').onchange=()=>{shown=24;draw();}; $('more').onclick=()=>{shown+=24;draw();};
-$('list').onclick=e=>{const b=e.target.closest('.add'); if(!b) return; const f=b.dataset.f; if(sel[f]) delete sel[f]; else {const d=all.find(x=>x.f===f); if(d) sel[f]=keepRow(d);} save(); draw();};
-$('addall').onclick=()=>{lastRes.forEach(d=>{sel[d.f]=keepRow(d);}); save(); draw();};
-$('clear').onclick=()=>{sel={}; save(); draw();};
+$('list').onclick=e=>{const a=e.target.closest('a'); if(a){const h=a.getAttribute('href')||'', t=a.textContent; if(h.startsWith('tel:')) gc('stage-contact-tel-autour','Appel d\'une structure (autour de moi)'); else if(h.startsWith('mailto:')) gc('stage-candidater-mail','Candidater par mail'); else if(t==='Carte') gc('stage-contact-carte-autour','Carte d\'une structure (autour de moi)'); else if(t==='Chercher le site') gc('stage-contact-site-autour','Site d\'une structure (autour de moi)'); return;}
+  const b=e.target.closest('.add'); if(!b) return; const f=b.dataset.f; if(sel[f]) delete sel[f]; else {const d=all.find(x=>x.f===f); if(d) sel[f]=keepRow(d);} save(); draw();};
+$('addall').onclick=()=>{lastRes.forEach(d=>{if(!sel[d.f]) sel[d.f]=keepRow(d);}); save(); draw();};
+$('clear').onclick=()=>{if(Object.values(sel).some(d=>d.st)&&!confirm('Vider la liste efface aussi le suivi de vos candidatures. Continuer ?')) return; sel={}; save(); draw();};
 function loadLib(){return window.ExcelJS?Promise.resolve():new Promise((ok,ko)=>{const s=document.createElement('script');s.src='{{ R }}assets/js/exceljs.min.js';s.onload=ok;s.onerror=ko;document.head.append(s);});}
 $('dl').onclick=async()=>{
   const b=$('dl'); b.textContent='Préparation…';
@@ -196,7 +226,8 @@ $('dl').onclick=async()=>{
   const G='FF2E5B4E', OC='FFB8572A';
   const ws=wb.addWorksheet('Mes candidatures',{views:[{state:'frozen',ySplit:1,xSplit:1}]});
   ws.columns=[['Structure',38],['Distance (km)',10],['Type',22],['Secteur',26],['Adresse',30],['CP',8],['Commune',20],['Téléphone',15],['Gestionnaire',34],['Carte et site',13],['Appel passé',12],['Date d\'appel',13],['Candidature envoyée',14],['Date d\'envoi',13],['Relance faite',12],['Date de relance',14],['Réponse',16],['Notes',40]].map(([h,w])=>({header:h,width:w}));
-  rows.forEach(d=>ws.addRow([d.n,d.km,d.t,SL[d.s],d.a,d.cp,d.v,d.p,d.g,{text:'Voir',hyperlink:'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(d.n+' '+d.a+' '+d.cp+' '+d.v)},'','','','','','','En attente','']));
+  const RP={entretien:'Entretien',accepte:'Accepté',refuse:'Refusé',sans:'Pas de réponse'}, dd=s=>s?new Date(s+'T12:00:00'):'';
+  rows.forEach(d=>{const t=d.dt||{}; ws.addRow([d.n,d.km,d.t,SL[d.s],d.a,d.cp,d.v,d.p,d.g,{text:'Voir',hyperlink:'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(d.n+' '+d.a+' '+d.cp+' '+d.v)},t.appele?'Oui':'',dd(t.appele),t.envoye?'Oui':'',dd(t.envoye),t.relance?'Oui':'',dd(t.relance),RP[d.st]||'En attente','']);});
   const hr=ws.getRow(1); hr.height=32; hr.eachCell(c=>{c.font={bold:true,color:{argb:'FFFFFFFF'}};c.fill={type:'pattern',pattern:'solid',fgColor:{argb:c.col>=11?OC:G}};c.alignment={vertical:'middle',wrapText:true};});
   const last=rows.length+1;
   ws.autoFilter={from:'A1',to:'R1'};
@@ -227,6 +258,17 @@ $('dl').onclick=async()=>{
   b.textContent='Télécharger mon tableau Excel';
   try{if(window.goatcounter&&window.goatcounter.count) window.goatcounter.count({path:'telechargement-tableau-stages-autour',title:'Tableau Excel stages autour de moi',event:true});}catch(e){}
 };
+function drawSuivi(){const rows=Object.values(sel).sort((a,b)=>(a.km||0)-(b.km||0)), c={}; rows.forEach(d=>{c[d.st||'']=(c[d.st||'']||0)+1;});
+  const nr=rows.filter(arelancer).length;
+  $('sbilan').innerHTML=ST.filter(s=>c[s[0]]).map(s=>'<span>'+s[1]+' : <b>'+c[s[0]]+'</b></span>').join('')+(nr?'<span style="background:#FFF2CC">À relancer : <b>'+nr+'</b></span>':'');
+  $('slist').innerHTML=rows.map(d=>{const t=d.dt||{}, last=d.st&&t[d.st]?' · le '+frd(t[d.st]):'';
+    return '<div class="sv'+(d.st==='accepte'?' ok':(d.st==='refuse'||d.st==='sans'?' fin':''))+'"><div><h3>'+esc(d.n)+'</h3><small>'+esc(d.t)+' · '+esc(d.cp+' '+d.v)+(d.km!=null?' · '+fmt(d.km):'')+'</small><small>'+(d.p?'<a href="tel:'+d.p.replace(/ /g,'')+'">'+esc(d.p)+'</a>':'Téléphone non renseigné')+last+'</small>'+(arelancer(d)?'<span class="rel">À relancer</span>':'')+'</div><select data-f="'+d.f+'" aria-label="Où en êtes-vous avec '+esc(d.n)+' ?">'+ST.map(s=>'<option value="'+s[0]+'"'+((d.st||'')===s[0]?' selected':'')+'>'+s[1]+'</option>').join('')+'</select><button class="rm" type="button" data-f="'+d.f+'" title="Retirer de ma liste" aria-label="Retirer '+esc(d.n)+' de ma liste">×</button></div>';}).join('');}
+$('slist').onchange=e=>{const x=e.target.closest('select'); if(!x) return; const d=sel[x.dataset.f]; if(!d) return; d.st=x.value; if(x.value){d.dt=d.dt||{}; d.dt[x.value]=today(); gc('suivi-statut-'+x.value,'Suivi candidature : '+STL[x.value]);} save(); draw();};
+$('slist').onclick=e=>{const a=e.target.closest('a'); if(a&&(a.getAttribute('href')||'').startsWith('tel:')){gc('stage-contact-tel-suivi','Appel depuis le suivi');return;} const b=e.target.closest('.rm'); if(!b) return; delete sel[b.dataset.f]; save(); draw();};
+$('suivi-btn').onclick=()=>{const s=$('suivi'), open=s.hidden; s.hidden=!open; $('suivi-btn').setAttribute('aria-expanded',open); $('suivi-btn').textContent=open?'Masquer le suivi':'Suivre mes candidatures'; if(open){drawSuivi(); s.scrollIntoView({behavior:'smooth',block:'start'}); gc('suivi-ouverture','Ouverture du suivi des candidatures');}};
+$('fo').innerHTML='<option value="">Toutes les formations</option>'+FO.map(f=>'<option value="'+f[0]+'">'+f[1]+' · '+f[2]+'</option>').join('');
+if(FOSEL) $('fo').value=FOSEL[0];
+$('fo').onchange=()=>{const f=FO.find(x=>x[0]===$('fo').value); FOSEL=f||null; PRE=f?new Set(f[3]):null; cur=''; shown=24; $('ty').value=''; if(f) gc('stage-autour-formation-'+f[0],'Filtre formation '+f[1]); if(here) run(Object.assign({},here,{go:false,quiet:true})); else draw();};
 $('impr-btn').onclick=()=>imprimerListe(Object.values(sel).sort((a,b)=>(a.km||0)-(b.km||0)),'Ma liste de structures pour mon stage');
 $('part-btn').onclick=e=>partagerListe(Object.keys(sel),location.origin+location.pathname,e.currentTarget);
 async function showShared(ids){const want=new Set(ids); const codes=new Set();

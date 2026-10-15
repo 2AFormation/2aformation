@@ -29,7 +29,7 @@
 <p class="eyebrow">{{ f.sigle }} · Par des éducateurs spécialisés en poste · Gratuit</p>
 <h1 style="margin-top:10px">Trouver son stage {{ f.de }}</h1>
 <p class="lead">{{ f.intro }}</p>
-<p style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap"><a class="btn primary" href="{{ R }}trouver-son-stage/autour-de-moi/index.html?type={{ f.types|join('|')|urlencode }}" data-goatcounter-click="formation-autour-{{ f.slug }}">Les structures adaptées autour de chez moi</a><a class="btn ghost" href="{{ R }}trouver-son-stage/kit-candidature/index.html">Kit candidature</a></p>
+<p style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap"><a class="btn primary" href="{{ R }}trouver-son-stage/autour-de-moi/index.html?formation={{ f.slug }}" data-goatcounter-click="formation-autour-{{ f.slug }}">Les structures adaptées autour de chez moi</a><a class="btn ghost" href="{{ R }}trouver-son-stage/kit-candidature/index.html">Kit candidature</a></p>
 </div></div></div>
 
 <section style="padding-top:0"><div class="wrap" style="max-width:900px">
@@ -41,7 +41,7 @@
 <div class="head" style="margin-top:34px"><p class="eyebrow">Où chercher</p><h2>Les structures où chercher</h2></div>
 <p style="font-size:.95rem">Les types de structures de notre annuaire les plus adaptés à votre formation. Cliquez sur un type pour savoir ce qu'on y fait.</p>
 <div class="types">{% for t in f.types %}{% if gm.get(t) %}<a href="{{ R }}trouver-son-stage/structures/index.html#{{ gm[t] }}">{{ t }}</a>{% endif %}{% endfor %}</div>
-<p style="margin-top:16px"><a class="btn primary" href="{{ R }}trouver-son-stage/autour-de-moi/index.html?type={{ f.types|join('|')|urlencode }}">Voir ces structures autour de chez moi</a></p>
+<p style="margin-top:16px"><a class="btn primary" href="{{ R }}trouver-son-stage/autour-de-moi/index.html?formation={{ f.slug }}">Voir ces structures autour de chez moi</a></p>
 
 <div class="head" style="margin-top:34px"><p class="eyebrow">Nos conseils</p><h2>Ce qu'on dirait à un étudiant {{ f.sigle }}</h2></div>
 <ul class="cons">{% for c in f.conseils %}<li>{{ c }}</li>{% endfor %}</ul>

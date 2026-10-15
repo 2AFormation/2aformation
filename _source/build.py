@@ -268,6 +268,7 @@ def main():
     ecrire("trouver-son-stage/autour-de-moi/index.html", "stages_autour.html", rubrique="etudiants",
            index_dep=json.dumps(index_dep, ensure_ascii=False), secteurs=json.dumps(regions[0]["secteurs"], ensure_ascii=False), guide_map=guide_map,
            nb_geo=f"{nb_geo:,}".replace(",", " "),
+           fo_stage=json.dumps([[f["slug"], f["sigle"], f["titre"], f["types"]] for f in fo["formations"]], ensure_ascii=False),
            titre_page="Stage dans le social autour de chez moi : recherche par distance · 2aFormation",
            description="Entrez votre commune et trouvez les structures sociales et médico-sociales les plus proches pour votre stage d'éducateur, de moniteur-éducateur ou d'assistant de service social. Gratuit, sans inscription.")
     faq = lire_yaml("contenu/stages_faq.yml")
