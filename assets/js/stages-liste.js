@@ -17,8 +17,10 @@
     var dist=rows.some(function(r){return r.km!=null;});
     var h='<h1>'+esc(titre||'Ma liste de structures pour mon stage')+'</h1><p>'+rows.length+(rows.length>1?' structures':' structure')+' · imprimée le '+new Date().toLocaleDateString('fr-FR')+' · Cochez au fur et à mesure.</p>'+
       '<table><thead><tr><th>Structure</th><th>Adresse</th><th>Téléphone</th>'+(dist?'<th>Dist.</th>':'')+'<th>Appel</th><th>Envoi</th><th>Relance</th><th>Réponse / notes</th></tr></thead><tbody>';
-    rows.forEach(function(r){
-      h+='<tr><td><b>'+esc(r.n)+'</b><br><small>'+esc(r.t)+'</small></td><td>'+esc((r.a?r.a+', ':'')+r.cp+' '+r.v)+'</td><td>'+esc(r.p||'')+'</td>'+(dist?'<td>'+(r.km!=null?esc(String(r.km).replace('.',','))+' km':'')+'</td>':'')+'<td class="c">☐</td><td class="c">☐</td><td class="c">☐</td><td style="width:22%"></td></tr>';
+    var REP={entretien:'Entretien',accepte:'Acceptée',refuse:'Refusée',sans:'Pas de réponse'};
+    var bx=function(d){return d?'☑ <small>'+esc(d.split('-').reverse().join('/'))+'</small>':'☐';};
+    rows.forEach(function(r){ var t=r.dt||{};
+      h+='<tr><td><b>'+esc(r.n)+'</b><br><small>'+esc(r.t)+'</small></td><td>'+esc((r.a?r.a+', ':'')+r.cp+' '+r.v)+'</td><td>'+esc(r.p||'')+'</td>'+(dist?'<td>'+(r.km!=null?esc(String(r.km).replace('.',','))+' km':'')+'</td>':'')+'<td class="c">'+bx(t.appele)+'</td><td class="c">'+bx(t.envoye)+'</td><td class="c">'+bx(t.relance)+'</td><td style="width:22%">'+esc(REP[r.st]||'')+'</td></tr>';
     });
     h+='</tbody></table><p class="pied">Coordonnées : répertoire FINESS (data.gouv.fr, Licence Ouverte, extraction du 04/05/2026), à vérifier avant d\'appeler. Liste préparée gratuitement sur 2aformation.com/trouver-son-stage, par 2A Formation.</p>';
     d.innerHTML=h; document.body.appendChild(d);

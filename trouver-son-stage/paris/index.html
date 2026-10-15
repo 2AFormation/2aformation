@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
-<link rel="stylesheet" href="../../assets/css/site.css?v=202610151844">
+<link rel="stylesheet" href="../../assets/css/site.css?v=202610151901">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Trouver son stage à Paris","inLanguage":"fr","description":"Méthode et liste de 842 structures sociales et médico-sociales de Paris pour trouver un stage en travail social.","audience":{"@type":"EducationalAudience","educationalRole":"student"},"isBasedOn":"https://www.data.gouv.fr/datasets/finess-extraction-du-fichier-des-etablissements/","url":"https://2aformation.com/trouver-son-stage/paris/","publisher":{"@type":"Organization","name":"2aFormation","url":"https://2aformation.com"}}</script><style>
 .tips{list-style:none;counter-reset:t;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
 .tips li{counter-increment:t;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;font-size:.93rem}
@@ -195,7 +195,8 @@ function draw(){
   more.parentElement.style.display=res.length>shown?'':'none';
 }
 q.oninput=()=>{shown=24;draw();}; ty.onchange=()=>{shown=24;draw();}; more.onclick=()=>{shown+=24;draw();};
-list.onclick=e=>{const b=e.target.closest('.add'); if(!b) return; const f=b.dataset.f; sel.has(f)?sel.delete(f):sel.add(f); save(); draw();};
+list.onclick=e=>{const a=e.target.closest('a'); if(a){const h=a.getAttribute('href')||'', t=a.textContent, gc=(p,ti)=>{try{if(window.goatcounter&&window.goatcounter.count) window.goatcounter.count({path:p,title:ti,event:true});}catch(x){}}; if(h.startsWith('tel:')) gc('stage-contact-tel-dep','Appel d\'une structure (page département)'); else if(h.startsWith('mailto:')) gc('stage-candidater-mail','Candidater par mail'); else if(t==='Carte') gc('stage-contact-carte-dep','Carte d\'une structure (page département)'); else if(t==='Chercher le site') gc('stage-contact-site-dep','Site d\'une structure (page département)'); return;}
+  const b=e.target.closest('.add'); if(!b) return; const f=b.dataset.f; sel.has(f)?sel.delete(f):sel.add(f); save(); draw();};
 document.getElementById('addall').onclick=()=>{lastRes.forEach(d=>sel.add(d.f)); save(); draw();};
 document.getElementById('clear').onclick=()=>{sel.clear(); save(); draw();};
 function loadLib(){return window.ExcelJS?Promise.resolve():new Promise((ok,ko)=>{const s=document.createElement('script');s.src='../../assets/js/exceljs.min.js';s.onload=ok;s.onerror=ko;document.head.append(s);});}
@@ -282,7 +283,7 @@ save(); draw();
     </div>
   </div>
 </footer>
-<script src="../../assets/js/site.js?v=202610151844"></script>
+<script src="../../assets/js/site.js?v=202610151901"></script>
 <script data-goatcounter="https://2aformation.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
