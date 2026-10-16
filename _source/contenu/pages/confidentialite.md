@@ -30,6 +30,7 @@ Le traitement repose sur votre demande (mesures précontractuelles) et, en cas d
 - **Hébergement :** GitHub Pages (GitHub, Inc.) peut enregistrer l'adresse IP des visiteurs à des fins de sécurité.
 - **Formulaire de contact :** les demandes envoyées via le formulaire transitent par le service Formspree (Formspree, Inc., États-Unis), qui nous les transmet par e-mail.
 - **Mesure d'audience :** GoatCounter compte les pages consultées de façon anonyme et agrégée, sans cookie ni identification des visiteurs.
+- **Lettre d'information :** Brevo, sous-traitant chargé de l'envoi de la lettre « Nouveautés étudiants » et de la conservation de la liste des inscrits.
 - **Polices de caractères :** le site utilise Google Fonts, ce qui transmet votre adresse IP à Google lors du chargement des pages.
 
 ## Annuaire des stages
@@ -47,6 +48,10 @@ Les pages « Trouver son stage » présentent les structures sociales et médico
 **Adresses de candidature transmises par les structures.** Une structure peut nous indiquer, via le formulaire « Vous accueillez des stagiaires ? », l'adresse e-mail où elle souhaite recevoir les candidatures de stage, les formations et les périodes qu'elle accueille. Ces informations sont publiées sur sa fiche avec l'accord de la personne habilitée qui remplit le formulaire (base légale : consentement), uniquement pour aider les étudiants à candidater. Nous recommandons une adresse générique ; une adresse nominative n'est publiée qu'avec l'accord de la personne concernée. Le nom, la fonction et l'adresse e-mail de la personne qui remplit le formulaire servent seulement à vérifier la demande et à confirmer la publication : ils ne sont ni publiés ni utilisés pour de la prospection, et sont supprimés un an après la demande. Les informations publiées sont retirées sur simple demande (sous 15 jours) ou revues au bout de deux ans sans mise à jour. Le formulaire transite par le service Formspree mentionné plus haut.
 
 **Correction ou retrait d'une fiche.** Si vous gérez une structure présente dans l'annuaire, vous pouvez demander la correction ou le retrait de sa fiche, ou vous opposer à l'affichage d'un numéro personnel, en écrivant à 2aa.formation@gmail.com. Nous traitons la demande sous 15 jours.
+
+## Lettre « Nouveautés étudiants »
+
+Si vous vous inscrivez à cette lettre, nous utilisons votre adresse e-mail uniquement pour vous l'envoyer (un e-mail par mois au plus). Base légale : votre consentement, donné en cochant la case du formulaire puis en cliquant sur le lien de confirmation reçu par e-mail. Chaque lettre contient un lien de désinscription ; votre adresse est alors retirée de la liste. Sans ouverture d'aucune lettre pendant 3 ans, nous supprimons votre inscription. Les envois passent par le service Brevo, notre sous-traitant. Vos données ne sont ni vendues ni cédées.
 
 ## Vos droits
 

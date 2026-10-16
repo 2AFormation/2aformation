@@ -28,6 +28,8 @@
       </div>
       <label for="message">Votre besoin<textarea id="message" name="message" required placeholder="Ex. : formation sur le secret professionnel pour 12 éducateurs, au premier trimestre"></textarea></label>
       <label class="hp" aria-hidden="true">Ne pas remplir<input name="site" tabindex="-1" autocomplete="off"></label>
+      <input type="hidden" name="_subject" id="sujet" value="Site 2A Formation : nouvelle demande – Un établissement ou un service (formation)">
+      <script>(function(){var p=document.getElementById('profil'),s=document.getElementById('sujet');function m(){s.value='Site 2A Formation : nouvelle demande – '+p.options[p.selectedIndex].text;}p.addEventListener('change',m);m();})();</script>
       <p class="muted" style="font-size:.8rem">Vos informations servent uniquement à répondre à votre demande. Voir notre <a href="{{ R }}politique-de-confidentialite/index.html">politique de confidentialité</a>.</p>
       <div><button class="btn primary" type="submit">Envoyer ma demande</button></div>
       <p id="form-status" class="form-status" role="status"></p>

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{# Inscription à la lettre « Nouveautés étudiants » (Brevo, double confirmation). Formulaire HTML simple : envoi direct vers Brevo, sans script ni cadre intégré, pour que la page s'affiche même derrière un filtre réseau. Aucune offre payante. #}
+{% set brevo_action = "https://ea27384b.sibforms.com/serve/MUIFAGMcgJUf2CzguuOUmfagDzJdgUYPDM2wEvKak1ZH3b-9FqSphtAWtnxpGbu0CZMHo0GnLbAZ1Rq_-PrOLJ2idCU8lhJWBtrVwSb8oaIJGbkyb2q05jBYAh5_GJ2C34e0V1o5hnqHHskyM0TaHynHSxPLIrfGT3pvQG24SIaqwg0NVDbxOoV-hXSnJzYiV36x9mCscocjiOBZhw==" %}
+{% block head_extra %}<style>
+.nl{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;margin-top:8px}
+.nl ul{padding-left:18px;display:grid;gap:8px;font-size:.95rem;margin:12px 0 0}
+.nl-form{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:12px;padding:22px 24px}
+.nl-form label{display:block;font-weight:700;margin-bottom:6px}
+.nl-form input[type=email]{width:100%;font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--paper)}
+.nl-form .ok{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:.93rem;margin:16px 0 6px}
+.nl-form .ok input{margin-top:4px;width:18px;height:18px;flex:none}
+.nl-form small{display:block;color:var(--muted);font-size:.8rem;margin-bottom:14px}
+.nl-form .rgpd{font-size:.78rem;color:var(--muted);margin-top:14px}
+.nl-form .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.secours{background:var(--ochre-soft);border-radius:12px;padding:16px 20px;margin-top:18px;font-size:.93rem}
+@media (max-width:760px){.nl{grid-template-columns:1fr;gap:20px}}
+</style>{% endblock %}
+{% block contenu %}
+<div class="wrap">
+<p class="crumbs"><a href="{{ R }}index.html">Accueil</a> › <a href="{{ R }}relecture-ecrits/index.html">Étudiants</a> › Nouveautés étudiants</p>
+<div class="hero" style="padding-top:22px"><div style="max-width:860px">
+<p class="eyebrow">Gratuit · Un e-mail par mois au plus</p>
+<h1 style="margin-top:10px">Reçois les nouveautés pour ton stage et ta formation</h1>
+<p class="lead">Nouveaux outils gratuits, pages mises à jour, guides pour tes écrits : on te prévient quand il y a du nouveau. Pas de publicité, désinscription en un clic.</p>
+</div></div></div>
+
+<section style="padding-top:0"><div class="wrap">
+<div class="nl">
+<div>
+<h2 style="font-size:1.3rem">Ce que tu recevras</h2>
+<ul>
+<li>Les nouveaux outils de <a href="{{ R }}trouver-son-stage/index.html">Trouver son stage</a> : recherche autour de chez toi, suivi des candidatures, pages par formation…</li>
+<li>Les mises à jour importantes : règles de stage, gratification, réformes des diplômes, vérifiées sur les textes officiels.</li>
+<li>Les nouveaux guides gratuits pour tes écrits et ta recherche de stage.</li>
+</ul>
+<p style="font-size:.93rem;margin-top:14px">Seulement quand il y a une vraie nouveauté, et jamais plus d'un e-mail par mois. Par Alexandre et Antoine, éducateurs spécialisés.</p>
+</div>
+
+<form class="nl-form" method="POST" action="{{ brevo_action }}" data-goatcounter-click="lettre-etudiants-envoi">
+<label for="EMAIL">Ton adresse e-mail</label>
+<input type="email" id="EMAIL" name="EMAIL" autocomplete="email" placeholder="prenom@exemple.fr" required>
+<label class="ok" for="OPT_IN"><input type="checkbox" id="OPT_IN" name="OPT_IN" value="1" required><span>J'accepte de recevoir la lettre « Nouveautés étudiants » de 2A Formation, environ une fois par mois.</span></label>
+<small>Tu peux te désinscrire à tout moment avec le lien présent dans chaque e-mail.</small>
+<div class="hp" aria-hidden="true"><input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off"></div>
+<input type="hidden" name="locale" value="fr">
+<input type="hidden" name="html_type" value="simple">
+<button class="btn primary" type="submit">Je m'inscris</button>
+<p style="font-size:.85rem;margin-top:12px">Ensuite, ouvre l'e-mail de confirmation (pense à regarder dans les indésirables) et clique sur le lien : ton inscription n'est enregistrée qu'après ce clic.</p>
+<p class="rgpd">Tes données (e-mail) servent uniquement à t'envoyer cette lettre. Responsable : 2A Formation (Alexandre Bigot), Castelnaudary. Elles sont hébergées par notre prestataire d'envoi Brevo et ne sont ni vendues ni cédées. Tu peux y accéder, les corriger ou les supprimer en écrivant à 2aa.formation@gmail.com. <a href="{{ R }}politique-de-confidentialite/index.html">Politique de confidentialité</a></p>
+</form>
+</div>
+
+<div class="secours"><b>Le formulaire ne fonctionne pas chez toi ?</b> Certains réseaux (école, lieu de stage, entreprise) bloquent notre prestataire d'envoi. Essaie depuis ton téléphone en 4G, ou écris-nous à <a href="mailto:2aa.formation@gmail.com?subject=Inscription%20Nouveaut%C3%A9s%20%C3%A9tudiants&amp;body=Bonjour%2C%20je%20souhaite%20recevoir%20la%20lettre%20%C2%AB%20Nouveaut%C3%A9s%20%C3%A9tudiants%20%C2%BB.">2aa.formation@gmail.com</a> avec le mot « Inscription » : on t'envoie le lien de confirmation.</div>
+</div></section>
+{% endblock %}
