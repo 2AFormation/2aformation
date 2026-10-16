@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{# « Mon suivi » : toutes les candidatures de stage enregistrées sur ce téléphone, quel que soit le département.
+   Lit les listes des pages départements (localStorage « 2a-stages-<code> » et « 2a-stages-<code>-suivi »)
+   et celle d'« Autour de moi » (« 2a-stages-autour »). Rien n'est envoyé : tout reste dans le navigateur.
+   Mêmes statuts et même règle de relance (10 jours) que les pages départements. #}
+{% block head_extra %}<meta name="robots" content="noindex"><style>
+.suivi-tete{padding:26px 0 4px}
+.suivi-tete h1{font-size:clamp(1.7rem,4.4vw,2.4rem)}
+.suivi-tete p{color:var(--muted);margin:6px 0 0}
+.bilan{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+.bilan span{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:.86rem}
+.bilan span.r{background:#FFF2CC;border-color:#F0D98A}
+.groupe{margin-top:22px}
+.groupe h2{font-size:1.08rem;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.groupe h2 em{font-style:normal;font-size:.8rem;font-weight:700;color:var(--muted);background:var(--mist);border-radius:999px;padding:1px 9px}
+.carte-s{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:grid;gap:8px;margin-bottom:10px}
+.carte-s.rel{border-color:#E3BE4F;box-shadow:inset 4px 0 0 #E3BE4F}
+.carte-s.ok{box-shadow:inset 4px 0 0 var(--green)}
+.carte-s.fin{opacity:.7}
+.carte-s h3{font-size:1rem;line-height:1.25}
+.carte-s .lieu{font-size:.85rem;color:var(--muted)}
+.carte-s .actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.carte-s .actions a{font-size:.85rem;font-weight:700;color:var(--green);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:5px 12px}
+.carte-s select{font:inherit;font-size:.92rem;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);width:100%}
+.carte-s .date{font-size:.8rem;color:var(--muted)}
+.vide{background:var(--surface);border:1px dashed var(--line);border-radius:16px;padding:22px;margin-top:20px}
+.vide ol{padding-left:20px;margin:10px 0 16px}
+.vide .btn{margin:4px 8px 4px 0}
+.note-s{margin-top:26px;font-size:.85rem;color:var(--muted)}
+</style>{% endblock %}
+{% block contenu %}
+<div class="wrap" style="padding-bottom:40px;max-width:760px">
+<div class="suivi-tete">
+<h1>Mon suivi</h1>
+<p>Toutes les structures de votre liste, quel que soit le département, et où vous en êtes avec chacune.</p>
+</div>
+<div id="chargement" style="margin-top:20px;color:var(--muted)">Chargement de votre liste…</div>
+<div id="bilan" class="bilan" hidden></div>
+<div id="liste"></div>
+<div id="vide" class="vide" hidden>
+<h2 style="font-size:1.15rem">Votre liste est vide pour l'instant</h2>
+<ol>
+<li>Ouvrez l'annuaire de votre département ou cherchez autour de chez vous.</li>
+<li>Touchez « + Ajouter à ma liste » sur les structures qui vous intéressent.</li>
+<li>Revenez ici pour suivre vos appels, candidatures et relances.</li>
+</ol>
+<a class="btn primary" href="{{ R }}trouver-son-stage/autour-de-moi/index.html">Autour de moi</a>
+<a class="btn ghost" href="{{ R }}trouver-son-stage/index.html">Annuaire par département</a>
+</div>
+<p class="note-s">Votre suivi est enregistré sur ce téléphone uniquement : rien n'est envoyé à 2A Formation. Il disparaît si vous effacez les données du navigateur. Pour en garder une copie, utilisez le bouton « Tableau Excel » sur la page de votre département.</p>
+</div>
+<script>
+(function(){
+const DEPS={{ deps_json|safe }}, R='{{ R }}';
+const ST=[['','À contacter'],['appele','Appelée'],['envoye','Candidature envoyée'],['relance','Relancée'],['entretien','Entretien'],['accepte','Acceptée'],['refuse','Refusée'],['sans','Pas de réponse']];
+const STL=Object.fromEntries(ST);
+const $=id=>document.getElementById(id), esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const lire=k=>{try{return JSON.parse(localStorage.getItem(k)||'null');}catch(e){return null;}};
+const ecrire=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}};
+const today=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');};
+const frd=s=>s?s.split('-').reverse().join('/'):'';
+const arelancer=u=>u&&u.st==='envoye'&&u.dt&&u.dt.envoye&&(Date.now()-new Date(u.dt.envoye+'T12:00:00'))/864e5>=10;
+const gc=(p,ti)=>{try{if(window.goatcounter&&window.goatcounter.count) window.goatcounter.count({path:p,title:ti,event:true});}catch(x){}};
+let lignes=[];
+
+async function charger(){
+  const parDep={}; // code -> [ids]
+  for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i); const m=/^2a-stages-([0-9AB]{2,3})$/.exec(k||''); if(m&&DEPS[m[1]]){const ids=lire(k)||[]; if(ids.length) parDep[m[1]]=ids;}}
+  const autour=lire('2a-stages-autour')||{};
+  const vus={}; lignes=[];
+  await Promise.all(Object.keys(parDep).map(async code=>{
+    let data=[]; try{data=await (await fetch(R+'trouver-son-stage/donnees/'+code+'.json')).json();}catch(e){}
+    const idx=Object.fromEntries(data.map(d=>[d.f,d])); const su=lire('2a-stages-'+code+'-suivi')||{};
+    parDep[code].forEach(f=>{const d=idx[f]||(autour[f]||{f:f,n:'Structure '+f}); const u=su[f]||{};
+      lignes.push(Object.assign({},d,{st:u.st||'',dt:u.dt||{},dep:code,src:'dep'})); vus[f]=1;});
+  }));
+  Object.keys(autour).forEach(f=>{const d=autour[f]; if(vus[f]) return; lignes.push(Object.assign({},d,{st:d.st||'',dt:d.dt||{},src:'autour'})); vus[f]=1;});
+  dessiner();
+}
+
+function enregistrer(f,st){
+  // Met à jour toutes les listes qui contiennent cette structure (département et Autour de moi).
+  for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i); const m=/^2a-stages-([0-9AB]{2,3})$/.exec(k||''); if(!m) continue;
+    const ids=lire(k)||[]; if(ids.indexOf(f)===-1) continue; const su=lire(k+'-suivi')||{}; const u=su[f]=su[f]||{}; u.st=st; if(st){u.dt=u.dt||{}; u.dt[st]=today();} ecrire(k+'-suivi',su);}
+  const autour=lire('2a-stages-autour')||{}; if(autour[f]){autour[f].st=st; if(st){autour[f].dt=autour[f].dt||{}; autour[f].dt[st]=today();} ecrire('2a-stages-autour',autour);}
+  lignes.filter(l=>l.f===f).forEach(l=>{l.st=st; if(st){l.dt=Object.assign({},l.dt); l.dt[st]=today();}});
+  if(st) gc('suivi-statut-'+st,'Suivi candidature : '+STL[st]+' (Mon suivi)');
+  dessiner();
+}
+
+function carte(d){
+  const t=d.dt||{}, quand=d.st&&t[d.st]?'Depuis le '+frd(t[d.st]):'', dep=d.dep&&DEPS[d.dep];
+  const cls=arelancer(d)?' rel':(d.st==='accepte'?' ok':(d.st==='refuse'||d.st==='sans'?' fin':''));
+  return '<div class="carte-s'+cls+'"><div><h3>'+esc(d.n)+'</h3><div class="lieu">'+esc([d.t,(d.cp||'')+' '+(d.v||'')].filter(Boolean).join(' · '))+'</div></div>'+
+    '<div class="actions">'+(d.p?'<a href="tel:'+esc(d.p.replace(/ /g,''))+'" data-tel>Appeler</a>':'')+(d.m?'<a href="mailto:'+esc(d.m)+'?subject='+encodeURIComponent('Demande de stage')+'">Écrire</a>':'')+
+    (dep?'<a href="'+R+'trouver-son-stage/'+dep[0]+'/index.html">'+esc(dep[1])+'</a>':'')+'</div>'+
+    '<select data-f="'+esc(d.f)+'" aria-label="Où en êtes-vous avec '+esc(d.n)+' ?">'+ST.map(s=>'<option value="'+s[0]+'"'+(d.st===s[0]?' selected':'')+'>'+s[1]+'</option>').join('')+'</select>'+
+    (quand||arelancer(d)?'<div class="date">'+(arelancer(d)?'<b style="color:#8a6500">À relancer</b> · candidature envoyée il y a plus de 10 jours':quand)+'</div>':'')+'</div>';
+}
+
+function dessiner(){
+  $('chargement').hidden=true;
+  if(!lignes.length){$('vide').hidden=false; $('bilan').hidden=true; $('liste').innerHTML=''; return;}
+  $('vide').hidden=true;
+  const c={}; lignes.forEach(d=>{c[d.st]=(c[d.st]||0)+1;}); const nr=lignes.filter(arelancer).length;
+  $('bilan').hidden=false;
+  $('bilan').innerHTML='<span><b>'+lignes.length+'</b> structure'+(lignes.length>1?'s':'')+'</span>'+(nr?'<span class="r">À relancer : <b>'+nr+'</b></span>':'')+ST.filter(s=>c[s[0]]).map(s=>'<span>'+s[1]+' : <b>'+c[s[0]]+'</b></span>').join('');
+  const groupes=[['À relancer',d=>arelancer(d)],['À contacter',d=>!d.st],['En cours',d=>['appele','envoye','relance','entretien'].includes(d.st)&&!arelancer(d)],['Acceptées',d=>d.st==='accepte'],['Terminées',d=>d.st==='refuse'||d.st==='sans']];
+  const tri=(a,b)=>String(a.n).localeCompare(String(b.n),'fr');
+  $('liste').innerHTML=groupes.map(g=>{const l=lignes.filter(g[1]).sort(tri); return l.length?'<div class="groupe"><h2>'+g[0]+' <em>'+l.length+'</em></h2>'+l.map(carte).join('')+'</div>':'';}).join('');
+}
+
+$('liste').addEventListener('change',e=>{const x=e.target.closest('select'); if(x) enregistrer(x.dataset.f,x.value);});
+$('liste').addEventListener('click',e=>{if(e.target.closest('[data-tel]')) gc('stage-contact-tel-mon-suivi','Appel depuis Mon suivi');});
+gc('mon-suivi-ouverture','Ouverture de Mon suivi');
+charger();
+})();
+</script>
+{% endblock %}

@@ -310,6 +310,10 @@ def main():
            total=f"{sum(d['n'] for r in regions for d in r['departements']):,}".replace(",", " "), formations_stage=fo["formations"],
            titre_page="Application gratuite 2A Stages : trouver son stage dans le social · 2aFormation",
            description="Installez gratuitement l'application 2A Stages sur votre téléphone : annuaire des structures, recherche autour de chez vous, kit candidature, bibliographie et boîte à outils, même hors connexion.")
+    ecrire("appli/suivi/index.html", "appli_suivi.html", rubrique="etudiants",
+           deps_json=json.dumps({d["code"]: [d["slug"], d["nom"]] for r in regions for d in r["departements"]}, ensure_ascii=False),
+           titre_page="Mon suivi de candidatures de stage · 2A Stages · 2aFormation",
+           description="Toutes vos candidatures de stage au même endroit : structures à contacter, candidatures envoyées, relances. Enregistré sur votre téléphone uniquement.")
     ecrire("404.html", "page.html", rubrique="", titre_page="Page introuvable · 2aFormation",
            description="Cette page n'existe pas.",
            corps='<h1>Page introuvable</h1><p>Cette page n\'existe pas ou a été déplacée.</p>'
@@ -339,7 +343,7 @@ def main():
     with open(os.path.join(SORTIE, "sitemap.xml"), "w", encoding="utf-8") as fh:
         fh.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
         for c in pages:
-            if c not in ("404.html", "catalogue/index.html") and "/merci-" not in c and "/envoi-" not in c and not c.startswith("evaluation/"):
+            if c not in ("404.html", "catalogue/index.html") and "/merci-" not in c and "/envoi-" not in c and not c.startswith("evaluation/") and c != "appli/suivi/index.html":
                 fh.write(f"  <url><loc>{site['url']}/{c[:-len('index.html')] if c.endswith('index.html') else c}</loc><lastmod>{aujourdhui}</lastmod></url>\n")
         fh.write("</urlset>\n")
     with open(os.path.join(SORTIE, "robots.txt"), "w", encoding="utf-8") as fh:
