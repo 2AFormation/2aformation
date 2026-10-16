@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
-<link rel="stylesheet" href="../assets/css/site.css?v=202610160743">
+<link rel="stylesheet" href="../assets/css/site.css?v=202610161205">
 </head>
 <body>
 <a class="skip" href="#contenu">Aller au contenu</a>
@@ -68,6 +68,8 @@
       </div>
       <label for="message">Votre besoin<textarea id="message" name="message" required placeholder="Ex. : formation sur le secret professionnel pour 12 éducateurs, au premier trimestre"></textarea></label>
       <label class="hp" aria-hidden="true">Ne pas remplir<input name="site" tabindex="-1" autocomplete="off"></label>
+      <input type="hidden" name="_subject" id="sujet" value="Site 2A Formation : nouvelle demande – Un établissement ou un service (formation)">
+      <script>(function(){var p=document.getElementById('profil'),s=document.getElementById('sujet');function m(){s.value='Site 2A Formation : nouvelle demande – '+p.options[p.selectedIndex].text;}p.addEventListener('change',m);m();})();</script>
       <p class="muted" style="font-size:.8rem">Vos informations servent uniquement à répondre à votre demande. Voir notre <a href="../politique-de-confidentialite/index.html">politique de confidentialité</a>.</p>
       <div><button class="btn primary" type="submit">Envoyer ma demande</button></div>
       <p id="form-status" class="form-status" role="status"></p>
@@ -120,7 +122,7 @@
     </div>
   </div>
 </footer>
-<script src="../assets/js/site.js?v=202610160743"></script>
+<script src="../assets/js/site.js?v=202610161205"></script>
 <script data-goatcounter="https://2aformation.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
