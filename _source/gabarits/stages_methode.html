@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{# Méthode complète pour trouver un stage dans le social (page trouver-son-stage/methode/). Gratuit, aucune offre payante. Chiffres réglementaires repris de la FAQ (vérifiés sur service-public.gouv.fr). #}
+{% block jsonld %}<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"Trouver un stage dans le social : la méthode complète","inLanguage":"fr","description":"La méthode pas à pas pour trouver un stage d'éducateur, de moniteur-éducateur, d'assistant de service social, d'EJE, d'ETS, de CESF ou d'AES : règles de la formation, calendrier, liste de structures, appel, candidature, relance, entretien et convention.","audience":{"@type":"EducationalAudience","educationalRole":"student"},"url":"{{ site.url }}/{{ chemin }}","publisher":{"@type":"Organization","name":"2aFormation","url":"https://2aformation.com"},"step":[{% for t in ["Connaître les règles de sa formation","Faire son calendrier","Choisir ses secteurs et sa zone","Construire sa liste","Appeler avant d'écrire","Envoyer une candidature courte et personnalisée","Relancer et suivre","Préparer l'entretien et la convention"] %}{"@type":"HowToStep","position":{{ loop.index }},"name":{{ t|tojson }},"url":"{{ site.url }}/{{ chemin }}#etape-{{ loop.index }}"}{% if not loop.last %},{% endif %}{% endfor %}]}</script>{% endblock %}
+{% block head_extra %}<style>
+.som{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.som a{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:.9rem;text-decoration:none;color:var(--ink);font-weight:600}
+.som a:hover{border-color:var(--green);color:var(--green)}
+.etape{display:grid;grid-template-columns:.8fr 1.2fr;gap:28px;align-items:start;padding:30px 0;border-top:1px solid var(--line)}
+.etape:first-of-type{border-top:0}
+.etape .num{font:700 .78rem var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--ochre)}
+.etape h2{font-size:1.45rem;margin:6px 0 10px}
+.etape .quand{font-size:.93rem;color:var(--muted)}
+.etape ul{padding-left:18px;font-size:.95rem;display:grid;gap:8px;margin:0}
+.etape .outil{display:inline-block;margin-top:14px;font-weight:700;font-size:.92rem}
+.fo{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.fo a{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:.85rem;text-decoration:none;color:var(--ink)}
+.fo a:hover{border-color:var(--green);color:var(--green)}
+.att{background:var(--ochre-soft);border-radius:12px;padding:20px 24px;font-size:.95rem;max-width:860px}
+.att b{font-family:var(--display)}
+.att ul{padding-left:18px;display:grid;gap:6px;margin:10px 0 0}
+@media (max-width:760px){.etape{grid-template-columns:1fr;gap:12px}}
+</style>{% endblock %}
+{% block contenu %}
+<div class="wrap">
+<p class="crumbs"><a href="{{ R }}index.html">Accueil</a> › <a href="{{ R }}relecture-ecrits/index.html">Étudiants</a> › <a href="{{ R }}trouver-son-stage/index.html">Trouver son stage</a> › La méthode</p>
+<div class="hero" style="padding-top:22px"><div style="max-width:860px">
+<p class="eyebrow">Par des éducateurs spécialisés en poste · Gratuit</p>
+<h1 style="margin-top:10px">Trouver un stage dans le social : la méthode complète</h1>
+<p class="lead">Huit étapes, de la lecture des règles de votre formation jusqu'à la convention signée. Pour chacune : ce qu'il faut faire, quand, et l'outil gratuit qui vous fait gagner du temps. Pour les futurs éducateurs spécialisés, moniteurs-éducateurs, assistants de service social, EJE, ETS, CESF et AES.</p>
+<nav class="som" aria-label="Les étapes"><a href="#etape-1">1 · Les règles</a><a href="#etape-2">2 · Le calendrier</a><a href="#etape-3">3 · Les cibles</a><a href="#etape-4">4 · La liste</a><a href="#etape-5">5 · L'appel</a><a href="#etape-6">6 · La candidature</a><a href="#etape-7">7 · Relance et suivi</a><a href="#etape-8">8 · Entretien et convention</a></nav>
+</div></div></div>
+
+<section><div class="wrap">
+
+<div class="etape" id="etape-1"><div><p class="num">Étape 1 · Avant tout</p><h2>Connaître les règles de votre formation</h2><p class="quand">Durée du stage, nombre de lieux, profil du référent : chaque diplôme a ses règles, et votre établissement de formation fixe son propre calendrier.</p></div>
+<div><ul><li>Relisez ce que votre école attend de ce stage : période, durée, public, compétences du référentiel à travailler.</li><li>Vérifiez le profil du professionnel qui doit vous encadrer : pour plusieurs diplômes, il doit être titulaire du même diplôme d'État que celui que vous préparez. C'est une question à poser dès l'appel.</li><li>Notez les échéances de votre école : validation du terrain, dépôt de la convention.</li></ul>
+<p style="margin-top:12px;font-size:.93rem">Les règles vérifiées sur les textes officiels, formation par formation :</p>
+<div class="fo">{% for f in toutes %}<a href="{{ R }}trouver-son-stage/formation/{{ f.slug }}/index.html" data-goatcounter-click="stage-methode-formation-{{ f.slug }}">{{ f.sigle }}</a>{% endfor %}</div></div></div>
+
+<div class="etape" id="etape-2"><div><p class="num">Étape 2 · Trois à six mois avant</p><h2>Faire votre calendrier</h2><p class="quand">Trois à six mois avant le début du stage est un bon repère, davantage pour un stage long ou une structure très demandée.</p></div>
+<div><ul><li>Beaucoup de structures organisent l'accueil des stagiaires des mois à l'avance, et certaines ne prennent qu'un ou deux stagiaires par an.</li><li>Partez de la date de début du stage et remontez : quand faire votre liste, appeler, envoyer, relancer, préparer la convention.</li><li>Bloquez des créneaux dans votre agenda : la recherche se fait mieux par séries d'appels que par à-coups.</li></ul>
+<a class="outil" href="{{ R }}trouver-son-stage/retroplanning/index.html" data-goatcounter-click="stage-methode-retroplanning">→ Calculer mon rétroplanning et l'ajouter à mon agenda</a></div></div>
+
+<div class="etape" id="etape-3"><div><p class="num">Étape 3 · Une soirée</p><h2>Choisir vos secteurs et votre zone</h2><p class="quand">Ciblez large : deux ou trois secteurs, et une zone que vous pouvez réellement rejoindre chaque jour.</p></div>
+<div><ul><li>Protection de l'enfance, handicap, insertion, personnes âgées, petite enfance… Lisez ce que fait chaque type de structure avant d'appeler : vous saurez à qui vous parlez.</li><li>Comptez vos trajets : horaires d'internat, week-ends, absence de transports. Un lieu idéal à 1 h 30 de route devient vite intenable.</li><li>Les petites structures hors des grandes villes reçoivent moins de demandes que les grosses structures du centre.</li></ul>
+<a class="outil" href="{{ R }}trouver-son-stage/structures/index.html" data-goatcounter-click="stage-methode-guide">→ Le guide des structures : MECS, IME, ITEP, CHRS…</a></div></div>
+
+<div class="etape" id="etape-4"><div><p class="num">Étape 4 · Une à deux heures</p><h2>Construire votre liste</h2><p class="quand">Une liste de 20 à 30 structures n'a rien d'excessif, surtout dans un secteur recherché.</p></div>
+<div><ul><li>Cherchez par distance autour de chez vous, ou par département, et ajoutez les structures à votre liste en un clic.</li><li>Dans la recherche autour de chez vous, choisissez votre formation dans « Ma formation » : seuls les types de structures où elle se fait le plus souvent s'affichent, et vous pouvez toujours revenir à tous les types.</li><li>Tout n'est pas dans l'annuaire : les crèches et lieux d'accueil du jeune enfant sont sur <a href="https://monenfant.fr/">monenfant.fr</a> ; les services du Conseil départemental, les CCAS, les hôpitaux et l'Éducation nationale accueillent aussi des stagiaires, en particulier en service social.</li></ul>
+<a class="outil" href="{{ R }}trouver-son-stage/autour-de-moi/index.html" data-goatcounter-click="stage-methode-autour">→ Chercher autour de chez moi</a> <span style="color:var(--muted)">·</span> <a class="outil" href="{{ R }}trouver-son-stage/index.html#regions" data-goatcounter-click="stage-methode-departements">Les 102 départements</a></div></div>
+
+<div class="etape" id="etape-5"><div><p class="num">Étape 5 · Deux minutes par structure</p><h2>Appeler avant d'écrire</h2><p class="quand">Un appel au secrétariat vous dit si la structure prend des stagiaires, à quelle période, et à qui adresser la demande.</p></div>
+<div><ul><li>Ayez sous les yeux vos dates, votre formation et le nom de votre établissement.</li><li>Appelez plutôt en milieu de matinée, jamais à l'heure du repas.</li><li>Demandez le nom de la personne à qui écrire et notez-le tout de suite, avec la date de l'appel.</li><li>Un « non » n'est pas une fin : demandez si une autre structure de l'association pourrait accueillir un stagiaire.</li></ul>
+<a class="outil" href="{{ R }}trouver-son-stage/kit-candidature/index.html#appel" data-goatcounter-click="stage-methode-script">→ Le script d'appel, à garder sous les yeux</a></div></div>
+
+<div class="etape" id="etape-6"><div><p class="num">Étape 6 · Le jour même</p><h2>Envoyer une candidature courte et personnalisée</h2><p class="quand">Une page de lettre et un mail court, adressés à la personne dont vous avez noté le nom.</p></div>
+<div><ul><li>Qui vous êtes, votre formation et vos dates, ce qui vous attire dans cette structure-là, vos disponibilités pour un échange.</li><li>Une phrase juste sur le projet de la structure et son public vaut mieux qu'un paragraphe parfait.</li><li>L'IA peut aider à trouver vos idées ou relire l'orthographe, pas à écrire à votre place : une lettre générique se repère vite. Vérifiez toute coordonnée qu'elle vous donne, et ne lui confiez jamais une situation réelle.</li></ul>
+<a class="outil" href="{{ R }}trouver-son-stage/kit-candidature/index.html#lettre" data-goatcounter-click="stage-methode-lettre">→ La trame de lettre et le mail d'envoi</a></div></div>
+
+<div class="etape" id="etape-7"><div><p class="num">Étape 7 · Dix jours plus tard</p><h2>Relancer et suivre</h2><p class="quand">Relancez une fois, poliment, au bout d'une dizaine de jours. Et notez tout : sans suivi, on rappelle deux fois la même structure ou on en oublie une.</p></div>
+<div><ul><li>Pour chaque structure : la date de l'appel, de l'envoi, de la relance, et la réponse.</li><li>Sans réponse malgré la relance, élargissez : 30 ou 50 km au lieu de 20, un autre secteur, des structures plus petites.</li><li>Parlez-en tôt à votre établissement de formation : il connaît souvent des terrains habitués à accueillir.</li></ul>
+<a class="outil" href="{{ R }}trouver-son-stage/autour-de-moi/index.html" data-goatcounter-click="stage-methode-suivi">→ Le suivi des candidatures : il note les dates et vous dit quand relancer</a> <span style="color:var(--muted)">·</span> <a class="outil" href="{{ R }}trouver-son-stage/kit-candidature/index.html#relance" data-goatcounter-click="stage-methode-relance">Le mail de relance</a></div></div>
+
+<div class="etape" id="etape-8"><div><p class="num">Étape 8 · Quand une porte s'ouvre</p><h2>Préparer l'entretien et la convention</h2><p class="quand">Un entretien de stage est une rencontre : la structure veut savoir si vous serez à l'aise avec son public, et vous, si le stage vous fera progresser.</p></div>
+<div><ul><li>Relisez le projet de la structure, préparez deux ou trois questions sur le public et l'organisation, et soyez prêt à parler de ce que vous voulez apprendre.</li><li>La gratification devient obligatoire au-delà de deux mois de stage dans la même structure au cours d'une même année d'enseignement : abordez-la simplement, et demandez à votre établissement comment il vous accompagne.</li><li>Rien ne commence sans convention signée par vous, la structure, votre établissement, votre enseignant référent et votre tuteur : lancez-la dès l'accord obtenu.</li><li>Un remerciement, même après un refus, laisse une bonne image pour une prochaine fois.</li></ul>
+<a class="outil" href="{{ R }}trouver-son-stage/kit-candidature/index.html#entretien" data-goatcounter-click="stage-methode-entretien">→ Préparer l'entretien</a> <span style="color:var(--muted)">·</span> <a class="outil" href="{{ R }}trouver-son-stage/faq/index.html" data-goatcounter-click="stage-methode-faq">Gratification, convention, droits : la FAQ</a></div></div>
+
+</div></section>
+
+<section class="alt"><div class="wrap">
+<div class="att"><b>Les erreurs qui coûtent le plus cher</b><ul><li>Commencer trop tard, quand les places sont déjà prises.</li><li>N'envoyer que des mails sans jamais appeler.</li><li>Une seule ville, un seul secteur, cinq structures.</li><li>La même lettre pour tout le monde.</li><li>Oublier qui on a appelé, et quand.</li></ul></div>
+<p style="margin-top:22px;display:flex;gap:10px;flex-wrap:wrap"><a class="btn primary" href="{{ R }}trouver-son-stage/autour-de-moi/index.html" data-goatcounter-click="stage-methode-cta-autour">Commencer ma liste</a><a class="btn ghost" href="{{ R }}documents/checklist-trouver-son-stage-2A-Formation.pdf" download data-goatcounter-click="telechargement-checklist-stage">Checklist PDF gratuite</a></p>
+<p class="muted" style="font-size:.84rem;margin-top:20px;max-width:none">Gratification et convention : règles générales du stage étudiant, voir <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F16734">service-public.gouv.fr</a> et <a href="{{ R }}trouver-son-stage/faq/index.html">notre FAQ</a>. Votre établissement de formation reste la référence pour le calendrier et les règles propres à votre diplôme.</p>
+</div></section>
+{% endblock %}

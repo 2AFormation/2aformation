@@ -32,7 +32,8 @@
 <label>Mon département<select id="dep" onchange="if(this.value)location.href=this.value"><option value="">Choisir…</option>{% for r in regions %}<optgroup label="{{ r.region }}">{% for x in r.departements %}<option value="{{ R }}trouver-son-stage/{{ x.slug }}/index.html">{{ x.code }} · {{ x.nom }}</option>{% endfor %}</optgroup>{% endfor %}</select></label>
 <button class="btn primary" type="submit">Voir</button>
 </form>
-<p style="margin-top:12px;font-weight:700"><a href="{{ R }}trouver-son-stage/autour-de-moi/index.html" data-goatcounter-click="stage-lien-autour-index">📍 Nouveau : chercher autour de chez moi, par distance →</a></p>
+<p style="margin-top:12px;font-weight:700"><a href="{{ R }}trouver-son-stage/methode/index.html" data-goatcounter-click="stage-lien-methode-index">🗺️ La méthode complète, en 8 étapes →</a></p>
+<p style="margin-top:6px;font-weight:700"><a href="{{ R }}trouver-son-stage/autour-de-moi/index.html" data-goatcounter-click="stage-lien-autour-index">📍 Nouveau : chercher autour de chez moi, par distance →</a></p>
 <p style="margin-top:6px;font-weight:700"><a href="{{ R }}trouver-son-stage/kit-candidature/index.html" data-goatcounter-click="stage-lien-kit-index">✉️ Kit candidature : script d'appel, trame de lettre, mails de relance →</a></p>
 <p style="margin-top:6px;font-weight:700"><a href="{{ R }}trouver-son-stage/structures/index.html" data-goatcounter-click="stage-lien-guide-index">🧭 MECS, IME, ITEP… : le guide des structures pour choisir →</a></p>
 <p style="margin-top:6px;font-weight:700"><a href="{{ R }}trouver-son-stage/faq/index.html" data-goatcounter-click="stage-lien-faq-index">❓ Gratification, convention, droits : la FAQ du stage →</a></p>
@@ -45,7 +46,7 @@
 <dl><div><dt>{{ "{:,}".format(total).replace(",", " ") }}</dt><dd>structures référencées</dd></div><div><dt>{{ nb_dep }}</dt><dd>départements et territoires</dd></div><div><dt>{{ secteurs|length }}</dt><dd>secteurs</dd></div><div><dt>0 €</dt><dd>accès libre, sans inscription</dd></div></dl>
 <p class="qualiopi">Source : répertoire officiel FINESS (données publiques), extraction du 4 mai 2026.</p></aside>
 </div></div></div>
-<section class="alt"><div class="wrap">
+<section class="alt" id="regions"><div class="wrap">
 <div class="head"><p class="eyebrow">Choisissez votre département</p><h2>Par région</h2></div>
 {% for r in regions %}<div class="reg" id="{{ r.slug }}"><h3>{{ r.region }} <span>{{ "{:,}".format(r.departements|sum(attribute='n')).replace(",", " ") }} structures</span></h3>
 <div class="mini">{% for x in r.departements %}<a href="{{ R }}trouver-son-stage/{{ x.slug }}/index.html"><span>{{ x.nom }} ({{ x.code }})</span><small>{{ x.n }}</small></a>{% endfor %}</div></div>

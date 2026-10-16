@@ -228,6 +228,9 @@ def main():
                toutes=fo["formations"], v=fo["verification"],
                titre_page=f"Trouver son stage {f['de']} ({f['sigle']}) : durée, structures, conseils · 2aFormation",
                description=f"Stage {f['de']} : ce que dit la formation ({f['sigle']}), les structures où chercher, nos conseils d'éducateurs et la recherche autour de chez vous. Gratuit.")
+    ecrire("trouver-son-stage/methode/index.html", "stages_methode.html", rubrique="etudiants", toutes=fo["formations"],
+           titre_page="Trouver un stage dans le social : la méthode complète, étape par étape · 2aFormation",
+           description="Règles de la formation, calendrier, liste de structures, appel, candidature, relance, entretien et convention : la méthode gratuite d'éducateurs spécialisés pour trouver un stage d'ES, ME, ASS, EJE, ETS, CESF ou AES.")
     for st in regions:
         for d in st["departements"]:
             donnees = json.dumps({"data": d["structures"], "sect": st["secteurs"]}, ensure_ascii=False).replace("</", "<\\/")
