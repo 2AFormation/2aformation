@@ -305,6 +305,11 @@ def main():
     ecrire("boite-a-outils/index.html", "boite_outils.html", rubrique="", o=outils,
            titre_page="Boîte à outils des professionnels du travail social · 2aFormation",
            description=f"{len(outils['outils'])} outils gratuits expliqués pour le terrain : Michetomètre, trame d'information préoccupante, consentement, besoins de l'enfant. Liens vers les sources officielles.")
+    # Accueil de l'application installable « 2A Stages » (manifest.webmanifest, sw.js, assets/js/appli.js)
+    ecrire("appli/index.html", "appli.html", rubrique="etudiants", nb_refs=nb_refs, nb_outils=len(outils["outils"]),
+           total=f"{sum(d['n'] for r in regions for d in r['departements']):,}".replace(",", " "), formations_stage=fo["formations"],
+           titre_page="Application gratuite 2A Stages : trouver son stage dans le social · 2aFormation",
+           description="Installez gratuitement l'application 2A Stages sur votre téléphone : annuaire des structures, recherche autour de chez vous, kit candidature, bibliographie et boîte à outils, même hors connexion.")
     ecrire("404.html", "page.html", rubrique="", titre_page="Page introuvable · 2aFormation",
            description="Cette page n'existe pas.",
            corps='<h1>Page introuvable</h1><p>Cette page n\'existe pas ou a été déplacée.</p>'

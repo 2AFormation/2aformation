@@ -15,7 +15,10 @@
 <meta property="og:description" content="{{ description }}">
 <meta property="og:url" content="{{ site.url }}/{{ chemin }}">
 <link rel="icon" href="{{ R }}assets/img/favicon.png" type="image/png">
-<link rel="apple-touch-icon" href="{{ R }}assets/img/favicon.png">
+<link rel="apple-touch-icon" href="{{ R }}assets/img/appli-180.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#2E5B4E">
+<meta name="apple-mobile-web-app-title" content="2A Stages">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
@@ -85,6 +88,7 @@
   </div>
 </footer>
 <script src="{{ R }}assets/js/site.js?v={{ version }}"></script>
+<script src="{{ R }}assets/js/appli.js?v={{ version }}"></script>
 {% if site.goatcounter %}<script data-goatcounter="https://{{ site.goatcounter }}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 {% endif %}
 </body>
