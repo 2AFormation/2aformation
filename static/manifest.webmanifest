@@ -1,0 +1,26 @@
+{
+  "id": "/appli/",
+  "name": "2A Formation · Stages et outils du travail social",
+  "short_name": "2A Stages",
+  "description": "Trouver son stage dans le social, kit candidature, FAQ, bibliographie et boîte à outils des pros. Gratuit, par des éducateurs spécialisés.",
+  "lang": "fr",
+  "dir": "ltr",
+  "start_url": "/appli/?utm_source=appli",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#F6F7F4",
+  "theme_color": "#2E5B4E",
+  "categories": ["education"],
+  "icons": [
+    { "src": "/assets/img/appli-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/img/appli-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/img/appli-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Stages autour de moi", "short_name": "Autour de moi", "url": "/trouver-son-stage/autour-de-moi/?utm_source=appli", "icons": [{ "src": "/assets/img/appli-192.png", "sizes": "192x192" }] },
+    { "name": "Kit candidature", "short_name": "Kit candidature", "url": "/trouver-son-stage/kit-candidature/?utm_source=appli", "icons": [{ "src": "/assets/img/appli-192.png", "sizes": "192x192" }] },
+    { "name": "Questions sur le stage", "short_name": "FAQ", "url": "/trouver-son-stage/faq/?utm_source=appli", "icons": [{ "src": "/assets/img/appli-192.png", "sizes": "192x192" }] },
+    { "name": "Bibliographie commentée", "short_name": "Bibliographie", "url": "/bibliographie/?utm_source=appli", "icons": [{ "src": "/assets/img/appli-192.png", "sizes": "192x192" }] }
+  ]
+}
