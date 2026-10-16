@@ -15,6 +15,7 @@ const HORS_LIGNE = '/hors-connexion.html';
 // Pages gardées dès l'installation, pour que l'essentiel marche hors connexion.
 const ESSENTIEL = [
   '/appli/',
+  '/appli/suivi/',
   '/trouver-son-stage/',
   '/trouver-son-stage/autour-de-moi/',
   '/trouver-son-stage/kit-candidature/',

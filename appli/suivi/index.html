@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mon suivi de candidatures de stage · 2A Stages · 2aFormation</title>
+<meta name="description" content="Toutes vos candidatures de stage au même endroit : structures à contacter, candidatures envoyées, relances. Enregistré sur votre téléphone uniquement.">
+<meta name="google-site-verification" content="_dP1_5B0y6I8FPb43Rwjk5s7n8M9wzaGCozZSkbes3o">
+<link rel="canonical" href="https://2aformation.com/appli/suivi/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="2aFormation">
+<meta property="og:title" content="Mon suivi de candidatures de stage · 2A Stages · 2aFormation">
+<meta property="og:description" content="Toutes vos candidatures de stage au même endroit : structures à contacter, candidatures envoyées, relances. Enregistré sur votre téléphone uniquement.">
+<meta property="og:url" content="https://2aformation.com/appli/suivi/">
+<link rel="icon" href="../../assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="../../assets/img/appli-180.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#2E5B4E">
+<meta name="apple-mobile-web-app-title" content="2A Stages">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="../../assets/css/site.css?v=202610162307">
+<meta name="robots" content="noindex"><style>
+.suivi-tete{padding:26px 0 4px}
+.suivi-tete h1{font-size:clamp(1.7rem,4.4vw,2.4rem)}
+.suivi-tete p{color:var(--muted);margin:6px 0 0}
+.bilan{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+.bilan span{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:.86rem}
+.bilan span.r{background:#FFF2CC;border-color:#F0D98A}
+.groupe{margin-top:22px}
+.groupe h2{font-size:1.08rem;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.groupe h2 em{font-style:normal;font-size:.8rem;font-weight:700;color:var(--muted);background:var(--mist);border-radius:999px;padding:1px 9px}
+.carte-s{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:grid;gap:8px;margin-bottom:10px}
+.carte-s.rel{border-color:#E3BE4F;box-shadow:inset 4px 0 0 #E3BE4F}
+.carte-s.ok{box-shadow:inset 4px 0 0 var(--green)}
+.carte-s.fin{opacity:.7}
+.carte-s h3{font-size:1rem;line-height:1.25}
+.carte-s .lieu{font-size:.85rem;color:var(--muted)}
+.carte-s .actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.carte-s .actions a{font-size:.85rem;font-weight:700;color:var(--green);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:5px 12px}
+.carte-s select{font:inherit;font-size:.92rem;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);width:100%}
+.carte-s .date{font-size:.8rem;color:var(--muted)}
+.vide{background:var(--surface);border:1px dashed var(--line);border-radius:16px;padding:22px;margin-top:20px}
+.vide ol{padding-left:20px;margin:10px 0 16px}
+.vide .btn{margin:4px 8px 4px 0}
+.note-s{margin-top:26px;font-size:.85rem;color:var(--muted)}
+</style></head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+<header class="top">
+  <div class="wrap bar">
+    <a class="logo" href="../../index.html"><img src="../../assets/img/logo.png" alt="2A Formation, retour à l'accueil" width="55" height="48"></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+    <nav class="menu" id="menu" aria-label="Navigation principale">
+      <a href="../../formations/index.html">Formations</a>
+      <a href="../../analyse-des-pratiques/index.html">Analyse des pratiques</a>
+      <a href="../../nos-vae/index.html">VAE</a>
+      <a href="../../nos-interventions/index.html">Interventions</a>
+      <a href="../../relecture-ecrits/index.html" aria-current="page">Étudiants</a>
+      <a href="../../trouver-son-stage/index.html">Stages</a>
+      <a href="../../boite-a-outils/index.html">Outils</a>
+      <a href="../../index.html#equipe">L'équipe</a>
+      <a class="btn primary" href="../../contact/index.html">Demander un devis</a>
+    </nav>
+  </div>
+</header>
+<main id="contenu">
+<div class="wrap" style="padding-bottom:40px;max-width:760px">
+<div class="suivi-tete">
+<h1>Mon suivi</h1>
+<p>Toutes les structures de votre liste, quel que soit le département, et où vous en êtes avec chacune.</p>
+</div>
+<div id="chargement" style="margin-top:20px;color:var(--muted)">Chargement de votre liste…</div>
+<div id="bilan" class="bilan" hidden></div>
+<div id="liste"></div>
+<div id="vide" class="vide" hidden>
+<h2 style="font-size:1.15rem">Votre liste est vide pour l'instant</h2>
+<ol>
+<li>Ouvrez l'annuaire de votre département ou cherchez autour de chez vous.</li>
+<li>Touchez « + Ajouter à ma liste » sur les structures qui vous intéressent.</li>
+<li>Revenez ici pour suivre vos appels, candidatures et relances.</li>
+</ol>
+<a class="btn primary" href="../../trouver-son-stage/autour-de-moi/index.html">Autour de moi</a>
+<a class="btn ghost" href="../../trouver-son-stage/index.html">Annuaire par département</a>
+</div>
+<p class="note-s">Votre suivi est enregistré sur ce téléphone uniquement : rien n'est envoyé à 2A Formation. Il disparaît si vous effacez les données du navigateur. Pour en garder une copie, utilisez le bouton « Tableau Excel » sur la page de votre département.</p>
+</div>
+<script>
+(function(){
+const DEPS={"01": ["ain", "Ain"], "03": ["allier", "Allier"], "07": ["ardeche", "Ardèche"], "15": ["cantal", "Cantal"], "26": ["drome", "Drôme"], "38": ["isere", "Isère"], "42": ["loire", "Loire"], "43": ["haute-loire", "Haute-Loire"], "63": ["puy-de-dome", "Puy-de-Dôme"], "69": ["rhone", "Rhône"], "73": ["savoie", "Savoie"], "74": ["haute-savoie", "Haute-Savoie"], "21": ["cote-d-or", "Côte-d'Or"], "25": ["doubs", "Doubs"], "39": ["jura", "Jura"], "58": ["nievre", "Nièvre"], "70": ["haute-saone", "Haute-Saône"], "71": ["saone-et-loire", "Saône-et-Loire"], "89": ["yonne", "Yonne"], "90": ["territoire-de-belfort", "Territoire de Belfort"], "22": ["cotes-d-armor", "Côtes-d'Armor"], "29": ["finistere", "Finistère"], "35": ["ille-et-vilaine", "Ille-et-Vilaine"], "56": ["morbihan", "Morbihan"], "18": ["cher", "Cher"], "28": ["eure-et-loir", "Eure-et-Loir"], "36": ["indre", "Indre"], "37": ["indre-et-loire", "Indre-et-Loire"], "41": ["loir-et-cher", "Loir-et-Cher"], "45": ["loiret", "Loiret"], "2A": ["corse-du-sud", "Corse-du-Sud"], "2B": ["haute-corse", "Haute-Corse"], "08": ["ardennes", "Ardennes"], "10": ["aube", "Aube"], "51": ["marne", "Marne"], "52": ["haute-marne", "Haute-Marne"], "54": ["meurthe-et-moselle", "Meurthe-et-Moselle"], "55": ["meuse", "Meuse"], "57": ["moselle", "Moselle"], "67": ["bas-rhin", "Bas-Rhin"], "68": ["haut-rhin", "Haut-Rhin"], "88": ["vosges", "Vosges"], "02": ["aisne", "Aisne"], "59": ["nord", "Nord"], "60": ["oise", "Oise"], "62": ["pas-de-calais", "Pas-de-Calais"], "80": ["somme", "Somme"], "75": ["paris", "Paris"], "77": ["seine-et-marne", "Seine-et-Marne"], "78": ["yvelines", "Yvelines"], "91": ["essonne", "Essonne"], "92": ["hauts-de-seine", "Hauts-de-Seine"], "93": ["seine-saint-denis", "Seine-Saint-Denis"], "94": ["val-de-marne", "Val-de-Marne"], "95": ["val-d-oise", "Val-d'Oise"], "14": ["calvados", "Calvados"], "27": ["eure", "Eure"], "50": ["manche", "Manche"], "61": ["orne", "Orne"], "76": ["seine-maritime", "Seine-Maritime"], "16": ["charente", "Charente"], "17": ["charente-maritime", "Charente-Maritime"], "19": ["correze", "Corrèze"], "23": ["creuse", "Creuse"], "24": ["dordogne", "Dordogne"], "33": ["gironde", "Gironde"], "40": ["landes", "Landes"], "47": ["lot-et-garonne", "Lot-et-Garonne"], "64": ["pyrenees-atlantiques", "Pyrénées-Atlantiques"], "79": ["deux-sevres", "Deux-Sèvres"], "86": ["vienne", "Vienne"], "87": ["haute-vienne", "Haute-Vienne"], "09": ["ariege", "Ariège"], "11": ["aude", "Aude"], "12": ["aveyron", "Aveyron"], "30": ["gard", "Gard"], "31": ["haute-garonne", "Haute-Garonne"], "32": ["gers", "Gers"], "34": ["herault", "Hérault"], "46": ["lot", "Lot"], "48": ["lozere", "Lozère"], "65": ["hautes-pyrenees", "Hautes-Pyrénées"], "66": ["pyrenees-orientales", "Pyrénées-Orientales"], "81": ["tarn", "Tarn"], "82": ["tarn-et-garonne", "Tarn-et-Garonne"], "44": ["loire-atlantique", "Loire-Atlantique"], "49": ["maine-et-loire", "Maine-et-Loire"], "53": ["mayenne", "Mayenne"], "72": ["sarthe", "Sarthe"], "85": ["vendee", "Vendée"], "04": ["alpes-de-haute-provence", "Alpes-de-Haute-Provence"], "05": ["hautes-alpes", "Hautes-Alpes"], "06": ["alpes-maritimes", "Alpes-Maritimes"], "13": ["bouches-du-rhone", "Bouches-du-Rhône"], "83": ["var", "Var"], "84": ["vaucluse", "Vaucluse"], "971": ["guadeloupe", "Guadeloupe"], "972": ["martinique", "Martinique"], "973": ["guyane", "Guyane"], "974": ["la-reunion", "La Réunion"], "975": ["saint-pierre-et-miquelon", "Saint-Pierre-et-Miquelon"], "976": ["mayotte", "Mayotte"]}, R='../../';
+const ST=[['','À contacter'],['appele','Appelée'],['envoye','Candidature envoyée'],['relance','Relancée'],['entretien','Entretien'],['accepte','Acceptée'],['refuse','Refusée'],['sans','Pas de réponse']];
+const STL=Object.fromEntries(ST);
+const $=id=>document.getElementById(id), esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const lire=k=>{try{return JSON.parse(localStorage.getItem(k)||'null');}catch(e){return null;}};
+const ecrire=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}};
+const today=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');};
+const frd=s=>s?s.split('-').reverse().join('/'):'';
+const arelancer=u=>u&&u.st==='envoye'&&u.dt&&u.dt.envoye&&(Date.now()-new Date(u.dt.envoye+'T12:00:00'))/864e5>=10;
+const gc=(p,ti)=>{try{if(window.goatcounter&&window.goatcounter.count) window.goatcounter.count({path:p,title:ti,event:true});}catch(x){}};
+let lignes=[];
+
+async function charger(){
+  const parDep={}; // code -> [ids]
+  for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i); const m=/^2a-stages-([0-9AB]{2,3})$/.exec(k||''); if(m&&DEPS[m[1]]){const ids=lire(k)||[]; if(ids.length) parDep[m[1]]=ids;}}
+  const autour=lire('2a-stages-autour')||{};
+  const vus={}; lignes=[];
+  await Promise.all(Object.keys(parDep).map(async code=>{
+    let data=[]; try{data=await (await fetch(R+'trouver-son-stage/donnees/'+code+'.json')).json();}catch(e){}
+    const idx=Object.fromEntries(data.map(d=>[d.f,d])); const su=lire('2a-stages-'+code+'-suivi')||{};
+    parDep[code].forEach(f=>{const d=idx[f]||(autour[f]||{f:f,n:'Structure '+f}); const u=su[f]||{};
+      lignes.push(Object.assign({},d,{st:u.st||'',dt:u.dt||{},dep:code,src:'dep'})); vus[f]=1;});
+  }));
+  Object.keys(autour).forEach(f=>{const d=autour[f]; if(vus[f]) return; lignes.push(Object.assign({},d,{st:d.st||'',dt:d.dt||{},src:'autour'})); vus[f]=1;});
+  dessiner();
+}
+
+function enregistrer(f,st){
+  // Met à jour toutes les listes qui contiennent cette structure (département et Autour de moi).
+  for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i); const m=/^2a-stages-([0-9AB]{2,3})$/.exec(k||''); if(!m) continue;
+    const ids=lire(k)||[]; if(ids.indexOf(f)===-1) continue; const su=lire(k+'-suivi')||{}; const u=su[f]=su[f]||{}; u.st=st; if(st){u.dt=u.dt||{}; u.dt[st]=today();} ecrire(k+'-suivi',su);}
+  const autour=lire('2a-stages-autour')||{}; if(autour[f]){autour[f].st=st; if(st){autour[f].dt=autour[f].dt||{}; autour[f].dt[st]=today();} ecrire('2a-stages-autour',autour);}
+  lignes.filter(l=>l.f===f).forEach(l=>{l.st=st; if(st){l.dt=Object.assign({},l.dt); l.dt[st]=today();}});
+  if(st) gc('suivi-statut-'+st,'Suivi candidature : '+STL[st]+' (Mon suivi)');
+  dessiner();
+}
+
+function carte(d){
+  const t=d.dt||{}, quand=d.st&&t[d.st]?'Depuis le '+frd(t[d.st]):'', dep=d.dep&&DEPS[d.dep];
+  const cls=arelancer(d)?' rel':(d.st==='accepte'?' ok':(d.st==='refuse'||d.st==='sans'?' fin':''));
+  return '<div class="carte-s'+cls+'"><div><h3>'+esc(d.n)+'</h3><div class="lieu">'+esc([d.t,(d.cp||'')+' '+(d.v||'')].filter(Boolean).join(' · '))+'</div></div>'+
+    '<div class="actions">'+(d.p?'<a href="tel:'+esc(d.p.replace(/ /g,''))+'" data-tel>Appeler</a>':'')+(d.m?'<a href="mailto:'+esc(d.m)+'?subject='+encodeURIComponent('Demande de stage')+'">Écrire</a>':'')+
+    (dep?'<a href="'+R+'trouver-son-stage/'+dep[0]+'/index.html">'+esc(dep[1])+'</a>':'')+'</div>'+
+    '<select data-f="'+esc(d.f)+'" aria-label="Où en êtes-vous avec '+esc(d.n)+' ?">'+ST.map(s=>'<option value="'+s[0]+'"'+(d.st===s[0]?' selected':'')+'>'+s[1]+'</option>').join('')+'</select>'+
+    (quand||arelancer(d)?'<div class="date">'+(arelancer(d)?'<b style="color:#8a6500">À relancer</b> · candidature envoyée il y a plus de 10 jours':quand)+'</div>':'')+'</div>';
+}
+
+function dessiner(){
+  $('chargement').hidden=true;
+  if(!lignes.length){$('vide').hidden=false; $('bilan').hidden=true; $('liste').innerHTML=''; return;}
+  $('vide').hidden=true;
+  const c={}; lignes.forEach(d=>{c[d.st]=(c[d.st]||0)+1;}); const nr=lignes.filter(arelancer).length;
+  $('bilan').hidden=false;
+  $('bilan').innerHTML='<span><b>'+lignes.length+'</b> structure'+(lignes.length>1?'s':'')+'</span>'+(nr?'<span class="r">À relancer : <b>'+nr+'</b></span>':'')+ST.filter(s=>c[s[0]]).map(s=>'<span>'+s[1]+' : <b>'+c[s[0]]+'</b></span>').join('');
+  const groupes=[['À relancer',d=>arelancer(d)],['À contacter',d=>!d.st],['En cours',d=>['appele','envoye','relance','entretien'].includes(d.st)&&!arelancer(d)],['Acceptées',d=>d.st==='accepte'],['Terminées',d=>d.st==='refuse'||d.st==='sans']];
+  const tri=(a,b)=>String(a.n).localeCompare(String(b.n),'fr');
+  $('liste').innerHTML=groupes.map(g=>{const l=lignes.filter(g[1]).sort(tri); return l.length?'<div class="groupe"><h2>'+g[0]+' <em>'+l.length+'</em></h2>'+l.map(carte).join('')+'</div>':'';}).join('');
+}
+
+$('liste').addEventListener('change',e=>{const x=e.target.closest('select'); if(x) enregistrer(x.dataset.f,x.value);});
+$('liste').addEventListener('click',e=>{if(e.target.closest('[data-tel]')) gc('stage-contact-tel-mon-suivi','Appel depuis Mon suivi');});
+gc('mon-suivi-ouverture','Ouverture de Mon suivi');
+charger();
+})();
+</script>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <img src="../../assets/img/logo-blanc.png" alt="2A Formation" width="64" height="56">
+        <p style="margin-top:10px">Organisme de formation du travail social et architecte accompagnateur de parcours VAE. Castelnaudary (Aude) · Interventions dans toute la France.</p>
+        <p style="margin-top:10px">Certifié Qualiopi : actions de formation ; actions permettant de valider les acquis de l&#39;expérience.</p>
+      </div>
+      <div>
+        <h3>Nous contacter</h3>
+        <ul>
+<li>Alexandre Bigot : 06 14 11 47 88</li><li>Antoine Gadiou : 06 51 84 44 01</li>          <li><a href="mailto:2aa.formation@gmail.com">2aa.formation@gmail.com</a></li>
+          <li>2885 route de Saint-Papoul, 11400 Castelnaudary</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Le site</h3>
+        <ul>
+          <li><a href="../../formations/index.html">Nos formations</a></li>
+          <li><a href="../../analyse-des-pratiques/index.html">Analyse des pratiques</a></li>
+          <li><a href="../../kit-premiers-pas/index.html" data-goatcounter-click="kit-lien-pied-de-page">Kit d'accueil des nouveaux arrivants</a></li>
+          <li><a href="../../nos-vae/index.html">Accompagnement VAE</a></li>
+          <li><a href="../../preparer-son-entree/index.html">Préparer son entrée en formation</a></li>
+          <li><a href="../../relecture-ecrits/index.html">Étudiants : guides et relecture</a></li>
+          <li><a href="../../trouver-son-stage/index.html">Trouver son stage (gratuit)</a></li>
+          <li><a href="../../bibliographie/index.html">Bibliographie commentée</a></li>
+          <li><a href="../../boite-a-outils/index.html">Boîte à outils des pros</a></li>
+          <li><a href="../../contact/index.html">Contact</a></li>
+          <li><a href="https://www.linkedin.com/company/2aformation/" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 2aFormation · Déclaration d'activité enregistrée sous le n° 76110202311 auprès du préfet de région Occitanie. Cet enregistrement ne vaut pas agrément de l'État.</span>
+      <span><a href="../../mention/index.html">Mentions légales</a> · <a href="../../politique-de-confidentialite/index.html">Confidentialité</a></span>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/site.js?v=202610162307"></script>
+<script src="../../assets/js/appli.js?v=202610162307"></script>
+<script data-goatcounter="https://2aformation.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
