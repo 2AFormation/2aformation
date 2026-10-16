@@ -13,6 +13,10 @@
   var ios = /iPhone|iPad|iPod/.test(ua) || (ua.indexOf('Macintosh') > -1 && navigator.maxTouchPoints > 1);
   var mobile = window.matchMedia('(pointer: coarse)').matches;
   var invite = null;
+  // Pages où la barre peut apparaître : l'annuaire (accueil et départements), Autour de moi, le kit candidature, le rétroplanning.
+  var PAGES_SANS_BARRE = ['faq', 'methode', 'structures', 'formation', 'accueillir-des-stagiaires', 'donnees'];
+  var segment = chemin.indexOf('/trouver-son-stage/') === 0 ? chemin.split('/')[2] || '' : null;
+  var pageBarre = segment !== null && PAGES_SANS_BARRE.indexOf(segment) === -1;
 
   function compter(nom, titre) {
     try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: nom, title: titre, event: true }); } catch (e) {}
@@ -21,6 +25,10 @@
   function ecrire(cle, val) { try { localStorage.setItem(cle, val); } catch (e) {} }
 
   if (installee) document.documentElement.classList.add('appli-installee');
+
+  // Nombre de pages étudiantes vues sur ce téléphone : la barre n'apparaît qu'à partir de la deuxième.
+  var vues = parseInt(lire('appli-pages-vues') || '0', 10);
+  if (etudiant && !installee) { vues += 1; ecrire('appli-pages-vues', String(vues)); }
 
   // 1. Service worker
   if ('serviceWorker' in navigator && (etudiant || installee)) {
@@ -52,12 +60,12 @@
   // 3. Barre d'installation sur les pages étudiantes (téléphone uniquement, refermable 60 jours)
   var barre = null;
   function barreAutorisee() {
-    if (!BARRE_ACTIVE || installee || !etudiant || !mobile || chemin.indexOf('/appli/') === 0) return false;
+    if (!BARRE_ACTIVE || installee || !pageBarre || !mobile || vues < 2) return false;
     var fermee = parseInt(lire('appli-barre-fermee') || '0', 10);
     return !fermee || (Date.now() - fermee) > 60 * 24 * 3600 * 1000;
   }
   function montrerBarre() {
-    if (barre || !barreAutorisee() || !(invite || ios)) return;
+    if (barre || !barreAutorisee()) return;
     barre = document.createElement('div');
     barre.setAttribute('role', 'region');
     barre.setAttribute('aria-label', "Installer l'application");
@@ -83,6 +91,7 @@
     e.preventDefault();
     invite = e;
     preparerPage();
+    if (barre) barre.querySelector('[data-action="ok"]').textContent = 'Installer';
     montrerBarre();
   });
   window.addEventListener('appinstalled', function () {
@@ -93,7 +102,8 @@
 
   function demarrer() {
     preparerPage();
-    if (ios) setTimeout(montrerBarre, 4000); // iPhone : pas d'invite automatique, on explique comment faire
+    // Après 4 secondes : « Installer » si le navigateur le permet (Android), sinon « Comment ? » vers les consignes de /appli/.
+    setTimeout(montrerBarre, 4000);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', demarrer); else demarrer();
 })();
