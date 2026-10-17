@@ -36,6 +36,7 @@ nav.menu a{color:var(--ink);text-decoration:none;padding-block:6px;border-bottom
 nav.menu a:hover,nav.menu a[aria-current="page"]{color:var(--green);border-bottom-color:var(--green)}
 nav.menu a.btn{border-bottom:2px solid var(--green);color:var(--paper)}
 @media (min-width:861px) and (max-width:1180px){nav.menu{gap:12px}}
+nav.menu a.menu-appli{display:none}
 .menu-toggle{display:none;background:none;border:1px solid var(--line);border-radius:6px;padding:8px 12px;font:700 .9rem var(--body);color:var(--ink);cursor:pointer}
 @media (max-width:860px){
   .menu-toggle{display:inline-block}
@@ -43,6 +44,7 @@ nav.menu a.btn{border-bottom:2px solid var(--green);color:var(--paper)}
   nav.menu.open{display:flex}
   nav.menu a{padding:12px 0;border-bottom:1px solid var(--line)}
   nav.menu a.btn{margin-top:12px;justify-content:center}
+  nav.menu a.menu-appli{display:block;order:-1;font-weight:700;color:var(--green)}
 }
 
 /* Boutons */

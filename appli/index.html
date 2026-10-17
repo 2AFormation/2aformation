@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
-<link rel="stylesheet" href="../assets/css/site.css?v=202610172049">
+<link rel="stylesheet" href="../assets/css/site.css?v=202610172151">
 <style>
 .appli-hero{display:flex;gap:18px;align-items:center;padding:26px 0 6px}
 .appli-hero img{border-radius:18px;box-shadow:0 8px 20px rgba(29,40,43,.18);flex:none}
@@ -44,6 +44,10 @@
 .installer ol{padding-left:22px;margin:10px 0 0}
 .installer li{margin:6px 0}
 .installer .btn{margin-top:14px}
+.qr-ordi{display:none;align-items:center;gap:18px;margin-top:14px;background:var(--surface);border-radius:12px;padding:14px 16px;max-width:560px}
+.qr-ordi canvas{width:132px;height:132px;flex:none}
+.qr-ordi p{margin:0;font-size:.95rem}
+@media (pointer:fine) and (min-width:861px){.qr-ordi{display:flex}}
 .hors{margin-top:22px;font-size:.92rem;color:var(--muted);border-left:3px solid var(--ochre);padding-left:12px}
 @media (prefers-reduced-motion:reduce){.tuile{transition:none}.tuile:hover{transform:none}}
 </style></head>
@@ -60,6 +64,7 @@
       <a href="../nos-interventions/index.html">Interventions</a>
       <a href="../relecture-ecrits/index.html" aria-current="page">Étudiants</a>
       <a href="../trouver-son-stage/index.html">Stages</a>
+      <a class="menu-appli" href="../appli/index.html" aria-current="page" data-goatcounter-click="appli-lien-menu">📱 L'appli gratuite 2A Stages</a>
       <a href="../boite-a-outils/index.html">Outils</a>
       <a href="../index.html#equipe">L'équipe</a>
       <a class="btn primary" href="../contact/index.html">Demander un devis</a>
@@ -81,6 +86,7 @@
 <section class="installer" id="installer" data-appli-si-non-installee>
 <h2>Installer l'application sur votre téléphone</h2>
 <p style="margin:6px 0 0">Pas de store, pas de compte : l'icône s'ajoute à votre écran d'accueil et l'essentiel reste disponible sans connexion.</p>
+<div class="qr-ordi"><canvas id="qr-appli" width="1" height="1" aria-label="QR code vers la page d'installation de l'application"></canvas><p><b>Vous êtes sur ordinateur ?</b> Scannez ce code avec l'appareil photo de votre téléphone : la page d'installation s'ouvre directement.</p></div>
 <div data-appli-ios hidden>
 <ol>
 <li>Ouvrez cette page dans <b>Safari</b>.</li>
@@ -133,6 +139,19 @@
 
 <p class="hors">Sans connexion : Mon suivi, le kit candidature, la FAQ, la méthode, le rétroplanning, la bibliographie, la boîte à outils et les départements de l'annuaire déjà consultés restent disponibles.</p>
 </div>
+<script src="../assets/js/qrcode.min.js"></script>
+<script>
+(function () {
+  var cv = document.getElementById('qr-appli');
+  if (!cv || !window.qrcode) return;
+  var q = qrcode(0, 'M'); q.addData('https://2aformation.com/appli/?utm_campaign=qr'); q.make();
+  var n = q.getModuleCount(), t = 8, m = 3;
+  cv.width = cv.height = (n + 2 * m) * t;
+  var x = cv.getContext('2d');
+  x.fillStyle = '#fff'; x.fillRect(0, 0, cv.width, cv.height); x.fillStyle = '#1D282B';
+  for (var r = 0; r < n; r++) for (var k = 0; k < n; k++) if (q.isDark(r, k)) x.fillRect((k + m) * t, (r + m) * t, t, t);
+})();
+</script>
 </main>
 <footer class="site">
   <div class="wrap">
@@ -159,6 +178,7 @@
           <li><a href="../preparer-son-entree/index.html">Préparer son entrée en formation</a></li>
           <li><a href="../relecture-ecrits/index.html">Étudiants : guides et relecture</a></li>
           <li><a href="../trouver-son-stage/index.html">Trouver son stage (gratuit)</a></li>
+          <li><a href="../appli/index.html" data-goatcounter-click="appli-lien-pied-de-page">Appli gratuite 2A Stages</a></li>
           <li><a href="../bibliographie/index.html">Bibliographie commentée</a></li>
           <li><a href="../boite-a-outils/index.html">Boîte à outils des pros</a></li>
           <li><a href="../contact/index.html">Contact</a></li>
@@ -172,8 +192,8 @@
     </div>
   </div>
 </footer>
-<script src="../assets/js/site.js?v=202610172049"></script>
-<script src="../assets/js/appli.js?v=202610172049"></script>
+<script src="../assets/js/site.js?v=202610172151"></script>
+<script src="../assets/js/appli.js?v=202610172151"></script>
 <script data-goatcounter="https://2aformation.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
