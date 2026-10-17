@@ -23,6 +23,10 @@
 .installer ol{padding-left:22px;margin:10px 0 0}
 .installer li{margin:6px 0}
 .installer .btn{margin-top:14px}
+.qr-ordi{display:none;align-items:center;gap:18px;margin-top:14px;background:var(--surface);border-radius:12px;padding:14px 16px;max-width:560px}
+.qr-ordi canvas{width:132px;height:132px;flex:none}
+.qr-ordi p{margin:0;font-size:.95rem}
+@media (pointer:fine) and (min-width:861px){.qr-ordi{display:flex}}
 .hors{margin-top:22px;font-size:.92rem;color:var(--muted);border-left:3px solid var(--ochre);padding-left:12px}
 @media (prefers-reduced-motion:reduce){.tuile{transition:none}.tuile:hover{transform:none}}
 </style>{% endblock %}
@@ -41,6 +45,7 @@
 <section class="installer" id="installer" data-appli-si-non-installee>
 <h2>Installer l'application sur votre téléphone</h2>
 <p style="margin:6px 0 0">Pas de store, pas de compte : l'icône s'ajoute à votre écran d'accueil et l'essentiel reste disponible sans connexion.</p>
+<div class="qr-ordi"><canvas id="qr-appli" width="1" height="1" aria-label="QR code vers la page d'installation de l'application"></canvas><p><b>Vous êtes sur ordinateur ?</b> Scannez ce code avec l'appareil photo de votre téléphone : la page d'installation s'ouvre directement.</p></div>
 <div data-appli-ios hidden>
 <ol>
 <li>Ouvrez cette page dans <b>Safari</b>.</li>
@@ -94,4 +99,17 @@
 
 <p class="hors">Sans connexion : Mon suivi, le kit candidature, la FAQ, la méthode, le rétroplanning, la bibliographie, la boîte à outils et les départements de l'annuaire déjà consultés restent disponibles.</p>
 </div>
+<script src="{{ R }}assets/js/qrcode.min.js"></script>
+<script>
+(function () {
+  var cv = document.getElementById('qr-appli');
+  if (!cv || !window.qrcode) return;
+  var q = qrcode(0, 'M'); q.addData('https://2aformation.com/appli/?utm_campaign=qr'); q.make();
+  var n = q.getModuleCount(), t = 8, m = 3;
+  cv.width = cv.height = (n + 2 * m) * t;
+  var x = cv.getContext('2d');
+  x.fillStyle = '#fff'; x.fillRect(0, 0, cv.width, cv.height); x.fillStyle = '#1D282B';
+  for (var r = 0; r < n; r++) for (var k = 0; k < n; k++) if (q.isDark(r, k)) x.fillRect((k + m) * t, (r + m) * t, t, t);
+})();
+</script>
 {% endblock %}

@@ -20,6 +20,14 @@
 .share a,.share button{font:600 .85rem var(--body);background:var(--surface);color:var(--green);border:1.5px solid var(--line);border-radius:999px;padding:5px 12px;text-decoration:none;cursor:pointer}
 .share a:hover,.share button:hover{border-color:var(--green)}
 .share .sh-ok{color:var(--green);font-weight:700}
+.encart-appli{display:flex;align-items:center;gap:14px;margin-top:18px;padding:14px 16px;background:var(--green-soft);border:1px solid #c5d9cf;border-radius:14px;text-decoration:none;color:var(--ink);max-width:640px}
+.encart-appli img{border-radius:12px;flex:none}
+.encart-appli span{font-size:.93rem;line-height:1.4;color:var(--muted)}
+.encart-appli b{display:block;color:var(--ink);font-family:var(--display);font-size:1.02rem;margin-bottom:2px}
+.encart-appli .encart-appli-btn{flex:none;background:var(--green);color:#fff;font-weight:700;border-radius:999px;padding:8px 14px;font-size:.9rem}
+.encart-appli:hover{border-color:var(--green)}
+.appli-installee .encart-appli{display:none}
+@media (max-width:520px){.encart-appli .encart-appli-btn{display:none}}
 </style>{% endblock %}
 {% block contenu %}
 <div class="wrap">
@@ -32,6 +40,7 @@
 <label>Mon département<select id="dep" onchange="if(this.value)location.href=this.value"><option value="">Choisir…</option>{% for r in regions %}<optgroup label="{{ r.region }}">{% for x in r.departements %}<option value="{{ R }}trouver-son-stage/{{ x.slug }}/index.html">{{ x.code }} · {{ x.nom }}</option>{% endfor %}</optgroup>{% endfor %}</select></label>
 <button class="btn primary" type="submit">Voir</button>
 </form>
+<a class="encart-appli" href="{{ R }}appli/index.html#installer" data-goatcounter-click="stage-lien-appli-index"><img src="{{ R }}assets/img/appli-192.png" alt="" width="52" height="52"><span><b>Nouveau : l'appli gratuite 2A Stages</b>L'annuaire, le kit candidature et le suivi de vos candidatures sur votre téléphone, même sans réseau.</span><span class="encart-appli-btn">Installer</span></a>
 <p style="margin-top:12px;font-weight:700"><a href="{{ R }}trouver-son-stage/methode/index.html" data-goatcounter-click="stage-lien-methode-index">🗺️ La méthode complète, en 8 étapes →</a></p>
 <p style="margin-top:6px;font-weight:700"><a href="{{ R }}trouver-son-stage/autour-de-moi/index.html" data-goatcounter-click="stage-lien-autour-index">📍 Nouveau : chercher autour de chez moi, par distance →</a></p>
 <p style="margin-top:6px;font-weight:700"><a href="{{ R }}trouver-son-stage/kit-candidature/index.html" data-goatcounter-click="stage-lien-kit-index">✉️ Kit candidature : script d'appel, trame de lettre, mails de relance →</a></p>
