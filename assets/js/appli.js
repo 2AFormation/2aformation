@@ -2,7 +2,7 @@
    1. Enregistre le service worker (sw.js) sur les pages étudiantes et dans l'application installée.
    2. Propose l'installation sur téléphone (petite barre discrète, refermable) et gère la page /appli/.
    3. Dans l'application installée : barre de titre, onglets en bas (Accueil, Autour, Mon suivi, Kit, Plus).
-   Mesures GoatCounter : « appli-installee », « appli-clic-installer », « appli-barre-fermee » ;
+   Mesures GoatCounter : « appli-installee », « appli-premiere-ouverture », « appli-clic-installer », « appli-barre-fermee » ;
    les ouvertures de l'application arrivent avec la source « appli » (paramètre utm_source du manifeste). */
 (function () {
   var BARRE_ACTIVE = true; // passer à false pour retirer la barre d'installation des pages étudiantes
@@ -26,6 +26,20 @@
   function ecrire(cle, val) { try { localStorage.setItem(cle, val); } catch (e) {} }
 
   if (installee) document.documentElement.classList.add('appli-installee');
+
+  // Première ouverture de l'application installée (iPhone et Android) : comptée une seule fois par téléphone.
+  // Safari ne signale pas les installations : c'est le seul moyen de les compter sur iPhone.
+  if (installee && !lire('appli-premiere-ouverture') && navigator.onLine) {
+    var essais = 0;
+    (function attendreGoatCounter() {
+      if (window.goatcounter && window.goatcounter.count) {
+        compter('appli-premiere-ouverture', "Première ouverture de l'application installée");
+        ecrire('appli-premiere-ouverture', String(Date.now()));
+      } else if (essais++ < 40) {
+        setTimeout(attendreGoatCounter, 500);
+      }
+    })();
+  }
 
   // Nombre de pages étudiantes vues sur ce téléphone : la barre n'apparaît qu'à partir de la deuxième.
   var vues = parseInt(lire('appli-pages-vues') || '0', 10);
