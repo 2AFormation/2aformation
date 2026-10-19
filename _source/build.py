@@ -9,6 +9,7 @@ import datetime
 import glob
 import json
 import os
+import re
 import shutil
 import sys
 
@@ -80,6 +81,9 @@ def main():
         profondeur = chemin.count("/")
         html = env.get_template(gabarit).render(**commun, chemin=chemin.replace("index.html", ""),
                                                 R="../" * profondeur, **ctx)
+        # Liens internes sans « index.html » final (une seule adresse par page pour Google).
+        html = re.sub(r'href="((?:\.\./)*)((?:[\w-]+/)*)index\.html(#[^"]*)?"',
+                      lambda m: 'href="' + ((m[1] + m[2]) or "./") + (m[3] or "") + '"', html)
         cible = os.path.join(SORTIE, chemin)
         os.makedirs(os.path.dirname(cible), exist_ok=True)
         with open(cible, "w", encoding="utf-8") as fh:
@@ -90,8 +94,26 @@ def main():
            titre_page="2aFormation · Formations en protection de l'enfance et accompagnement VAE",
            description="Organisme de formation certifié Qualiopi : formations en intra pour les équipes du social et de la protection de l'enfance, analyse des pratiques et accompagnement VAE (DEES, DEASS, DEME…). Interventions dans toute la France.")
     ecrire("formations/index.html", "formations.html", rubrique="formations",
-           titre_page="Nos formations · 2aFormation",
+           titre_page="Formations en intra pour la protection de l'enfance et le médico-social · 2aFormation",
            description=f"{len(formations)} formations en intra pour les équipes du social, du médico-social et de la protection de l'enfance. Deux formateurs de terrain, partout en France.")
+    # Titres et descriptions Google de certaines fiches (référencement, 19/10/2026) ; les autres restent automatiques.
+    seo_formations = {
+        "le-secret-professionnel-et-son-partage-entre-ethique-et-deontologie": (
+            "Formation secret professionnel et secret partagé (intra, 2 jours) · 2aFormation",
+            "Formation en intra de 2 jours (12 h) sur le secret professionnel et le partage d'information dans le social et le médico-social : cadre légal, éthique et pratique."),
+        "le-burn-out-professionnel": (
+            "Formation prévention du burn-out des professionnels du social (intra, 2 jours) · 2aFormation",
+            "Formation en intra de 2 jours (12 h) pour comprendre les mécanismes du burn-out professionnel, le repérer, le prévenir et accompagner les personnes concernées."),
+        "de-la-crise-a-la-contention-psychique": (
+            "Formation gestion de crise et contention psychique (intra, 3 jours) · 2aFormation",
+            "Formation en intra de 3 jours (18 h) pour adapter sa posture professionnelle face à la violence et aux situations de crise dans le social et le médico-social."),
+        "intelligence-artificielle-et-ecrits-professionnels": (
+            "Formation IA et écrits professionnels du travail social (intra, 2 jours) · 2aFormation",
+            "Formation en intra de 2 jours (12 h) pour utiliser l'IA générative dans ses écrits professionnels avec discernement, sans trahir le secret professionnel."),
+        "accompagner-les-mineurs-en-risque-prostitutionnel": (
+            "Formation : accompagner les mineurs en risque prostitutionnel (intra, 3 jours) · 2aFormation",
+            "Formation en intra de 3 jours (18 h) pour repérer les signaux de prostitution et d'exploitation des mineurs et adapter l'accompagnement éducatif."),
+    }
     for f in formations:
         jsonld = {
             "@context": "https://schema.org", "@type": "Course", "name": f["titre"], "description": f["intro"],
@@ -102,13 +124,13 @@ def main():
         }
         ecrire(f"{f['slug']}/index.html", "formation.html", rubrique="formations", f=f,
                jsonld=json.dumps(jsonld, ensure_ascii=False),
-               titre_page=f"{f['titre_court']} · Formation · 2aFormation",
-               description=f"Formation de {f['jours']} jours ({f['heures']} h) en intra : {f['intro'][:120]}…")
+               titre_page=seo_formations[f["slug"]][0] if f["slug"] in seo_formations else f"{f['titre_court']} · Formation · 2aFormation",
+               description=seo_formations[f["slug"]][1] if f["slug"] in seo_formations else f"Formation de {f['jours']} jours ({f['heures']} h) en intra : {f['intro'][:120]}…")
     ecrire("nos-vae/index.html", "vae.html", rubrique="vae",
            titre_page="Accompagnement VAE · DEES, DEASS, DEME, DEEJE, DECESF, DEAES · 2aFormation",
            description="Accompagnement VAE pour les diplômes d'État du travail social : parcours complet, relecture du livret 2, préparation à l'oral. Architectes accompagnateurs de parcours.")
     ecrire("analyse-des-pratiques/index.html", "gapp.html", rubrique="gapp",
-           titre_page="Analyse des pratiques professionnelles (GAPP) · 2aFormation",
+           titre_page="Analyse des pratiques professionnelles (GAPP) pour les équipes du social · 2aFormation",
            description="Groupes d'analyse des pratiques professionnelles pour les équipes du social et du médico-social : une séance mensuelle pour prendre du recul et prévenir l'épuisement.")
     ecrire("guide-livret-2/index.html", "guide_livret2.html", rubrique="vae",
            titre_page="Pack Réussir son livret 2 de VAE (travail social) · 2aFormation",
@@ -179,7 +201,7 @@ def main():
            titre_page="Liens des questionnaires d'évaluation · 2aFormation", description="Outil interne.")
     ecrire("catalogue/index.html", "catalogue.html", rubrique="", titre_page="", description="")
     ecrire("contact/index.html", "contact.html", rubrique="contact",
-           titre_page="Contact et devis · 2aFormation",
+           titre_page="Contact et devis : formation intra, GAPP, VAE · 2aFormation, Castelnaudary (Aude)",
            description="Contactez 2aFormation pour une formation en intra, une analyse des pratiques ou un accompagnement VAE. Réponse sous 48 h ouvrées.")
     for p in sorted(glob.glob(os.path.join(ICI, "contenu/pages/*.md"))):
         page = lire_md(p)
@@ -222,11 +244,15 @@ def main():
     # Pages par formation (contenu/stages_formations.yml)
     fo = lire_yaml("contenu/stages_formations.yml")
     gm = {t: f["id"] for f in guide["fiches"] for t in f["types"]}
+    seo_stages = {  # titres Google raccourcis (référencement, 19/10/2026)
+        "conseiller-en-economie-sociale-familiale": "Stage CESF (conseiller en économie sociale familiale) : structures et conseils · 2aFormation",
+        "educateur-de-jeunes-enfants": "Stage EJE (éducateur de jeunes enfants) : structures, durée, conseils · 2aFormation",
+    }
     for f in fo["formations"]:
         f["types"] = [t for t in f["types"] if t in gm]
         ecrire(f"trouver-son-stage/formation/{f['slug']}/index.html", "stages_formation.html", rubrique="etudiants", f=f, gm=gm,
                toutes=fo["formations"], v=fo["verification"],
-               titre_page=f"Trouver son stage {f['de']} ({f['sigle']}) : durée, structures, conseils · 2aFormation",
+               titre_page=seo_stages.get(f["slug"], f"Trouver son stage {f['de']} ({f['sigle']}) : durée, structures, conseils · 2aFormation"),
                description=f"Stage {f['de']} : ce que dit la formation ({f['sigle']}), les structures où chercher, nos conseils d'éducateurs et la recherche autour de chez vous. Gratuit.")
     ecrire("nouveautes-etudiants/index.html", "nouveautes_etudiants.html", rubrique="etudiants",
            titre_page="Nouveautés étudiants : la lettre gratuite de 2A Formation · 2aFormation",
