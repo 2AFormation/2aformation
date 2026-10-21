@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
-<link rel="stylesheet" href="../../assets/css/site.css?v=202610212109">
+<link rel="stylesheet" href="../../assets/css/site.css?v=202610212143">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Trouver son stage en Ardèche","inLanguage":"fr","description":"Méthode et liste de 160 structures sociales et médico-sociales de l'Ardèche pour trouver un stage en travail social.","audience":{"@type":"EducationalAudience","educationalRole":"student"},"isBasedOn":"https://www.data.gouv.fr/datasets/finess-extraction-du-fichier-des-etablissements/","url":"https://2aformation.com/trouver-son-stage/ardeche/","publisher":{"@type":"Organization","name":"2aFormation","url":"https://2aformation.com"}}</script><style>
 .tips{list-style:none;counter-reset:t;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
 .tips li{counter-increment:t;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;font-size:.93rem}
@@ -166,7 +166,29 @@
 <p class="count"><span id="count" aria-live="polite"></span> · <button class="addall" id="addall" type="button">Ajouter ces résultats à ma liste</button></p>
 <div class="list" id="list"></div>
 <div class="more"><button class="btn ghost" id="more" type="button">Afficher plus</button></div>
-<p class="src">Données issues du Fichier national des établissements sanitaires et sociaux (FINESS), ministère chargé de la santé et des solidarités, publiées sur data.gouv.fr sous Licence Ouverte (extraction du 04/05/2026). Les noms y sont enregistrés sans accents. Certaines coordonnées peuvent avoir changé : vérifiez avant d'appeler. 2A Formation n'est pas lié à ces structures. La mention « Accueille des stagiaires » et l'adresse de candidature sont indiquées par les structures elles-mêmes ; pour les autres, nous ne savons pas si elles accueillent des stagiaires. Une erreur, une fermeture ? Vous gérez une structure ? <a href="../../trouver-son-stage/accueillir-des-stagiaires/" data-goatcounter-click="stage-lien-accueil-dep">Indiquez l'adresse où recevoir les candidatures de stage</a>. Vous souhaitez faire corriger ou retirer sa fiche ? <a href="mailto:2aa.formation@gmail.com?subject=Annuaire%20des%20stages%2007">Écrivez-nous</a>, nous traitons la demande sous 15 jours. Source : <a href="https://www.data.gouv.fr/datasets/finess-extraction-du-fichier-des-etablissements/">FINESS, data.gouv.fr</a>.</p>
+<style>
+.lettre-encart{display:grid;grid-template-columns:1.1fr 1fr;gap:20px;align-items:center;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:12px;padding:18px 22px;margin:22px 0 6px}
+.lettre-encart b{display:block;font-size:1.05rem}
+.lettre-encart p{margin:4px 0 0;font-size:.92rem}
+.lettre-encart form{display:grid;gap:8px}
+.lettre-encart .ligne{display:flex;gap:8px}
+.lettre-encart input[type=email]{flex:1;min-width:0;font:inherit;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--paper)}
+.lettre-encart .ok{display:flex;gap:8px;align-items:flex-start;font-size:.8rem;font-weight:400}
+.lettre-encart .ok input{margin-top:2px;width:16px;height:16px;flex:none}
+.lettre-encart .rgpd{font-size:.74rem;color:var(--muted);margin:0}
+.lettre-encart .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+@media (max-width:760px){.lettre-encart{grid-template-columns:1fr;gap:12px}.lettre-encart .ligne{flex-direction:column}}
+</style>
+<div class="lettre-encart">
+<div><b>Ne ratez pas les nouveautés pour votre stage</b><p>Nouveaux outils gratuits, règles de stage et gratification mises à jour, nouveaux guides : un e-mail par mois au plus, sans publicité, désinscription en un clic.</p></div>
+<form method="POST" action="https://ea27384b.sibforms.com/serve/MUIFAGMcgJUf2CzguuOUmfagDzJdgUYPDM2wEvKak1ZH3b-9FqSphtAWtnxpGbu0CZMHo0GnLbAZ1Rq_-PrOLJ2idCU8lhJWBtrVwSb8oaIJGbkyb2q05jBYAh5_GJ2C34e0V1o5hnqHHskyM0TaHynHSxPLIrfGT3pvQG24SIaqwg0NVDbxOoV-hXSnJzYiV36x9mCscocjiOBZhw==" data-goatcounter-click="lettre-encart-dep">
+<div class="ligne"><input type="email" name="EMAIL" autocomplete="email" placeholder="prenom@exemple.fr" aria-label="Votre adresse e-mail" required><button class="btn primary" type="submit">Je m'inscris</button></div>
+<label class="ok"><input type="checkbox" name="OPT_IN" value="1" required><span>J'accepte de recevoir la lettre « Nouveautés étudiants » de 2A Formation, environ une fois par mois.</span></label>
+<div class="hp" aria-hidden="true"><input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off"></div>
+<input type="hidden" name="locale" value="fr"><input type="hidden" name="html_type" value="simple">
+<p class="rgpd">Un e-mail de confirmation vous sera envoyé (regardez aussi dans les indésirables). Votre e-mail sert uniquement à cette lettre, hébergée par Brevo, ni vendu ni cédé. <a href="../../politique-de-confidentialite/">Confidentialité</a></p>
+</form>
+</div><p class="src">Données issues du Fichier national des établissements sanitaires et sociaux (FINESS), ministère chargé de la santé et des solidarités, publiées sur data.gouv.fr sous Licence Ouverte (extraction du 04/05/2026). Les noms y sont enregistrés sans accents. Certaines coordonnées peuvent avoir changé : vérifiez avant d'appeler. 2A Formation n'est pas lié à ces structures. La mention « Accueille des stagiaires » et l'adresse de candidature sont indiquées par les structures elles-mêmes ; pour les autres, nous ne savons pas si elles accueillent des stagiaires. Une erreur, une fermeture ? Vous gérez une structure ? <a href="../../trouver-son-stage/accueillir-des-stagiaires/" data-goatcounter-click="stage-lien-accueil-dep">Indiquez l'adresse où recevoir les candidatures de stage</a>. Vous souhaitez faire corriger ou retirer sa fiche ? <a href="mailto:2aa.formation@gmail.com?subject=Annuaire%20des%20stages%2007">Écrivez-nous</a>, nous traitons la demande sous 15 jours. Source : <a href="https://www.data.gouv.fr/datasets/finess-extraction-du-fichier-des-etablissements/">FINESS, data.gouv.fr</a>.</p>
 </div></section>
 
 <section id="suivi" class="alt" hidden><div class="wrap">
@@ -329,8 +351,8 @@ save(); draw();
     </div>
   </div>
 </footer>
-<script src="../../assets/js/site.js?v=202610212109"></script>
-<script src="../../assets/js/appli.js?v=202610212109"></script>
+<script src="../../assets/js/site.js?v=202610212143"></script>
+<script src="../../assets/js/appli.js?v=202610212143"></script>
 <script data-goatcounter="https://2aformation.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
