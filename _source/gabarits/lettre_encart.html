@@ -1,0 +1,24 @@
+{# Encart d'inscription à la lettre « Nouveautés étudiants » (Brevo, double confirmation), inclus sur les pages de recherche de stage. Gratuit, aucune offre payante. Variable attendue : src (dep, autour). #}
+<style>
+.lettre-encart{display:grid;grid-template-columns:1.1fr 1fr;gap:20px;align-items:center;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:12px;padding:18px 22px;margin:22px 0 6px}
+.lettre-encart b{display:block;font-size:1.05rem}
+.lettre-encart p{margin:4px 0 0;font-size:.92rem}
+.lettre-encart form{display:grid;gap:8px}
+.lettre-encart .ligne{display:flex;gap:8px}
+.lettre-encart input[type=email]{flex:1;min-width:0;font:inherit;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--paper)}
+.lettre-encart .ok{display:flex;gap:8px;align-items:flex-start;font-size:.8rem;font-weight:400}
+.lettre-encart .ok input{margin-top:2px;width:16px;height:16px;flex:none}
+.lettre-encart .rgpd{font-size:.74rem;color:var(--muted);margin:0}
+.lettre-encart .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+@media (max-width:760px){.lettre-encart{grid-template-columns:1fr;gap:12px}.lettre-encart .ligne{flex-direction:column}}
+</style>
+<div class="lettre-encart">
+<div><b>Ne ratez pas les nouveautés pour votre stage</b><p>Nouveaux outils gratuits, règles de stage et gratification mises à jour, nouveaux guides : un e-mail par mois au plus, sans publicité, désinscription en un clic.</p></div>
+<form method="POST" action="https://ea27384b.sibforms.com/serve/MUIFAGMcgJUf2CzguuOUmfagDzJdgUYPDM2wEvKak1ZH3b-9FqSphtAWtnxpGbu0CZMHo0GnLbAZ1Rq_-PrOLJ2idCU8lhJWBtrVwSb8oaIJGbkyb2q05jBYAh5_GJ2C34e0V1o5hnqHHskyM0TaHynHSxPLIrfGT3pvQG24SIaqwg0NVDbxOoV-hXSnJzYiV36x9mCscocjiOBZhw==" data-goatcounter-click="lettre-encart-{{ src }}">
+<div class="ligne"><input type="email" name="EMAIL" autocomplete="email" placeholder="prenom@exemple.fr" aria-label="Votre adresse e-mail" required><button class="btn primary" type="submit">Je m'inscris</button></div>
+<label class="ok"><input type="checkbox" name="OPT_IN" value="1" required><span>J'accepte de recevoir la lettre « Nouveautés étudiants » de 2A Formation, environ une fois par mois.</span></label>
+<div class="hp" aria-hidden="true"><input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off"></div>
+<input type="hidden" name="locale" value="fr"><input type="hidden" name="html_type" value="simple">
+<p class="rgpd">Un e-mail de confirmation vous sera envoyé (regardez aussi dans les indésirables). Votre e-mail sert uniquement à cette lettre, hébergée par Brevo, ni vendu ni cédé. <a href="{{ R }}politique-de-confidentialite/">Confidentialité</a></p>
+</form>
+</div>
