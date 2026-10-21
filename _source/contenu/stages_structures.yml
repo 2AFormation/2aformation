@@ -1,7 +1,7 @@
 # Guide des structures pour la recherche de stage (page trouver-son-stage/structures/).
 # « types » : libellés exacts du champ « t » des données FINESS (contenu/stages/*.json) qui pointent vers la fiche.
 # Rédaction : 2A Formation, sources officielles vérifiées le 08/10/2026.
-verification: 08/10/2026
+verification: 22/10/2026
 sources:
   ase: [solidarites.gouv.fr, "L'aide sociale à l'enfance, acteur majeur de la protection de l'enfance", "https://solidarites.gouv.fr/laide-sociale-lenfance-acteur-majeur-de-la-protection-de-lenfance"]
   ems: [monparcourshandicap.gouv.fr, "La scolarisation en établissement médico-social", "https://www.monparcourshandicap.gouv.fr/scolarite/comment-seffectue-la-scolarisation-en-etablissement-medico-social-ems"]
@@ -24,6 +24,7 @@ sources:
   samsah: [monparcourshandicap.gouv.fr, "SAMSAH : définition", "https://www.monparcourshandicap.gouv.fr/glossaire/samsah"]
   savs: [monparcourshandicap.gouv.fr, "SAVS : définition", "https://www.monparcourshandicap.gouv.fr/glossaire/savs"]
   fdv: [monparcourshandicap.gouv.fr, "Foyer de vie : définition", "https://www.monparcourshandicap.gouv.fr/glossaire/foyer-de-vie-occupationnel"]
+  avs: [caf.fr, "Circulaire Cnaf n° 2016-005 du 16 mars 2016 relative à l'animation de la vie sociale", "https://www.caf.fr/sites/default/files/medias/388/Centre%20social/CS-CirculaireCnaf-mars2016.pdf"]
 
 fiches:
 # ---------- Protection de l'enfance et familles ----------
@@ -492,3 +493,14 @@ fiches:
   metiers: "Des mandataires judiciaires, souvent ASS ou CESF de formation, titulaires d'un certificat national."
   stage: "Un terrain recherché par les ASS et les CESF : budget, droits, lien avec le juge."
   source: mjpm
+# ---------- Centres sociaux et vie de quartier (ajout du 22/10/2026) ----------
+- id: centre-social
+  secteur: social
+  sigle: "Centre social"
+  nom: "Centre social (ou socioculturel). Pour l'instant, l'annuaire ne recense que les centres sociaux de Paris."
+  types: [Centre social]
+  public: "Tous les habitants d'un quartier : familles, enfants, jeunes, adultes et personnes âgées, avec une attention particulière aux familles et aux personnes les plus fragiles."
+  missions: "Un lieu de proximité agréé par la Caf, qui porte un projet social construit avec les habitants : accueil, accès aux droits, soutien à la parentalité, accompagnement scolaire, activités collectives et initiatives des habitants."
+  metiers: "Une petite équipe de salariés (direction, référent famille, animateurs, accueil) et de nombreux bénévoles. Le référent famille est souvent un travailleur social : CESF, ASS ou éducateur."
+  stage: "Un terrain riche pour les ASS et les CESF (accès aux droits, action collective, soutien aux familles) et pour les éducateurs attirés par le travail de quartier. Les équipes sont petites : demandez dès l'appel quel professionnel diplômé pourra être votre référent."
+  source: avs

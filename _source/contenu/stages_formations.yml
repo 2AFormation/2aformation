@@ -15,7 +15,7 @@ formations:
   ancien: "Entrés avant septembre 2026 : 2 100 heures de stage (60 semaines) sur trois ans, auprès d'un référent professionnel éducateur spécialisé."
   source_nouveau: ["Arrêté du 6 octobre 2025 relatif au DEES (Légifrance)", "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000052384644"]
   source_ancien: ["Fiche DEES, DREETS Auvergne-Rhône-Alpes (2024)", "https://auvergne-rhone-alpes.dreets.gouv.fr/sites/auvergne-rhone-alpes.dreets.gouv.fr/IMG/pdf/es_2024.pdf"]
-  types: [MECS, "Foyer de l'enfance", AEMO / AED, Prévention spécialisée, Lieu de vie et d'accueil, Centre parental, IME, ITEP / DITEP, SESSAD, "Milieu ouvert (PJJ)", "Placement (PJJ)", CHRS, Foyer de vie, SAVS, CSAPA (addictologie)]
+  types: [MECS, "Foyer de l'enfance", AEMO / AED, Prévention spécialisée, Lieu de vie et d'accueil, Centre parental, IME, ITEP / DITEP, SESSAD, "Milieu ouvert (PJJ)", "Placement (PJJ)", CHRS, Foyer de vie, SAVS, CSAPA (addictologie), Centre social]
   conseils:
   - "Variez les publics : un stage en protection de l'enfance, un autre en handicap ou en insertion. Les jurys et les employeurs apprécient un parcours qui montre votre capacité d'adaptation."
   - "Le stage long est souvent celui qui ouvre la porte du premier poste : choisissez-le dans un secteur où vous vous voyez travailler."
@@ -45,7 +45,7 @@ formations:
   ancien: "Entrés avant septembre 2026 : 1 820 heures de formation pratique (52 semaines) sur trois ans."
   source_nouveau: ["Arrêté du 6 octobre 2025 relatif au DEASS (Légifrance)", "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000052384266"]
   source_ancien: ["Fiche DEASS, DREETS Auvergne-Rhône-Alpes (2024)", "https://auvergne-rhone-alpes.dreets.gouv.fr/sites/auvergne-rhone-alpes.dreets.gouv.fr/IMG/pdf/ass_2024.pdf"]
-  types: [AEMO / AED, CHRS, "Accueil, veille sociale", CADA, CPH (réfugiés), Mandataire judiciaire (MJPM), Aide à la gestion du budget familial, MDPH, SAVS, SAMSAH, CSAPA (addictologie), Appartements de coordination thérapeutique, "Milieu ouvert (PJJ)", Investigation éducative]
+  types: [AEMO / AED, CHRS, "Accueil, veille sociale", CADA, CPH (réfugiés), Mandataire judiciaire (MJPM), Aide à la gestion du budget familial, MDPH, SAVS, SAMSAH, CSAPA (addictologie), Appartements de coordination thérapeutique, "Milieu ouvert (PJJ)", Investigation éducative, Centre social]
   conseils:
   - "Hors annuaire, ne les oubliez pas : services sociaux du conseil départemental, CCAS, hôpitaux, CAF, caisses de retraite et d'assurance maladie, services sociaux en faveur des élèves, services sociaux du travail. Contactez-les directement ou via votre établissement de formation."
   - "Les places dans le service social départemental sont souvent réparties par l'établissement de formation : renseignez-vous tôt sur la procédure."
@@ -60,7 +60,7 @@ formations:
   ancien: "Entrés avant septembre 2026 : 2 100 heures de stage (60 semaines) sur trois ans."
   source_nouveau: ["Arrêté du 6 octobre 2025 relatif au DEEJE (Légifrance)", "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000052384514"]
   source_ancien: ["Fiche DEEJE, DREETS Auvergne-Rhône-Alpes (2024)", "https://auvergne-rhone-alpes.dreets.gouv.fr/sites/auvergne-rhone-alpes.dreets.gouv.fr/IMG/pdf/eje_2024.pdf"]
-  types: [CAMSP, Centre parental, "Foyer de l'enfance", MECS, IME, SESSAD, Établissement polyhandicap, CMPP, Placement familial]
+  types: [CAMSP, Centre parental, "Foyer de l'enfance", MECS, IME, SESSAD, Établissement polyhandicap, CMPP, Placement familial, Centre social]
   conseils:
   - "Pour les crèches, multi-accueils et relais petite enfance, cherchez sur monenfant.fr (site de la CAF), qui les recense commune par commune."
   - "Sortir de la crèche est un vrai plus : centre parental, CAMSP, pouponnière ou foyer de l'enfance montrent une autre facette du métier."
@@ -90,7 +90,7 @@ formations:
   ancien: ""
   source_nouveau: ["Arrêté du 6 octobre 2025 relatif au DECESF (Légifrance)", "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000052384399"]
   source_ancien: ["Fiche DECESF, DREETS Auvergne-Rhône-Alpes (2024)", "https://auvergne-rhone-alpes.dreets.gouv.fr/sites/auvergne-rhone-alpes.dreets.gouv.fr/IMG/pdf/cesf_2024.pdf"]
-  types: [Aide à la gestion du budget familial, Aide à domicile aux familles (TISF), CHRS, Pension de famille, Foyer de jeunes travailleurs, SAVS, Mandataire judiciaire (MJPM), CADA, CPH (réfugiés), "Accueil, veille sociale"]
+  types: [Aide à la gestion du budget familial, Aide à domicile aux familles (TISF), CHRS, Pension de famille, Foyer de jeunes travailleurs, SAVS, Mandataire judiciaire (MJPM), CADA, CPH (réfugiés), "Accueil, veille sociale", Centre social]
   conseils:
   - "Hors annuaire : CCAS, bailleurs sociaux, centres sociaux, CAF et services sociaux départementaux accueillent aussi des CESF."
   - "Le budget, le logement et l'accès aux droits sont vos points forts : choisissez un terrain où vous les mettrez en pratique."
