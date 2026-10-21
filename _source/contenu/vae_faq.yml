@@ -1,0 +1,20 @@
+# Questions fréquentes de la page Accompagnement VAE (nos-vae/), avec balisage FAQPage.
+# Réponses vérifiées le 22/10/2026 : Code du travail, art. L6411-1 et L6323-6 (Légifrance).
+# {prix_min}, {prix_max}, {formule_min} et {formule_max} sont remplacés par les tarifs de contenu/vae.yml.
+questions:
+  - q: Qui peut faire une VAE pour un diplôme du travail social ?
+    r: "Toute personne qui justifie d'une activité en rapport direct avec le diplôme visé : expérience salariée, bénévole, indépendante, stages… Depuis la réforme de décembre 2022, il n'y a plus de durée minimale d'expérience fixée par la loi (article L6411-1 du Code du travail). Certains financements gardent leurs propres conditions : Transitions Pro demande par exemple au moins 12 mois d'expérience en lien avec le diplôme."
+  - q: Pour quels diplômes nous accompagnez-vous ?
+    r: "Pour six diplômes d'État du travail social : éducateur spécialisé (DEES), assistant de service social (DEASS), conseiller en économie sociale familiale (DECESF), éducateur de jeunes enfants (DEEJE), moniteur-éducateur (DEME) et accompagnant éducatif et social (DEAES)."
+  - q: Comment se déroule une VAE ?
+    r: "Quatre grandes étapes : la recevabilité (votre dossier de faisabilité est accepté par le certificateur), la rédaction du dossier de validation, souvent appelé livret 2, l'entretien avec le jury, puis la décision. Nous vous accompagnons de la faisabilité jusqu'au jury, avec un oral blanc."
+  - q: Le diplôme est-il garanti à l'issue de la VAE ?
+    r: "Non. La VAE n'est pas une transformation automatique de l'expérience en diplôme : seul le jury décide. Il peut valider tout le diplôme ou une partie des blocs de compétences ; les blocs validés vous restent acquis et vous pouvez compléter les autres ensuite."
+  - q: Comment financer sa VAE ?
+    r: "Les actions de VAE sont éligibles au compte personnel de formation (CPF, article L6323-6 du Code du travail). D'autres financements sont possibles : Transitions Pro pour les salariés du privé (jusqu'à 2 000 €, sur dossier), l'employeur, l'OPCO, France Travail, ou un financement personnel. Nous regardons avec vous les possibilités dès le premier échange, gratuit."
+  - q: Combien coûte un accompagnement VAE chez 2A Formation ?
+    r: "De {prix_min} ({formule_min}) à {prix_max} ({formule_max}). Le parcours complet comprend la préparation du livret 2, les suivis individuels et la préparation à l'oral. Le premier échange téléphonique est gratuit."
+  - q: Combien de temps dure l'accompagnement ?
+    r: "Le parcours complet se répartit sur 3 à 10 mois, selon le calendrier de dépôt de votre dossier et vos besoins. Le premier échange a lieu sous 7 jours après votre demande, et l'accompagnement démarre en général dans le mois qui suit la signature du contrat."
+  - q: L'accompagnement peut-il se faire à distance ?
+    r: "Oui. Les rencontres se font en présentiel ou à distance, complétées par des échanges par e-mail ; plusieurs formules courtes (relecture du livret 2, préparation à l'oral) se déroulent entièrement à distance."

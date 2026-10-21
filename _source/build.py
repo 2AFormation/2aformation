@@ -126,7 +126,16 @@ def main():
                jsonld=json.dumps(jsonld, ensure_ascii=False),
                titre_page=seo_formations[f["slug"]][0] if f["slug"] in seo_formations else f"{f['titre_court']} · Formation · 2aFormation",
                description=seo_formations[f["slug"]][1] if f["slug"] in seo_formations else f"Formation de {f['jours']} jours ({f['heures']} h) en intra : {f['intro'][:120]}…")
-    ecrire("nos-vae/index.html", "vae.html", rubrique="vae",
+    # Questions fréquentes de la page VAE (contenu/vae_faq.yml), avec balisage FAQPage (22/10/2026).
+    vfaq = lire_yaml("contenu/vae_faq.yml")
+    _fm = sorted(vae["formules"], key=lambda x: int(str(x["prix"]).replace(" ", "").replace("\u202f", "").replace("€", "")))
+    for x in vfaq["questions"]:
+        x["r"] = x["r"].replace("{prix_min}", str(_fm[0]["prix"])).replace("{prix_max}", str(_fm[-1]["prix"])) \
+                       .replace("{formule_min}", _fm[0]["titre"].lower()).replace("{formule_max}", _fm[-1]["titre"].lower())
+    vfaq_ld = json.dumps({"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "fr",
+                          "mainEntity": [{"@type": "Question", "name": x["q"], "acceptedAnswer": {"@type": "Answer", "text": x["r"]}}
+                                         for x in vfaq["questions"]]}, ensure_ascii=False).replace("</", "<\\/")
+    ecrire("nos-vae/index.html", "vae.html", rubrique="vae", vfaq=vfaq, vfaq_ld=vfaq_ld,
            titre_page="Accompagnement VAE · DEES, DEASS, DEME, DEEJE, DECESF, DEAES · 2aFormation",
            description="Accompagnement VAE pour les diplômes d'État du travail social : parcours complet, relecture du livret 2, préparation à l'oral. Architectes accompagnateurs de parcours.")
     ecrire("analyse-des-pratiques/index.html", "gapp.html", rubrique="gapp",
