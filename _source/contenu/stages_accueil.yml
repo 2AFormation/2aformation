@@ -8,4 +8,8 @@
 #   formations: [ES, ME, ASS]
 #   periodes: "de septembre à juin, demandes 3 mois avant"
 #   recu: 2026-10-12
-structures: []
+structures:
+  - finess: "940028343"
+    mail: aideauxfamilles94@amfd.fr
+    formations: [ES]
+    recu: 2026-10-20
