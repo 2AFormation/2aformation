@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
-<link rel="stylesheet" href="../../assets/css/site.css?v=202610212042">
+<link rel="stylesheet" href="../../assets/css/site.css?v=202610212103">
 <style>
 .acc{max-width:820px}
 .acc form{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:12px;padding:24px;display:grid;gap:14px;margin-top:20px}
@@ -78,7 +78,7 @@
 <input type="hidden" name="_subject" value="Annuaire stages : une structure accueille des stagiaires">
 <input type="hidden" name="profil" value="structure-accueil-stage">
 <div class="row">
-<label>Numéro FINESS de l'établissement<input name="finess" id="finess" inputmode="numeric" placeholder="9 caractères, ex. 110006244" required></label>
+<label>Numéro FINESS de l'établissement (ou identifiant de la fiche, ex. CS7500001 pour un centre social)<input name="finess" id="finess" placeholder="9 caractères, ex. 110006244" required></label>
 <label>Nom de l'établissement<input name="structure" id="structure" required></label>
 </div>
 <div class="row">
@@ -105,7 +105,7 @@
 try{const p=new URLSearchParams(location.search); if(p.get('f')) f.finess.value=p.get('f'); if(p.get('n')) f.structure.value=p.get('n'); if(p.get('v')) f.commune.value=p.get('v');}catch(e){}
 f.addEventListener('submit',e=>{e.preventDefault(); if(f.site.value) return;
  const req=['finess','structure','mail_stages','nom','email']; const miss=req.filter(n=>!f[n].value.trim());
- if(miss.length||!f.consentement.checked||!/^[0-9AB]{9}$/i.test(f.finess.value.trim())){st.className='form-status error';st.textContent=!/^[0-9AB]{9}$/i.test(f.finess.value.trim())?'Le numéro FINESS compte 9 caractères (il figure sur la fiche de l\'établissement dans notre annuaire).':'Merci de remplir les champs obligatoires et de cocher la case d\'accord.';return;}
+ if(miss.length||!f.consentement.checked||!/^([0-9AB]{9}|CS[0-9]{7})$/i.test(f.finess.value.trim())){st.className='form-status error';st.textContent=!/^([0-9AB]{9}|CS[0-9]{7})$/i.test(f.finess.value.trim())?'Le numéro FINESS (ou l\'identifiant d\'un centre social) compte 9 caractères : il figure dans le lien « Indiquez votre adresse stages » de la fiche de l\'établissement, dans notre annuaire.':'Merci de remplir les champs obligatoires et de cocher la case d\'accord.';return;}
  const fd=new FormData(f); fd.set('formations',[...f.querySelectorAll('input[name=formations]:checked')].map(x=>x.value).join(', '));
  st.className='form-status'; st.textContent='Envoi en cours…';
  fetch(f.dataset.endpoint,{method:'POST',headers:{'Accept':'application/json'},body:fd}).then(r=>{if(!r.ok) throw 0; f.reset(); st.textContent='Merci ! Nous vérifions la demande et vous confirmons la publication par e-mail sous 15 jours.';
@@ -152,8 +152,8 @@ f.addEventListener('submit',e=>{e.preventDefault(); if(f.site.value) return;
     </div>
   </div>
 </footer>
-<script src="../../assets/js/site.js?v=202610212042"></script>
-<script src="../../assets/js/appli.js?v=202610212042"></script>
+<script src="../../assets/js/site.js?v=202610212103"></script>
+<script src="../../assets/js/appli.js?v=202610212103"></script>
 <script data-goatcounter="https://2aformation.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
