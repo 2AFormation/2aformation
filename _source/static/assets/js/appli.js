@@ -1,11 +1,14 @@
 /* 2aFormation — application installable « 2A Stages » (espace étudiants gratuit).
    1. Enregistre le service worker (sw.js) sur les pages étudiantes et dans l'application installée.
    2. Propose l'installation sur téléphone (petite barre discrète, refermable) et gère la page /appli/.
+      Bouton permanent « 📱 Appli gratuite » (26/10/2026) : toujours visible sur téléphone, sur toutes les pages étudiantes,
+      sauf quand la barre est affichée, quand la liste de structures est ouverte en bas de l'écran, ou si l'appli est déjà installée.
    3. Dans l'application installée : barre de titre, onglets en bas (Accueil, Autour, Mon suivi, Kit, Plus).
-   Mesures GoatCounter : « appli-installee », « appli-premiere-ouverture », « appli-clic-installer », « appli-barre-fermee » ;
+   Mesures GoatCounter : « appli-installee », « appli-premiere-ouverture », « appli-clic-installer », « appli-barre-fermee », « appli-bouton-permanent » ;
    les ouvertures de l'application arrivent avec la source « appli » (paramètre utm_source du manifeste). */
 (function () {
   var BARRE_ACTIVE = true; // passer à false pour retirer la barre d'installation des pages étudiantes
+  var BOUTON_ACTIF = true; // passer à false pour retirer le bouton permanent « 📱 Appli gratuite »
   var ESPACES = ['/appli/', '/trouver-son-stage/', '/bibliographie/', '/boite-a-outils/', '/guide-memoire/', '/preparer-son-entree/'];
   var chemin = location.pathname;
   var installee = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
@@ -81,6 +84,7 @@
   }
   function montrerBarre() {
     if (barre || !barreAutorisee()) return;
+    cacherBouton();
     barre = document.createElement('div');
     barre.setAttribute('role', 'region');
     barre.setAttribute('aria-label', "Installer l'application");
@@ -99,6 +103,31 @@
   function fermerBarre(parUtilisateur) {
     if (parUtilisateur) { ecrire('appli-barre-fermee', String(Date.now())); compter('appli-barre-fermee', "Barre d'installation fermée"); }
     if (barre) { barre.remove(); barre = null; }
+    montrerBouton();
+  }
+
+  // Bouton permanent « 📱 Appli gratuite » (téléphone, pages étudiantes, appli non installée)
+  var bouton = null;
+  function montrerBouton() {
+    if (bouton || barre || !BOUTON_ACTIF || installee || !etudiant || !mobile || chemin.indexOf('/appli/') === 0) return;
+    if (!document.getElementById('appli-pastille-style')) {
+      var st = document.createElement('style');
+      st.id = 'appli-pastille-style';
+      st.textContent = '.appli-pastille{position:fixed;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:49;display:flex;align-items:center;gap:6px;' +
+        'background:#2E5B4E;color:#fff;font-weight:700;font-size:.85rem;line-height:1;border:0;border-radius:999px;padding:10px 14px;' +
+        'box-shadow:0 6px 18px rgba(29,40,43,.25);cursor:pointer;font-family:inherit}' +
+        'body:has(.panier:not([hidden])) .appli-pastille{display:none}';
+      document.head.appendChild(st);
+    }
+    bouton = document.createElement('button');
+    bouton.type = 'button';
+    bouton.className = 'appli-pastille';
+    bouton.textContent = '📱 Appli gratuite';
+    bouton.onclick = function () { compter('appli-bouton-permanent', 'Bouton permanent « Appli gratuite »'); installer(); };
+    document.body.appendChild(bouton);
+  }
+  function cacherBouton() {
+    if (bouton) { bouton.remove(); bouton = null; }
   }
 
   // Android et Chrome : le navigateur signale que l'installation est possible
@@ -112,7 +141,9 @@
   window.addEventListener('appinstalled', function () {
     compter('appli-installee', 'Application installée');
     invite = null;
+    installee = true;
     fermerBarre(false);
+    cacherBouton();
   });
 
   // 4. Habillage « application » : uniquement dans l'application installée (le site public ne change pas).
@@ -220,6 +251,7 @@
   function demarrer() {
     preparerPage();
     if (installee) habiller();
+    montrerBouton();
     // Après 4 secondes : « Installer » si le navigateur le permet (Android), sinon « Comment ? » vers les consignes de /appli/.
     setTimeout(montrerBarre, 4000);
   }
