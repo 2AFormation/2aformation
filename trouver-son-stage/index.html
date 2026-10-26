@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
-<link rel="stylesheet" href="../assets/css/site.css?v=202610260027">
+<link rel="stylesheet" href="../assets/css/site.css?v=202610260107">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Trouver son stage dans le social, partout en France","inLanguage":"fr","url":"https://2aformation.com/trouver-son-stage/","audience":{"@type":"EducationalAudience","educationalRole":"student"},"isBasedOn":"https://www.data.gouv.fr/datasets/finess-extraction-du-fichier-des-etablissements/","publisher":{"@type":"Organization","name":"2aFormation","url":"https://2aformation.com"}}</script><style>
 .pts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:8px}
 .pts div{border-top:3px solid var(--green);padding-top:12px;font-size:.93rem;color:var(--muted)}
@@ -43,6 +43,12 @@
 .share .sh-ok{color:var(--green);font-weight:700}
 .encart-appli{display:flex;align-items:center;gap:14px;margin-top:18px;padding:14px 16px;background:var(--green-soft);border:1px solid #c5d9cf;border-radius:14px;text-decoration:none;color:var(--ink);max-width:640px}
 .encart-appli img{border-radius:12px;flex:none}
+.tuiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.tuiles a{display:block;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px;text-decoration:none;color:var(--ink)}
+.tuiles a b{display:block;font-size:.92rem;color:var(--green)}
+.tuiles a span{display:block;font-size:.8rem;color:var(--muted);margin-top:2px}
+.tuiles a:hover{border-color:var(--green)}
+@media (max-width:760px){.tuiles{grid-template-columns:repeat(2,1fr)}}
 .encart-appli span{font-size:.93rem;line-height:1.4;color:var(--muted)}
 .encart-appli b{display:block;color:var(--ink);font-family:var(--display);font-size:1.02rem;margin-bottom:2px}
 .encart-appli .encart-appli-btn{flex:none;background:var(--green);color:#fff;font-weight:700;border-radius:999px;padding:8px 14px;font-size:.9rem}
@@ -82,17 +88,16 @@
 <button class="btn primary" type="submit">Voir</button>
 </form>
 <a class="encart-appli" href="../appli/#installer" data-goatcounter-click="stage-lien-appli-index"><img src="../assets/img/appli-192.png" alt="" width="52" height="52"><span><b>Nouveau : l'appli gratuite 2A Stages</b>L'annuaire, le kit candidature et le suivi de vos candidatures sur votre téléphone, même sans réseau.</span><span class="encart-appli-btn">Installer</span></a>
-<p style="margin-top:12px;font-weight:700"><a href="../trouver-son-stage/methode/" data-goatcounter-click="stage-lien-methode-index">🗺️ La méthode complète, en 8 étapes →</a></p>
-<p style="margin-top:6px;font-weight:700"><a href="../trouver-son-stage/autour-de-moi/" data-goatcounter-click="stage-lien-autour-index">📍 Nouveau : chercher autour de chez moi, par distance →</a></p>
-<p style="margin-top:6px;font-weight:700"><a href="../trouver-son-stage/kit-candidature/" data-goatcounter-click="stage-lien-kit-index">✉️ Kit candidature : script d'appel, trame de lettre, mails de relance →</a></p>
-<p style="margin-top:6px;font-weight:700"><a href="../trouver-son-stage/structures/" data-goatcounter-click="stage-lien-guide-index">🧭 MECS, IME, ITEP… : le guide des structures pour choisir →</a></p>
-<p style="margin-top:6px;font-weight:700"><a href="../trouver-son-stage/faq/" data-goatcounter-click="stage-lien-faq-index">❓ Gratification, convention, droits : la FAQ du stage →</a></p>
-<p style="margin-top:6px;font-weight:700"><a href="../nouveautes-etudiants/" data-goatcounter-click="stage-lettre-index">✉️ Recevoir les nouveautés étudiants (gratuit, un e-mail par mois au plus) →</a></p>
-<p style="margin-top:6px;font-weight:700"><a href="https://www.instagram.com/2a.formation/" target="_blank" rel="noopener" data-goatcounter-click="insta-lien-index">📸 Des astuces de stage chaque semaine : suivez @2a.formation sur Instagram →</a></p>
-<p style="margin-top:14px;font-size:.92rem"><b>Par formation :</b> <a href="../trouver-son-stage/formation/educateur-specialise/">ES</a> · <a href="../trouver-son-stage/formation/moniteur-educateur/">ME</a> · <a href="../trouver-son-stage/formation/assistant-de-service-social/">ASS</a> · <a href="../trouver-son-stage/formation/educateur-de-jeunes-enfants/">EJE</a> · <a href="../trouver-son-stage/formation/educateur-technique-specialise/">ETS</a> · <a href="../trouver-son-stage/formation/conseiller-en-economie-sociale-familiale/">CESF</a> · <a href="../trouver-son-stage/formation/accompagnant-educatif-et-social/">AES</a> · <a href="../trouver-son-stage/retroplanning/" data-goatcounter-click="stage-lien-retro-index">📅 Mon rétroplanning</a></p>
+<div class="tuiles">
+<a href="../trouver-son-stage/autour-de-moi/" data-goatcounter-click="stage-lien-autour-index"><b>📍 Autour de chez moi</b><span>Recherche par distance</span></a>
+<a href="../trouver-son-stage/kit-candidature/" data-goatcounter-click="stage-lien-kit-index"><b>✉️ Kit candidature</b><span>Appel, lettre, relance</span></a>
+<a href="../trouver-son-stage/structures/" data-goatcounter-click="stage-lien-guide-index"><b>🧭 Guide des structures</b><span>MECS, IME, ITEP…</span></a>
+<a href="../trouver-son-stage/faq/" data-goatcounter-click="stage-lien-faq-index"><b>❓ FAQ du stage</b><span>Gratification, convention, droits</span></a>
+<a href="../trouver-son-stage/methode/" data-goatcounter-click="stage-lien-methode-index"><b>🗺️ La méthode</b><span>8 étapes, du projet à la convention</span></a>
+<a href="../trouver-son-stage/retroplanning/" data-goatcounter-click="stage-lien-retro-index"><b>📅 Mon rétroplanning</b><span>Quand chercher, appeler, relancer</span></a>
+</div>
+<p style="margin-top:14px;font-size:.92rem"><b>Par formation :</b> <a href="../trouver-son-stage/formation/educateur-specialise/">ES</a> · <a href="../trouver-son-stage/formation/moniteur-educateur/">ME</a> · <a href="../trouver-son-stage/formation/assistant-de-service-social/">ASS</a> · <a href="../trouver-son-stage/formation/educateur-de-jeunes-enfants/">EJE</a> · <a href="../trouver-son-stage/formation/educateur-technique-specialise/">ETS</a> · <a href="../trouver-son-stage/formation/conseiller-en-economie-sociale-familiale/">CESF</a> · <a href="../trouver-son-stage/formation/accompagnant-educatif-et-social/">AES</a></p>
 <p style="margin-top:16px"><a class="btn ghost" href="../documents/checklist-trouver-son-stage-2A-Formation.pdf" download data-goatcounter-click="telechargement-checklist-stage">Télécharger la checklist (PDF gratuit)</a></p>
-<div class="share"><span>Partager à ma promo :</span><button type="button" class="sh-native" hidden data-goatcounter-click="partage-stage-natif">Partager…</button><a href="https://wa.me/?text=Trouver%20son%20stage%20dans%20le%20social%20%3A%2026%20640%20structures%20partout%20en%20France%2C%20la%20m%C3%A9thode%20et%20un%20tableau%20de%20suivi%20gratuits%20https%3A//2aformation.com/trouver-son-stage/%3Futm_campaign%3Dpartage" target="_blank" rel="noopener" data-goatcounter-click="partage-stage-whatsapp">WhatsApp</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//2aformation.com/trouver-son-stage/%3Futm_campaign%3Dpartage" target="_blank" rel="noopener" data-goatcounter-click="partage-stage-facebook">Facebook</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//2aformation.com/trouver-son-stage/%3Futm_campaign%3Dpartage" target="_blank" rel="noopener" data-goatcounter-click="partage-stage-linkedin">LinkedIn</a><a href="mailto:?subject=Trouver%20son%20stage%20dans%20le%20social%20%3A%2026%20640%20structures%20partout%20en%20France%2C%20la%20m%C3%A9thode%20et%20un%20tableau%20de%20suivi%20gratuits&amp;body=Trouver%20son%20stage%20dans%20le%20social%20%3A%2026%20640%20structures%20partout%20en%20France%2C%20la%20m%C3%A9thode%20et%20un%20tableau%20de%20suivi%20gratuits%20%3A%20https%3A//2aformation.com/trouver-son-stage/%3Futm_campaign%3Dpartage" data-goatcounter-click="partage-stage-email">E-mail</a><button type="button" class="sh-copy" data-goatcounter-click="partage-stage-copie">Copier le lien</button><span class="sh-ok" hidden>Lien copié !</span></div>
-<script>(function(){var s=document.currentScript.previousElementSibling,u="https://2aformation.com/trouver-son-stage/?utm_campaign=partage",t="Trouver son stage dans le social : 26 640 structures partout en France, la m\u00e9thode et un tableau de suivi gratuits";var n=s.querySelector(".sh-native");if(navigator.share){n.hidden=false;n.onclick=function(){navigator.share({title:t,text:t,url:u}).catch(function(){});};}s.querySelector(".sh-copy").onclick=function(){var ok=s.querySelector(".sh-ok");(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(function(){ok.hidden=false;setTimeout(function(){ok.hidden=true},2500);}).catch(function(){window.prompt("Copiez ce lien :",u);});};})();</script>
 </div>
 <aside class="proof" aria-label="En chiffres"><p class="eyebrow">France entière</p>
 <dl><div><dt>26 640</dt><dd>structures référencées</dd></div><div><dt>102</dt><dd>départements et territoires</dd></div><div><dt>7</dt><dd>secteurs</dd></div><div><dt>0 €</dt><dd>accès libre, sans inscription</dd></div></dl>
@@ -133,7 +138,13 @@
 <div class="head"><p class="eyebrow">Sur chaque page</p><h2>Ce que vous y trouverez</h2></div>
 <div class="pts"><div><b>La méthode en 5 étapes</b>Du projet de stage à la relance, ce qui marche vraiment.</div><div><b>Nos conseils de terrain</b>La gratification, les structures hors liste, l'usage de l'IA sans se piéger.</div><div><b>Les structures du département</b>Par secteur et par commune, avec téléphone et carte.</div><div><b>Votre tableau de suivi</b>Sélectionnez des structures, téléchargez un tableau Excel prêt à remplir.</div></div>
 <p class="muted" style="font-size:.84rem;margin-top:26px;max-width:none">Données issues du Fichier national des établissements sanitaires et sociaux (FINESS), ministère chargé de la santé et des solidarités, publiées sur <a href="https://www.data.gouv.fr/datasets/finess-extraction-du-fichier-des-etablissements/">data.gouv.fr</a> sous Licence Ouverte (extraction du 04/05/2026). 2A Formation n'est pas lié à ces structures.</p>
-</div></section>
+<div class="partage-bandeau">
+<p><b>Un ou une camarade de promo cherche aussi ?</b> Envoyez-lui cette page, c'est gratuit.</p>
+<div class="share"><button type="button" class="sh-native" hidden data-goatcounter-click="partage-bandeau-natif-index">Partager…</button><a href="https://wa.me/?text=Trouver%20son%20stage%20dans%20le%20social%20%3A%2026%20640%20structures%20partout%20en%20France%2C%20la%20m%C3%A9thode%20et%20un%20tableau%20de%20suivi%20gratuits%20https%3A//2aformation.com/trouver-son-stage/%3Futm_campaign%3Dpartage" target="_blank" rel="noopener" data-goatcounter-click="partage-bandeau-whatsapp-index">WhatsApp</a><a href="sms:?&amp;body=Trouver%20son%20stage%20dans%20le%20social%20%3A%2026%20640%20structures%20partout%20en%20France%2C%20la%20m%C3%A9thode%20et%20un%20tableau%20de%20suivi%20gratuits%20https%3A//2aformation.com/trouver-son-stage/%3Futm_campaign%3Dpartage" data-goatcounter-click="partage-bandeau-sms-index">SMS</a><a href="mailto:?subject=Trouver%20son%20stage%20dans%20le%20social%20%3A%2026%20640%20structures%20partout%20en%20France%2C%20la%20m%C3%A9thode%20et%20un%20tableau%20de%20suivi%20gratuits&amp;body=Trouver%20son%20stage%20dans%20le%20social%20%3A%2026%20640%20structures%20partout%20en%20France%2C%20la%20m%C3%A9thode%20et%20un%20tableau%20de%20suivi%20gratuits%20%3A%20https%3A//2aformation.com/trouver-son-stage/%3Futm_campaign%3Dpartage" data-goatcounter-click="partage-bandeau-email-index">E-mail</a><button type="button" class="sh-copy" data-goatcounter-click="partage-bandeau-copie-index">Copier le lien</button><span class="sh-ok" hidden>Lien copié !</span></div>
+<p class="insta-ligne">📸 Des astuces de stage chaque semaine, par deux éducs spé : <a href="https://www.instagram.com/2a.formation/" target="_blank" rel="noopener" data-goatcounter-click="insta-bandeau-index">suivez @2a.formation sur Instagram →</a></p>
+<p class="insta-ligne lettre-ligne">✉️ Les nouveaux outils par e-mail, une fois par mois au plus : <a href="../nouveautes-etudiants/" data-goatcounter-click="lettre-lien-index">je m'inscris →</a></p></div>
+<script>(function(){var b=document.currentScript.previousElementSibling,s=b.querySelector(".share"),u="https://2aformation.com/trouver-son-stage/?utm_campaign=partage",t="Trouver son stage dans le social : 26 640 structures partout en France, la m\u00e9thode et un tableau de suivi gratuits";var n=s.querySelector(".sh-native");if(navigator.share){n.hidden=false;n.onclick=function(){navigator.share({title:t,text:t,url:u}).catch(function(){});};}s.querySelector(".sh-copy").onclick=function(){var ok=s.querySelector(".sh-ok");(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(function(){ok.hidden=false;setTimeout(function(){ok.hidden=true},2500);}).catch(function(){window.prompt("Copiez ce lien :",u);});};})();</script>
+<style>.partage-bandeau{margin:22px 0 0;padding:14px 18px;border:1px dashed var(--line);border-radius:12px}.partage-bandeau p{margin:0;font-size:.95rem}.partage-bandeau .share{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:10px;font-size:.88rem}.partage-bandeau .share a,.partage-bandeau .share button{font:600 .85rem var(--body);background:var(--surface);color:var(--green);border:1.5px solid var(--line);border-radius:999px;padding:5px 12px;text-decoration:none;cursor:pointer}.partage-bandeau .share a:hover,.partage-bandeau .share button:hover{border-color:var(--green)}.partage-bandeau .share .sh-ok{color:var(--green);font-weight:700}.partage-bandeau .insta-ligne{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);font-size:.9rem}.partage-bandeau .lettre-ligne{margin-top:8px;padding-top:0;border-top:0}</style></div></section>
 </main>
 <footer class="site">
   <div class="wrap">
@@ -175,8 +186,8 @@
     </div>
   </div>
 </footer>
-<script src="../assets/js/site.js?v=202610260027"></script>
-<script src="../assets/js/appli.js?v=202610260027"></script>
+<script src="../assets/js/site.js?v=202610260107"></script>
+<script src="../assets/js/appli.js?v=202610260107"></script>
 <script data-goatcounter="https://2aformation.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
