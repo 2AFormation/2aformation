@@ -364,6 +364,7 @@ def main():
         "vae-analyse-domaine-competence": "nos-vae/index.html#analyse-bloc",
         "informations-sur-les-vae": "nos-vae/index.html",
         "mentions-legales": "mention/index.html",
+        "gestes-et-postures-professionnels-en-protection-de-lenfance": "posture-professionnelle-en-travail-social-et-medico-social/index.html",
     }
     for ancien, nouveau in redirections.items():
         cible = os.path.join(SORTIE, ancien, "index.html")

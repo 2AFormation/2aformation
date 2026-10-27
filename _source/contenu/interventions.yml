@@ -26,6 +26,6 @@ sessions:
   - {date: 2026-03, departement: "24", formation: secretaire-en-protection-de-lenfance-institution-et-usagers-quelle-place-quelle-fonction, titre: "Secrétaires en protection de l'enfance", stagiaires: 9}
   - {date: 2026-04, departement: "11", formation: posture-professionnelle-en-travail-social-et-medico-social, titre: "La posture professionnelle", stagiaires: 10}
   - {date: 2026-05, departement: "05", formation: ecrits-professionnels-dans-le-secteur-social-et-medico-social, titre: "Les écrits professionnels", stagiaires: 10}
-  - {date: 2026-05, departement: "11", formation: gestes-et-postures-professionnels-en-protection-de-lenfance, titre: "Gestes et postures professionnels en protection de l'enfance", stagiaires: 12}
+  - {date: 2026-05, departement: "11", formation: posture-professionnelle-en-travail-social-et-medico-social, titre: "Gestes et postures professionnels en protection de l'enfance", stagiaires: 12}
   - {date: 2026-06, departement: "34", formation: aborder-la-sexualite-avec-les-mineurs-en-institution, titre: "Aborder la sexualité avec les mineurs en institution", stagiaires: 13}
   - {date: 2026-09, departement: "05", formation: troubles-de-lattachement-et-carences-affectives, titre: "Troubles de l'attachement et carences affectives", stagiaires: 6}

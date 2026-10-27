@@ -2,39 +2,41 @@ slug: posture-professionnelle-en-travail-social-et-medico-social
 ordre: 14
 theme: Posture et pratiques
 nouveau: true
-titre: La posture professionnelle en travail social et médico-social
+titre: 'Posture et gestes professionnels : protection de l’enfance, social et médico-social'
 jours: 3
 heures: 18
-intro: Cette formation aborde la notion de posture professionnelle dans le social et le médico-social.
-public: L’ensemble des professionnels exerçant dans le social et le médico-social.
+intro: 'Trouver la juste distance, poser un cadre qui sécurise, garder sa place dans une équipe ou face à un groupe : la posture professionnelle se construit au quotidien. Cette formation, animée par deux éducateurs spécialisés en poste, aide les professionnels à analyser leur pratique et à ajuster leurs gestes et leur posture aux besoins des personnes accompagnées et au cadre de leur institution. Les exemples et les mises en situation sont adaptés au public : protection de l’enfance, ou établissements et services sociaux et médico-sociaux.'
+public: L’ensemble des professionnels exerçant en protection de l’enfance, dans le social et le médico-social.
 prerequis: Aucun.
 objectifs:
-- Identifier les enjeux de la relation éducative
-- Questionner ses représentations liées au travail social et à l’accompagnement
-- Accompagner avec une posture professionnelle éthique et déontologique
-- Comprendre la dynamique des groupes restreints et son impact sur la pratique
-- Repérer les outils de gestion de la violence et savoir mobiliser les partenaires
+- Identifier les enjeux de la relation éducative et de la relation d’accompagnement
+- Ajuster sa posture et ses gestes professionnels aux besoins de la personne accompagnée, selon son âge et sa situation
+- Questionner ses représentations et mesurer son implication dans la relation
+- Accompagner avec une posture éthique et déontologique, dans le respect du cadre institutionnel
+- Comprendre la dynamique des groupes restreints et y situer son propre rôle
 programme:
 - titre: Les enjeux de la relation éducative
   points:
-  - Définir la relation éducative
-  - Élaborer une posture en adéquation avec les besoins de la personne et le cadre institutionnel
-  - Évaluer l’implication du professionnel dans la relation éducative
-- titre: Représentations et accompagnement
+  - Définir la relation éducative et la relation d’accompagnement
+  - Juste distance, engagement et implication du professionnel
+  - 'Les gestes professionnels du quotidien : accueillir, rassurer, poser une limite, passer le relais'
+- titre: Posture et besoins de la personne accompagnée
+  points:
+  - 'En protection de l’enfance : les besoins de l’enfant selon son âge et son évolution'
+  - 'Dans le social et le médico-social : les besoins et le pouvoir d’agir de la personne accompagnée'
+  - Élaborer une posture en adéquation avec ces besoins et le cadre institutionnel
+- titre: Représentations, éthique et déontologie
   points:
   - Comprendre sa grille de lecture au regard des représentations sociales et professionnelles
-  - Comprendre le cadre législatif
-  - 'Faire face à la violence : adapter sa posture et définir un cadre éducatif sécurisant'
-- titre: Une posture éthique et déontologique
-  points:
-  - Savoir adapter sa posture professionnelle
   - Définir l’éthique et la déontologie
+  - Comprendre le cadre législatif
+  - Analyser des situations qui interrogent et ajuster sa posture
 - titre: La dynamique des groupes restreints
   points:
-  - Comprendre les enjeux au sein de l’équipe et du groupe de résidents
+  - Comprendre les enjeux au sein de l’équipe et du groupe d’enfants ou de résidents
   - Appréhender le groupe autrement
   - Questionner son propre rôle dans la dynamique observée
-titre_court: La posture professionnelle en travail social et médico-social
+titre_court: Posture et gestes professionnels
 horaires:
 - 9h00 – 12h00
 - 13h00 – 16h00
