@@ -55,3 +55,26 @@ evaluation:
 - Analyse des questionnaires
 - Vérification de l’atteinte des objectifs par des exercices de mise en pratique
 effectif: 10 à 15 personnes
+# Encadré « L'essentiel à savoir » (validé par Alexandre le 31/10/2026), avec balisage FAQPage.
+# Sources vérifiées le 31/10/2026 : fiche mémo HAS (mars 2017, mise à jour octobre 2025) et Code du travail (Légifrance).
+# Question « maladie professionnelle » volontairement absente : article L461-1 du Code de la sécurité sociale modifié au 01/11/2026 (LFSS 2026), à ajouter une fois la nouvelle version publiée.
+essentiel:
+  titre: 'Burn-out professionnel : l’essentiel à savoir'
+  questions:
+  - q: Qu’est-ce que le burn-out ?
+    r: La Haute Autorité de santé le décrit comme un épuisement physique, émotionnel et mental qui résulte d’un investissement prolongé dans des situations de travail exigeantes sur le plan émotionnel. Il associe trois dimensions, l’épuisement émotionnel, le cynisme vis-à-vis du travail (ou dépersonnalisation) et la diminution de l’accomplissement personnel au travail.
+  - q: Pourquoi les métiers du social et du médico-social sont-ils concernés ?
+    r: Parce que la relation d’aide est, par nature, exigeante sur le plan émotionnel. C’est précisément le type de situation de travail que la Haute Autorité de santé associe au syndrome d’épuisement professionnel.
+  - q: Le burn-out est-il une maladie ?
+    r: Selon la Haute Autorité de santé, le syndrome d’épuisement professionnel n’est pas considéré comme une maladie dans les classifications de référence. Il appelle pourtant un repérage et une prise en charge, et ses conséquences sur la santé peuvent être sérieuses.
+  - q: Qui doit le prévenir ?
+    r: L’employeur prend les mesures nécessaires pour assurer la sécurité et protéger la santé physique et mentale des travailleurs, notamment par des actions de prévention, d’information et de formation, et par une organisation et des moyens adaptés (article L4121-1 du Code du travail). La Haute Autorité de santé souligne que l’action sur le milieu de travail est indispensable dans une démarche de prévention du burn-out.
+  - q: Quel est le rôle du médecin du travail ?
+    r: L’analyse du poste et des conditions de travail est réalisée par l’équipe pluridisciplinaire coordonnée par le médecin du travail. Avant un retour au travail, la visite de pré-reprise permet de préparer des aménagements ; le médecin du travail en informe l’employeur, sauf si le salarié s’y oppose.
+  conclusion: 'Repérer les signaux faibles chez soi et chez les collègues, distinguer la fatigue de l’épuisement, construire des appuis collectifs : c’est ce que cette formation permet de travailler avec votre équipe.'
+  verification: 31 octobre 2026
+  sources:
+  - nom: Haute Autorité de santé, fiche mémo « Repérage et prise en charge cliniques du syndrome d’épuisement professionnel ou burnout »
+    url: https://www.has-sante.fr/upload/docs/application/pdf/2017-05/dir56/fiche_memo_burnout.pdf
+  - nom: Code du travail, art. L4121-1
+    url: https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000035640828
