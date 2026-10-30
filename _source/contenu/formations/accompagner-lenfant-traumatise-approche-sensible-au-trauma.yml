@@ -52,3 +52,27 @@ evaluation:
 - Analyse des questionnaires
 - Vérification de l’atteinte des objectifs par l’analyse écrite d’une situation fictive
 effectif: 8 à 12 personnes
+# Encadré « L'essentiel à savoir » (validé par Alexandre le 31/10/2026), avec balisage FAQPage.
+# Sources vérifiées le 31/10/2026 : Légifrance (CASF) et recommandation HAS de mai 2025.
+essentiel:
+  titre: 'Trauma de l’enfant en protection de l’enfance : l’essentiel à savoir'
+  questions:
+  - q: Qu’est-ce qu’une approche sensible au trauma ?
+    r: Ce n’est pas une thérapie. C’est une façon d’organiser le quotidien et la relation éducative en tenant compte de ce que l’enfant a pu vivre. Un comportement déroutant est lu comme une adaptation possible à des expériences de danger, et l’équipe cherche d’abord à renforcer son sentiment de sécurité.
+  - q: Les enfants protégés sont-ils plus exposés aux troubles psychiques ?
+    r: Oui. Selon la Haute Autorité de santé, les enfants qui font l’objet d’une mesure de protection de l’enfance ont un risque plus important de présenter des troubles psychiques et neurodéveloppementaux. Elle recommande de repérer le plus tôt possible leurs besoins de soins (recommandation « Coordination entre protection de l’enfance et psychiatrie de l’enfant et de l’adolescent », mai 2025).
+  - q: Que prévoit la loi pour la santé de l’enfant à son arrivée ?
+    r: Un bilan de santé et de prévention est obligatoirement réalisé dès le début de la mesure, pour tous les mineurs accompagnés notamment par l’aide sociale à l’enfance ou la protection judiciaire de la jeunesse. Il identifie les besoins de prévention et de soins, sur le plan physique et psychique, qui doivent être intégrés au projet pour l’enfant (article L223-1-1 du Code de l’action sociale et des familles).
+  - q: L’éducateur doit-il poser un diagnostic ?
+    r: Non. Le diagnostic et les soins relèvent des professionnels de santé. Le rôle de l’équipe éducative est d’observer, de décrire précisément ce qu’elle voit et de le transmettre. La Haute Autorité de santé prévoit par exemple une fiche de liaison pour transmettre ces informations avant un premier rendez-vous en psychiatrie.
+  - q: Sur quoi s’appuyer pour ajuster l’accompagnement ?
+    r: Sur les besoins fondamentaux de l’enfant. La loi rappelle que la protection de l’enfance vise à garantir leur prise en compte, à soutenir son développement physique, affectif, intellectuel et social et à préserver sa santé et sa sécurité, en l’associant aux décisions qui le concernent selon sa maturité (article L112-3 du Code de l’action sociale et des familles).
+  conclusion: 'Comprendre ce qu’un comportement protège, ajuster le cadre sans renoncer aux limites, prendre soin de l’équipe qui accompagne au quotidien : c’est ce que cette formation permet de travailler avec vos professionnels, à partir de situations fictives proches de votre réalité.'
+  verification: 31 octobre 2026
+  sources:
+  - nom: Haute Autorité de santé, recommandation de mai 2025
+    url: https://www.has-sante.fr/jcms/p_3261731/fr/coordination-entre-protection-de-l-enfance-et-psychiatrie-de-l-enfant-et-de-l-adolescent
+  - nom: Code de l’action sociale et des familles, art. L223-1-1
+    url: https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000045136789
+  - nom: art. L112-3
+    url: https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000045136781
