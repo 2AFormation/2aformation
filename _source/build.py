@@ -122,8 +122,12 @@ def main():
             "hasCourseInstance": {"@type": "CourseInstance", "courseMode": "Onsite",
                                   "courseWorkload": f"PT{f['heures']}H"},
         }
+        if f.get("essentiel"):  # encadré « L'essentiel à savoir » : balisage FAQPage en plus du Course (30/10/2026)
+            jsonld = [jsonld, {"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "fr",
+                               "mainEntity": [{"@type": "Question", "name": x["q"], "acceptedAnswer": {"@type": "Answer", "text": x["r"]}}
+                                              for x in f["essentiel"]["questions"]]}]
         ecrire(f"{f['slug']}/index.html", "formation.html", rubrique="formations", f=f,
-               jsonld=json.dumps(jsonld, ensure_ascii=False),
+               jsonld=json.dumps(jsonld, ensure_ascii=False).replace("</", "<\\/"),
                titre_page=seo_formations[f["slug"]][0] if f["slug"] in seo_formations else f"{f['titre_court']} · Formation · 2aFormation",
                description=seo_formations[f["slug"]][1] if f["slug"] in seo_formations else f"Formation de {f['jours']} jours ({f['heures']} h) en intra : {f['intro'][:120]}…")
     # Questions fréquentes de la page VAE (contenu/vae_faq.yml), avec balisage FAQPage (22/10/2026).
