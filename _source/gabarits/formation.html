@@ -31,7 +31,7 @@
         <p style="margin:0">{{ x.r }}</p>
         {% endfor %}
         {% if f.essentiel.conclusion is defined %}<p style="margin:20px 0 10px"><em>{{ f.essentiel.conclusion }}</em></p>{% endif %}
-        <p class="muted" style="font-size:.84rem">Sources (Légifrance, vérifiées le {{ f.essentiel.verification }}) : {% for s in f.essentiel.sources %}<a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.nom }}</a>{{ ", " if not loop.last else "." }}{% endfor %}</p>
+        <p class="muted" style="font-size:.84rem">Sources officielles, vérifiées le {{ f.essentiel.verification }} : {% for s in f.essentiel.sources %}<a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.nom }}</a>{{ ", " if not loop.last else "." }}{% endfor %}</p>
       </div>
       {% endif %}
       <div class="block two">
