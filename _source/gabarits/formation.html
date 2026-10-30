@@ -23,6 +23,17 @@
           {% endfor %}
         </ol>
       </div>
+      {# Encadré « L'essentiel à savoir » (questions fréquentes, balisage FAQPage dans build.py), ajouté le 30/10/2026 #}
+      {% if f.essentiel is defined %}
+      <div class="block essentiel">
+        <h2>{{ f.essentiel.titre }}</h2>
+        {% for x in f.essentiel.questions %}<h3 style="margin:20px 0 6px;font-size:1.05rem">{{ x.q }}</h3>
+        <p style="margin:0">{{ x.r }}</p>
+        {% endfor %}
+        {% if f.essentiel.conclusion is defined %}<p style="margin:20px 0 10px"><em>{{ f.essentiel.conclusion }}</em></p>{% endif %}
+        <p class="muted" style="font-size:.84rem">Sources (Légifrance, vérifiées le {{ f.essentiel.verification }}) : {% for s in f.essentiel.sources %}<a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.nom }}</a>{{ ", " if not loop.last else "." }}{% endfor %}</p>
+      </div>
+      {% endif %}
       <div class="block two">
         <div><h2>Méthodes pédagogiques</h2><ul class="ticks">{% for p in f.pedagogie %}<li>{{ p }}</li>{% endfor %}</ul></div>
         <div><h2>Évaluation</h2><ul class="ticks">{% for p in f.evaluation %}<li>{{ p }}</li>{% endfor %}</ul></div>
