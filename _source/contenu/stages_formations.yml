@@ -20,6 +20,15 @@ formations:
   - "Variez les publics : un stage en protection de l'enfance, un autre en handicap ou en insertion. Les jurys et les employeurs apprécient un parcours qui montre votre capacité d'adaptation."
   - "Le stage long est souvent celui qui ouvre la porte du premier poste : choisissez-le dans un secteur où vous vous voyez travailler."
   - "Préparez-vous aux horaires d'internat (soirées, week-ends) dans les MECS et les foyers : c'est là que se joue une grande partie du travail éducatif."
+  # Partie « Faire son stage en protection de l'enfance » (03/11/2026, validée par Alexandre) : recherche Google fréquente.
+  focus:
+    surtitre: Protection de l'enfance
+    titre: Faire son stage d'éducateur spécialisé en protection de l'enfance
+    paragraphes:
+    - "C'est l'un des premiers terrains de stage des futurs éducateurs spécialisés. On y accompagne des enfants et des adolescents qui ne peuvent pas, pour un temps, vivre chez leurs parents, ou dont la famille est soutenue à domicile."
+    - "<b>Où chercher :</b> en internat, dans une <a href='/trouver-son-stage/structures/#mecs'>MECS</a> ou un <a href='/trouver-son-stage/structures/#foyer-enfance'>foyer de l'enfance</a>, qui accueille souvent en urgence ; dans un <a href='/trouver-son-stage/structures/#lva'>lieu de vie et d'accueil</a> ou un <a href='/trouver-son-stage/structures/#placement-familial'>service de placement familial</a> ; en milieu ouvert, dans un service d'<a href='/trouver-son-stage/structures/#aemo'>AEMO ou d'AED</a>, ou en <a href='/trouver-son-stage/structures/#prevention-specialisee'>prévention spécialisée</a>, dans la rue et les quartiers."
+    - "<b>Ce qu'on y apprend :</b> la relation éducative au quotidien, le travail avec les familles, les écrits transmis au service de l'aide sociale à l'enfance et au juge des enfants, et le travail en équipe avec les psychologues, les assistants de service social et les partenaires."
+    - "<b>Notre conseil d'éducateurs en poste :</b> vous entendrez des histoires difficiles. Dès l'appel, demandez comment l'équipe reprend les situations lourdes (réunions, analyse des pratiques) et si le stagiaire y participe. En milieu ouvert, profitez des visites à domicile en binôme pour observer la posture d'un professionnel avant de mener vous-même un entretien."
 - slug: moniteur-educateur
   sigle: DEME
   titre: moniteur-éducateur
