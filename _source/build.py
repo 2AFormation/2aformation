@@ -260,13 +260,22 @@ def main():
     seo_stages = {  # titres Google raccourcis (référencement, 19/10/2026)
         "conseiller-en-economie-sociale-familiale": "Stage CESF (conseiller en économie sociale familiale) : structures et conseils · 2aFormation",
         "educateur-de-jeunes-enfants": "Stage EJE (éducateur de jeunes enfants) : structures, durée, conseils · 2aFormation",
+        # Titres et descriptions revus le 03/11/2026 (pages vues souvent dans Google mais peu cliquées)
+        "educateur-specialise": "Stage éducateur spécialisé (DEES) : durée, lieux, annuaire · 2aFormation",
+        "moniteur-educateur": "Stage moniteur-éducateur (DEME) : durée, lieux, annuaire · 2aFormation",
+        "accompagnant-educatif-et-social": "Stage AES (DEAES) : 840 heures, où chercher, annuaire · 2aFormation",
+    }
+    seo_stages_desc = {
+        "educateur-specialise": "55 semaines de stage sur trois ans (60 pour les promotions entrées avant 2026) : ce que dit le DEES, où chercher (protection de l'enfance, handicap…) et un annuaire gratuit autour de chez vous.",
+        "moniteur-educateur": "1 050 heures de stage sur au moins deux sites, dont un en hébergement : ce que dit le DEME, où chercher et un annuaire gratuit des structures autour de chez vous.",
+        "accompagnant-educatif-et-social": "840 heures de stage en parcours complet : ce que dit le DEAES, où chercher (handicap, grand âge, domicile) et un annuaire gratuit des structures autour de chez vous.",
     }
     for f in fo["formations"]:
         f["types"] = [t for t in f["types"] if t in gm]
         ecrire(f"trouver-son-stage/formation/{f['slug']}/index.html", "stages_formation.html", rubrique="etudiants", f=f, gm=gm,
                toutes=fo["formations"], v=fo["verification"],
                titre_page=seo_stages.get(f["slug"], f"Trouver son stage {f['de']} ({f['sigle']}) : durée, structures, conseils · 2aFormation"),
-               description=f"Stage {f['de']} : ce que dit la formation ({f['sigle']}), les structures où chercher, nos conseils d'éducateurs et la recherche autour de chez vous. Gratuit.")
+               description=seo_stages_desc.get(f["slug"], f"Stage {f['de']} : ce que dit la formation ({f['sigle']}), les structures où chercher, nos conseils d'éducateurs et la recherche autour de chez vous. Gratuit."))
     ecrire("nouveautes-etudiants/index.html", "nouveautes_etudiants.html", rubrique="etudiants",
            titre_page="Nouveautés étudiants : la lettre gratuite de 2A Formation · 2aFormation",
            description="Un e-mail par mois au plus pour connaître les nouveaux outils gratuits pour ton stage et ta formation en travail social : recherche de stage, règles vérifiées, guides. Gratuit, sans publicité.")
