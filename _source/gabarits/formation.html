@@ -25,7 +25,7 @@
       </div>
       {# Encadré « L'essentiel à savoir » (questions fréquentes, balisage FAQPage dans build.py), ajouté le 30/10/2026 #}
       {% if f.essentiel is defined %}
-      <div class="block essentiel">
+      <div class="block essentiel" id="essentiel">
         <h2>{{ f.essentiel.titre }}</h2>
         {% for x in f.essentiel.questions %}<h3 style="margin:20px 0 6px;font-size:1.05rem">{{ x.q }}</h3>
         <p style="margin:0">{{ x.r }}</p>
