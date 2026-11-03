@@ -45,6 +45,12 @@
 
 <div class="head" style="margin-top:34px"><p class="eyebrow">Nos conseils</p><h2>Ce qu'on dirait à un étudiant {{ f.sigle }}</h2></div>
 <ul class="cons">{% for c in f.conseils %}<li>{{ c }}</li>{% endfor %}</ul>
+{# Partie thématique facultative (champ « focus » de stages_formations.yml), ajoutée le 03/11/2026 #}
+{% if f.focus is defined %}
+<div class="head" style="margin-top:34px" id="{{ f.focus.surtitre|lower|replace(' ','-')|replace("'",'-') }}"><p class="eyebrow">{{ f.focus.surtitre }}</p><h2>{{ f.focus.titre }}</h2></div>
+{% for para in f.focus.paragraphes %}<p style="margin-top:10px">{{ para|safe }}</p>
+{% endfor %}
+{% endif %}
 
 <div class="head" style="margin-top:34px"><p class="eyebrow">Vos outils gratuits</p><h2>Pour aller plus loin</h2></div>
 <div class="outils">
