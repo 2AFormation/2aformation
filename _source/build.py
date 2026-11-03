@@ -91,11 +91,11 @@ def main():
         pages.append(chemin)
 
     ecrire("index.html", "accueil.html", rubrique="accueil",
-           titre_page="2aFormation · Formations en protection de l'enfance et accompagnement VAE",
-           description="Organisme de formation certifié Qualiopi : formations en intra pour les équipes du social et de la protection de l'enfance, analyse des pratiques et accompagnement VAE (DEES, DEASS, DEME…). Interventions dans toute la France.")
+           titre_page="2A Formation · Formation protection de l'enfance en intra, Qualiopi",
+           description="Organisme certifié Qualiopi fondé par deux éducateurs spécialisés en poste : formations en intra pour vos équipes (secret professionnel, écrits, trauma, crise…), analyse des pratiques et VAE. Partout en France.")
     ecrire("formations/index.html", "formations.html", rubrique="formations",
-           titre_page="Formations en intra pour la protection de l'enfance et le médico-social · 2aFormation",
-           description=f"{len(formations)} formations en intra pour les équipes du social, du médico-social et de la protection de l'enfance. Deux formateurs de terrain, partout en France.")
+           titre_page=f"{len(formations)} formations en intra : protection de l'enfance et social · 2A Formation",
+           description=f"Catalogue {site.get('annee_catalogue', datetime.date.today().year + 1)} : {len(formations)} formations en intra dans vos locaux, animées par des professionnels de terrain. Secret professionnel, écrits, trauma, crise et contention, burn-out…")
     # Titres et descriptions Google de certaines fiches (référencement, 19/10/2026) ; les autres restent automatiques.
     seo_formations = {
         "le-secret-professionnel-et-son-partage-entre-ethique-et-deontologie": (
