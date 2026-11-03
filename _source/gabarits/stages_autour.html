@@ -96,6 +96,7 @@
 <label>Ma formation<select id="fo"><option value="">Toutes les formations</option></select></label>
 </div>
 <p class="count"><span id="count" aria-live="polite"></span> · <button class="addall" id="addall" type="button">Ajouter ces résultats à ma liste</button></p>
+{% with src="autour" %}{% include "insta_encart.html" %}{% endwith %}
 <div class="list" id="list"></div>
 <div class="more"><button class="btn ghost" id="more" type="button">Afficher plus</button></div>
 </div>

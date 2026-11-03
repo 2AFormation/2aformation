@@ -1,0 +1,11 @@
+{# Encart « Instagram » (plan d'attaque Instagram validé par Alexandre le 03/11/2026) : visible après une recherche « Autour de chez moi » et dans le kit candidature. Gratuit, aucune offre payante. Variable attendue : src (autour, kit). #}
+<style>
+.insta-encart{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;justify-content:space-between;background:var(--green-soft);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:12px;padding:14px 20px;margin:6px 0 18px}
+.insta-encart p{margin:0;font-size:.95rem;max-width:620px}
+.insta-encart p b{display:block;font-size:1.02rem;color:var(--green)}
+.insta-encart a.btn{white-space:nowrap}
+</style>
+<aside class="insta-encart" aria-label="Suivre 2A Formation sur Instagram">
+<p><b>📸 Une astuce de stage par semaine, par deux éducs spé</b>Recherche, appel, lettre, premier jour : des conseils courts et gratuits sur Instagram.</p>
+<a class="btn primary" href="https://www.instagram.com/2a.formation/" target="_blank" rel="noopener" data-goatcounter-click="insta-encart-{{ src }}">Suivre @2a.formation</a>
+</aside>
