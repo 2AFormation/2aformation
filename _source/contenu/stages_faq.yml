@@ -32,7 +32,7 @@ blocs:
   - q: La structure peut-elle me faire occuper un poste ?
     r: "Non. Un stagiaire ne peut pas remplacer un salarié absent, occuper un poste permanent, faire face à un surcroît d'activité ou tenir un emploi saisonnier. Vos missions doivent correspondre au projet pédagogique de votre formation. Il est aussi interdit de vous confier des tâches dangereuses pour votre santé ou votre sécurité. Si vous avez un doute, parlez-en à votre référent de formation."
   - q: Puis-je parler de ce que je vois en stage ?
-    r: "Avec beaucoup de prudence. Vous êtes tenu à la discrétion professionnelle et, dans de nombreux services (protection de l'enfance notamment), au secret professionnel. Dans vos écrits de formation, anonymisez tout ce qui permettrait de reconnaître une personne ou une structure. Et ne confiez jamais une situation réelle à une IA."
+    r: "Avec beaucoup de prudence. Vous êtes tenu à la discrétion professionnelle et, dans de nombreux services (protection de l'enfance notamment), au secret professionnel. Dans vos écrits de formation, anonymisez tout ce qui permettrait de reconnaître une personne ou une structure. Et ne confiez jamais une situation réelle à une IA. Pour connaître les règles exactes, lisez <a href='/le-secret-professionnel-et-son-partage-entre-ethique-et-deontologie/#essentiel'>ce que dit la loi sur le secret professionnel et le secret partagé</a>."
   - q: Et si le stage s'interrompt ?
     r: "Un stage interrompu pour maladie, accident, maternité, paternité ou adoption, pour non-respect de la convention ou parce que la structure y met fin peut être validé par votre établissement de formation. La fin du stage peut aussi être reportée si tous les signataires de la convention sont d'accord."
 - titre: Cas particuliers
