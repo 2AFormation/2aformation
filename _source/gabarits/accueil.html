@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% from "macros.html" import proof, catalogue, cta, avis %}
+{% block jsonld %}<script type="application/ld+json">{{ org_ld|safe }}</script>{% endblock %}
 {% block contenu %}
 <div class="wrap hero">
   <div class="hero-grid">
