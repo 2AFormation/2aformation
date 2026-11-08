@@ -1,11 +1,14 @@
 # Questions fréquentes de la page Accompagnement VAE (nos-vae/), avec balisage FAQPage.
 # Réponses vérifiées le 22/10/2026 : Code du travail, art. L6411-1 et L6323-6 (Légifrance).
+# Question DEAES ajoutée le 08/11/2026 : fiche France compétences RNCP42423 consultée le 08/11/2026.
 # {prix_min}, {prix_max}, {formule_min} et {formule_max} sont remplacés par les tarifs de contenu/vae.yml.
 questions:
   - q: Qui peut faire une VAE pour un diplôme du travail social ?
     r: "Toute personne qui justifie d'une activité en rapport direct avec le diplôme visé : expérience salariée, bénévole, indépendante, stages… Depuis la réforme de décembre 2022, il n'y a plus de durée minimale d'expérience fixée par la loi (article L6411-1 du Code du travail). Certains financements gardent leurs propres conditions : Transitions Pro demande par exemple au moins 12 mois d'expérience en lien avec le diplôme."
   - q: Pour quels diplômes nous accompagnez-vous ?
     r: "Pour six diplômes d'État du travail social : éducateur spécialisé (DEES), assistant de service social (DEASS), conseiller en économie sociale familiale (DECESF), éducateur de jeunes enfants (DEEJE), moniteur-éducateur (DEME) et accompagnant éducatif et social (DEAES)."
+  - q: Peut-on obtenir le DEAES par la VAE ?
+    r: "Oui. Le diplôme d'État d'accompagnant éducatif et social (DEAES, niveau 3, fiche RNCP42423, délivré par le ministère chargé de la solidarité) est accessible par la VAE. Il comporte cinq blocs de compétences : le jury peut valider tout le diplôme ou une partie des blocs. La fiche France compétences indique aussi qu'il faut détenir l'attestation de formation aux gestes et soins d'urgence de niveau 2 (AFGSU 2) pour valider le diplôme. Nous vous accompagnons de la faisabilité jusqu'au jury."
   - q: Comment se déroule une VAE ?
     r: "Quatre grandes étapes : la recevabilité (votre dossier de faisabilité est accepté par le certificateur), la rédaction du dossier de validation, souvent appelé livret 2, l'entretien avec le jury, puis la décision. Nous vous accompagnons de la faisabilité jusqu'au jury, avec un oral blanc."
   - q: Le diplôme est-il garanti à l'issue de la VAE ?
