@@ -44,6 +44,16 @@ formations:
   - "Gardez en tête l'obligation d'un stage avec hébergement : MECS, foyer de vie, foyer d'hébergement, FAM, MAS, CHRS… Cherchez-le en priorité."
   - "Le support d'activité (sport, cuisine, atelier, jeu) est votre force : mentionnez-le dans votre lettre et à l'entretien."
   - "Les foyers de vie et les foyers d'hébergement pour adultes reçoivent souvent moins de demandes que les structures pour enfants."
+  # Partie ajoutée le 08/11/2026 (recherches « projet de stage moniteur éducateur », « projet initial ME », « dossier thématique ME ») ;
+  # épreuves vérifiées le 08/11/2026 dans l'arrêté du 5 juillet 2024, annexe IV (JO n° 159 du 6 juillet 2024).
+  focus:
+    surtitre: Écrits de formation
+    titre: "Projet de stage, dossier, note de réflexion : ce que demande vraiment le DEME"
+    paragraphes:
+    - "Projet de stage, projet initial, dossier thématique : ces intitulés reviennent souvent, mais ils n'apparaissent pas dans l'<a href='https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000049889174' target='_blank' rel='noopener'>arrêté du 5 juillet 2024</a> qui définit le diplôme. Quand on vous les demande, ce sont des travaux propres à votre établissement de formation : leurs consignes (longueur, plan, date de rendu) sont celles de votre école, à suivre en priorité."
+    - "<b>Les trois épreuves du diplôme (entrés en formation depuis septembre 2024) :</b> pour le bloc 1, une note de réflexion de 8 à 10 pages sur votre parcours de formation théorique et pratique, soutenue à l'oral pendant 30 minutes devant un formateur et un professionnel ; pour le bloc 2, un dossier de pratiques professionnelles de 10 à 12 pages, construit à partir de vos stages ou de votre activité professionnelle, soutenu à l'oral pendant 30 minutes en centre d'examen ; pour le bloc 3, une étude de cas écrite d'une heure. Chaque bloc se valide séparément, avec au moins 10 sur 20."
+    - "<b>Ce que ça change pour vos stages :</b> dès le premier jour, notez les situations qui vous questionnent et ce que vous y avez fait, sans nom ni détail qui permette de reconnaître quelqu'un. Elles nourriront le dossier de pratiques professionnelles. Gardez aussi une trace de l'évolution de votre posture d'un stage à l'autre : c'est le cœur de la note de réflexion."
+    - "<b>Notre conseil d'éducateurs en poste :</b> même si votre école ne demande pas de projet de stage écrit, présentez le vôtre à votre référent la première semaine : ce que vous voulez apprendre, les activités que vous aimeriez mener. C'est le meilleur moyen de vivre les situations dont vos écrits auront besoin."
 - slug: assistant-de-service-social
   sigle: DEASS
   titre: assistant de service social
