@@ -90,7 +90,22 @@ def main():
             fh.write(html)
         pages.append(chemin)
 
-    ecrire("index.html", "accueil.html", rubrique="accueil",
+    # Fiche « organisme » lisible par Google sur l'accueil (08/11/2026) : nom, logo, coordonnées, certification Qualiopi.
+    coord = site["contact"]
+    org_ld = json.dumps({
+        "@context": "https://schema.org", "@type": "EducationalOrganization",
+        "name": "2A Formation", "alternateName": "2aFormation", "url": site["url"],
+        "logo": f"{site['url']}/assets/img/logo.png",
+        "description": "Organisme de formation du travail social certifié Qualiopi : formations en intra pour les équipes de la protection de l'enfance, analyse des pratiques et accompagnement VAE.",
+        "email": coord["email"], "telephone": "+33" + coord["telephones"][0]["numero"].replace(" ", "")[1:],
+        "address": {"@type": "PostalAddress", "streetAddress": coord["adresse_ligne1"],
+                    "postalCode": coord["adresse_ligne2"].split()[0], "addressLocality": " ".join(coord["adresse_ligne2"].split()[1:]),
+                    "addressCountry": "FR"},
+        "areaServed": {"@type": "Country", "name": "France"},
+        "founder": [{"@type": "Person", "name": "Alexandre Bigot"}, {"@type": "Person", "name": "Antoine Gadiou"}],
+        "sameAs": [coord["linkedin"]],
+    }, ensure_ascii=False).replace("</", "<\\/")
+    ecrire("index.html", "accueil.html", rubrique="accueil", org_ld=org_ld,
            titre_page="2A Formation · Formation protection de l'enfance en intra, Qualiopi",
            description="Organisme certifié Qualiopi fondé par deux éducateurs spécialisés en poste : formations en intra pour vos équipes (secret professionnel, écrits, trauma, crise…), analyse des pratiques et VAE. Partout en France.")
     ecrire("formations/index.html", "formations.html", rubrique="formations",
@@ -392,11 +407,31 @@ def main():
                      f'<body><p>Cette page a été déplacée : <a href="../{nouveau}">continuer</a>.</p></body></html>')
 
     aujourdhui = datetime.date.today().isoformat()
+    # Vraie date de mise à jour par page (08/11/2026) : on compare chaque page à la version déjà publiée
+    # (racine du dépôt), sans tenir compte du numéro de version des fichiers CSS/JS (?v=…) qui change à chaque construction.
+    # Page identique : on garde la date de l'ancien plan du site ; page nouvelle ou modifiée : date du jour.
+    racine = os.path.dirname(ICI)
+    anciennes_dates = {}
+    try:
+        with open(os.path.join(racine, "sitemap.xml"), encoding="utf-8") as fh:
+            anciennes_dates = dict(re.findall(r"<loc>([^<]+)</loc><lastmod>([^<]+)</lastmod>", fh.read()))
+    except OSError:
+        pass
+
+    def date_maj(chemin, adresse):
+        try:
+            with open(os.path.join(racine, chemin), encoding="utf-8") as fa, open(os.path.join(SORTIE, chemin), encoding="utf-8") as fb:
+                identique = re.sub(r"\?v=\d+", "", fa.read()) == re.sub(r"\?v=\d+", "", fb.read())
+        except OSError:
+            identique = False
+        return anciennes_dates.get(adresse, aujourdhui) if identique else aujourdhui
+
     with open(os.path.join(SORTIE, "sitemap.xml"), "w", encoding="utf-8") as fh:
         fh.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
         for c in pages:
             if c not in ("404.html", "catalogue/index.html") and "/merci-" not in c and "/envoi-" not in c and not c.startswith("evaluation/") and c != "appli/suivi/index.html":
-                fh.write(f"  <url><loc>{site['url']}/{c[:-len('index.html')] if c.endswith('index.html') else c}</loc><lastmod>{aujourdhui}</lastmod></url>\n")
+                adresse = f"{site['url']}/{c[:-len('index.html')] if c.endswith('index.html') else c}"
+                fh.write(f"  <url><loc>{adresse}</loc><lastmod>{date_maj(c, adresse)}</lastmod></url>\n")
         fh.write("</urlset>\n")
     with open(os.path.join(SORTIE, "robots.txt"), "w", encoding="utf-8") as fh:
         fh.write(f"User-agent: *\nAllow: /\nSitemap: {site['url']}/sitemap.xml\n")
