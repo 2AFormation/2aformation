@@ -100,7 +100,10 @@ def main():
     seo_formations = {
         "le-secret-professionnel-et-son-partage-entre-ethique-et-deontologie": (
             "Formation secret professionnel et secret partagé (intra, 2 jours) · 2aFormation",
-            "Formation en intra de 2 jours (12 h) sur le secret professionnel et le partage d'information dans le social et le médico-social : cadre légal, éthique et pratique."),
+            "Formation en intra de 2 jours (12 h) sur le secret professionnel et le secret partagé dans le social et le médico-social : cadre légal, éthique et pratique du partage d'information."),
+        "ecrits-professionnels-dans-le-secteur-social-et-medico-social": (  # 08/11/2026 : recherches « formation écrits professionnels travail social »
+            "Formation écrits professionnels en travail social et médico-social (intra, 3 jours) · 2aFormation",
+            "Formation en intra de 3 jours (18 h) sur les écrits professionnels du social et du médico-social : cadre légal, rapport de situation, écrits au juge, objectivité."),
         "le-burn-out-professionnel": (
             "Formation prévention du burn-out des professionnels du social (intra, 2 jours) · 2aFormation",
             "Formation en intra de 2 jours (12 h) pour comprendre les mécanismes du burn-out professionnel, le repérer, le prévenir et accompagner les personnes concernées."),
