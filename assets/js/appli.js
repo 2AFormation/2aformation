@@ -1,10 +1,10 @@
 /* 2aFormation — application installable « 2A Stages » (espace étudiants gratuit).
    1. Enregistre le service worker (sw.js) sur les pages étudiantes et dans l'application installée.
-   2. Propose l'installation sur téléphone (petite barre discrète, refermable) et gère la page /appli/.
+   2. Propose l'installation sur téléphone (petite barre discrète, refermable, montrée seulement après une recherche ou une structure ajoutée) et gère la page /appli/.
       Bouton permanent « 📱 Appli gratuite » (26/10/2026) : toujours visible sur téléphone, sur toutes les pages étudiantes,
       sauf quand la barre est affichée, quand la liste de structures est ouverte en bas de l'écran, ou si l'appli est déjà installée.
    3. Dans l'application installée : barre de titre, onglets en bas (Accueil, Autour, Mon suivi, Kit, Plus).
-   Mesures GoatCounter : « appli-installee », « appli-premiere-ouverture », « appli-clic-installer », « appli-barre-fermee », « appli-bouton-permanent » ;
+   Mesures GoatCounter : « appli-installee », « appli-premiere-ouverture », « appli-clic-installer », « appli-barre-fermee », « appli-bouton-permanent », « appli-premiere-ouverture-iphone », « appli-premiere-ouverture-android », « appli-guide-iphone-vu » ;
    les ouvertures de l'application arrivent avec la source « appli » (paramètre utm_source du manifeste). */
 (function () {
   var BARRE_ACTIVE = true; // passer à false pour retirer la barre d'installation des pages étudiantes
@@ -37,6 +37,7 @@
     (function attendreGoatCounter() {
       if (window.goatcounter && window.goatcounter.count) {
         compter('appli-premiere-ouverture', "Première ouverture de l'application installée");
+        compter(ios ? 'appli-premiere-ouverture-iphone' : 'appli-premiere-ouverture-android', ios ? "Première ouverture de l'application (iPhone)" : "Première ouverture de l'application (Android)");
         ecrire('appli-premiere-ouverture', String(Date.now()));
       } else if (essais++ < 40) {
         setTimeout(attendreGoatCounter, 500);
@@ -56,6 +57,11 @@
   }
 
   // 2. Page /appli/ : afficher les bonnes consignes selon le téléphone
+  function compterGuideIphone() {
+    if (!ios || installee || chemin.indexOf('/appli/') !== 0 || lire('appli-guide-iphone-vu')) return;
+    ecrire('appli-guide-iphone-vu', String(Date.now()));
+    compter('appli-guide-iphone-vu', "Guide d'installation iPhone affiché");
+  }
   function preparerPage() {
     var q = function (s) { return document.querySelectorAll(s); };
     q('[data-appli-si-installee]').forEach(function (el) { el.hidden = !installee; });
@@ -78,9 +84,23 @@
   // 3. Barre d'installation sur les pages étudiantes (téléphone uniquement, refermable 60 jours)
   var barre = null;
   function barreAutorisee() {
-    if (!BARRE_ACTIVE || installee || !pageBarre || !mobile || vues < 2) return false;
+    if (!BARRE_ACTIVE || installee || !pageBarre || !mobile || !aAgi()) return false;
     var fermee = parseInt(lire('appli-barre-fermee') || '0', 10);
     return !fermee || (Date.now() - fermee) > 60 * 24 * 3600 * 1000;
+  }
+  // L'étudiant a agi : une recherche « Autour de moi » est affichée, ou au moins une structure est dans sa liste ou son suivi.
+  function aAgi() {
+    var apres = document.getElementById('apres');
+    if (apres && !apres.hidden) return true;
+    try {
+      for (var i = 0; i < localStorage.length; i++) {
+        var k = localStorage.key(i) || '';
+        if (k === '2a-stages-autour' || /^2a-stages-[0-9AB]{2,3}-suivi$/.test(k)) {
+          if (Object.keys(JSON.parse(localStorage.getItem(k) || '{}')).length) return true;
+        }
+      }
+    } catch (e) {}
+    return false;
   }
   function montrerBarre() {
     if (barre || !barreAutorisee()) return;
@@ -250,10 +270,16 @@
 
   function demarrer() {
     preparerPage();
+    compterGuideIphone();
     if (installee) habiller();
     montrerBouton();
-    // Après 4 secondes : « Installer » si le navigateur le permet (Android), sinon « Comment ? » vers les consignes de /appli/.
-    setTimeout(montrerBarre, 4000);
+    // Barre montrée seulement après une action de l'étudiant (recherche, structure ajoutée) : on revérifie toutes les 3 secondes pendant 10 minutes.
+    // « Installer » si le navigateur le permet (Android), sinon « Comment ? » vers les consignes de /appli/.
+    var essaisBarre = 0;
+    var veille = setInterval(function () {
+      montrerBarre();
+      if (barre || ++essaisBarre > 200 || !barreAutorisee() && !pageBarre) clearInterval(veille);
+    }, 3000);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', demarrer); else demarrer();
 })();
