@@ -14,6 +14,14 @@
 .fq .rep a{font-weight:700}
 .srcs{font-size:.84rem;color:var(--muted);margin-top:28px}
 .srcs a{color:var(--muted)}
+.calc{background:var(--surface);border:2px solid var(--green);border-radius:12px;padding:20px 22px;margin:18px 0 10px}
+.calc h3{margin:0 0 6px}
+.calc .champs{display:flex;flex-wrap:wrap;gap:14px;margin:14px 0}
+.calc label{display:flex;flex-direction:column;gap:6px;font-weight:700;font-size:.9rem;flex:1 1 190px}
+.calc input{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:8px;width:100%;box-sizing:border-box}
+.calc .res{border-radius:10px;padding:14px 16px;font-size:.95rem;background:var(--bg)}
+.calc .res b.oui{color:var(--green)}
+.calc .note{font-size:.84rem;color:var(--muted);margin:10px 0 0}
 </style>{% endblock %}
 {% block contenu %}
 <div class="wrap">
@@ -26,7 +34,43 @@
 <section style="padding-top:0"><div class="wrap fq">
 {% for b in f.blocs %}<h2>{{ b.titre }}</h2>
 {% for x in b.questions %}<details{% if loop.first and loop.index0 == 0 and b == f.blocs[0] %} open{% endif %}><summary>{{ x.q }}</summary><div class="rep">{{ x.r|safe }}</div></details>
-{% endfor %}{% endfor %}
+{% endfor %}{% if b.titre == "La convention et la gratification" %}
+<div class="calc" id="calculateur">
+<h3>Calculer ma gratification</h3>
+<p style="margin:0">Indiquez votre stage dans cette structure : le calcul vous dit si la gratification est obligatoire et donne une estimation du minimum légal.</p>
+<div class="champs">
+<label>Durée du stage (en semaines)<input id="cg-sem" type="number" min="0" max="52" step="0.5" value="10" inputmode="decimal"></label>
+<label>Heures de présence par semaine<input id="cg-h" type="number" min="0" max="48" step="0.5" value="35" inputmode="decimal"></label>
+<label>Heures déjà faites dans cette structure cette année (sinon 0)<input id="cg-av" type="number" min="0" step="1" value="0" inputmode="numeric"></label>
+</div>
+<div class="res" id="cg-res" aria-live="polite"></div>
+<p class="note">Estimation sur le minimum légal de 4,50 € par heure de présence en 2026 (15 % du plafond horaire de la sécurité sociale, 30 €). Les absences et les jours fériés non travaillés diminuent les heures de présence. Une convention collective ou un accord peut prévoir plus. Le montant officiel est celui de votre convention de stage : vérifiez-le avec votre établissement de formation.</p>
+<p class="note">Sources (vérifiées le 13/11/2026) : code de l'éducation, articles <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000029234400" target="_blank" rel="noopener">L. 124-6</a>, <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000029814160" target="_blank" rel="noopener">D. 124-6</a> et <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000029814165" target="_blank" rel="noopener">D. 124-8</a> ; code de la sécurité sociale, article <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000033516173" target="_blank" rel="noopener">D. 242-19</a> ; <a href="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053143451" target="_blank" rel="noopener">arrêté du 22 décembre 2025</a> (plafond 2026).</p>
+</div>
+<script>
+(function(){
+var TAUX=4.5,SEUIL=308; /* 2026 : 4,50 €/h ; seuil = 2 mois = 44 jours de 7 h. Revérifier chaque 1er janvier. */
+function n(id){var v=parseFloat(String(document.getElementById(id).value).replace(',','.'));return isFinite(v)&&v>0?v:0}
+function e(x){return x.toLocaleString('fr-FR',{minimumFractionDigits:2,maximumFractionDigits:2})+' €'}
+function h(x){return x.toLocaleString('fr-FR',{maximumFractionDigits:1})+' h'}
+function calc(){
+var sem=n('cg-sem'),hs=n('cg-h'),av=n('cg-av'),stage=sem*hs,tot=stage+av,r=document.getElementById('cg-res');
+if(!stage){r.innerHTML='Indiquez la durée du stage et vos heures par semaine.';return}
+var t='Heures de présence dans cette structure cette année : <b>'+h(tot)+'</b>.<br>';
+if(tot>SEUIL){
+t+='<b class="oui">La gratification est obligatoire</b> : votre présence dépasse deux mois (plus de '+SEUIL+' heures). Elle est due dès le premier jour et versée chaque mois.<br>';
+t+='Minimum pour ce stage : environ <b>'+e(stage*TAUX)+'</b>, soit environ <b>'+e(hs*52/12*TAUX)+'</b> pour un mois complet à '+h(hs)+' par semaine.';
+}else{
+t+='<b>Pas d\'obligation de gratification</b> : votre présence ne dépasse pas deux mois ('+SEUIL+' heures). La structure peut quand même vous gratifier si elle le souhaite. Il vous manque '+h(SEUIL+1-tot)+' pour atteindre le seuil.';
+}
+r.innerHTML=t;
+if(window.goatcounter&&!calc.vu&&window.goatcounter.count){calc.vu=1;try{window.goatcounter.count({path:'calculateur-gratification',title:'Calculateur gratification',event:true})}catch(x){}}
+}
+['cg-sem','cg-h','cg-av'].forEach(function(id){document.getElementById(id).addEventListener('input',calc)});
+calc.vu=1;calc();calc.vu=0;
+})();
+</script>
+{% endif %}{% endfor %}
 <p class="srcs">Règles vérifiées le {{ f.verification }} : {% for l, u in f.sources %}<a href="{{ u }}" target="_blank" rel="noopener">{{ l }}</a>{% if not loop.last %} · {% endif %}{% endfor %}. Les conseils sont ceux de 2A Formation, éducateurs spécialisés en poste ; ils ne remplacent pas les règles de votre établissement de formation.</p>
 </div></section>
 <section class="alt"><div class="wrap">
