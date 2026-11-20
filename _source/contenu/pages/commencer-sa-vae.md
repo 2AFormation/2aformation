@@ -9,6 +9,33 @@ Vous travaillez dans le social et vous pensez à la VAE ? Bonne nouvelle : les p
 
 <p><a class="btn primary" href="../documents/checklist-commencer-sa-vae-2A-Formation.pdf" target="_blank" rel="noopener">Télécharger la checklist gratuite (PDF)</a></p>
 
+<style>
+.vae-encart{display:grid;grid-template-columns:1fr 1.1fr;gap:20px;align-items:start;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:12px;padding:18px 22px;margin:22px 0}
+.vae-encart b{display:block;font-size:1.05rem}
+.vae-encart p{margin:4px 0 0;font-size:.92rem}
+.vae-encart form{display:grid;gap:8px}
+.vae-encart label.champ{display:grid;gap:3px;font-size:.85rem;font-weight:600}
+.vae-encart input[type=text],.vae-encart input[type=email]{font:inherit;font-weight:400;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--paper);min-width:0}
+.vae-encart .ok{display:flex;gap:8px;align-items:flex-start;font-size:.8rem;font-weight:400}
+.vae-encart .ok input{margin-top:2px;width:16px;height:16px;flex:none}
+.vae-encart .rgpd{font-size:.74rem;color:var(--muted);margin:0}
+.vae-encart .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+@media (max-width:760px){.vae-encart{grid-template-columns:1fr;gap:12px}}
+</style>
+<div class="vae-encart">
+<div><b>Recevez la checklist par e-mail, puis 3 courts conseils</b><p>La checklist « Commencer sa VAE » arrive dans votre boîte, suivie de trois e-mails pour avancer : les pièges du dossier de validation, les financements possibles, et la possibilité d'un premier échange gratuit avec Sybille, accompagnatrice VAE. Gratuit, sans engagement, désinscription en un clic.</p></div>
+<form method="POST" action="https://ea27384b.sibforms.com/serve/MUIFAHFQUoi1HVuHeohhcDuvwoN_gdw276_ugLzqQ5cfCCAhlUslNJVCFeZ1vmAFkum3BX7QD_CugtqJ3AYUrvLvNxwnNiLsKrTvuCm6LrpzPiCNy2SsbTvt0xNsCthVsG6ISorflO3xePAXLyfnedrpZoMiBFDlwPpIY26hZBtKtksGuduxnirs6XIFDyQwUGu9DLAAV3jZGqIOWw==" data-goatcounter-click="vae-checklist-formulaire">
+<label class="champ">Votre prénom (facultatif)<input type="text" name="FIRSTNAME" autocomplete="given-name"></label>
+<label class="champ">Diplôme visé (facultatif)<input type="text" name="DIPLOME" placeholder="ex. DEES, DEME, DEAES"></label>
+<label class="champ">Votre adresse e-mail<input type="email" name="EMAIL" autocomplete="email" placeholder="prenom@exemple.fr" required></label>
+<label class="ok"><input type="checkbox" name="OPT_IN" value="1" required><span>J'accepte de recevoir la checklist et 3 e-mails d'accompagnement VAE de 2A Formation.</span></label>
+<div class="hp" aria-hidden="true"><input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off"></div>
+<input type="hidden" name="locale" value="fr"><input type="hidden" name="html_type" value="simple">
+<button class="btn primary" type="submit">Recevoir la checklist par e-mail</button>
+<p class="rgpd">Un e-mail de confirmation vous sera envoyé (regardez aussi dans les indésirables). Votre adresse sert uniquement à cet envoi, hébergée par Brevo, ni vendue ni cédée. <a href="../politique-de-confidentialite/">Confidentialité</a></p>
+</form>
+</div>
+
 ## Étape 1 · S'informer
 
 - Le site officiel [France VAE (vae.gouv.fr)](https://vae.gouv.fr/) présente le parcours et la fiche de chaque diplôme.
