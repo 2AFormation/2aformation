@@ -13,7 +13,7 @@ Vous travaillez dans le social et vous pensez à la VAE ? Bonne nouvelle : les p
 
 - Le site officiel [France VAE (vae.gouv.fr)](https://vae.gouv.fr/) présente le parcours et la fiche de chaque diplôme.
 - Un **conseiller en évolution professionnelle** (CEP) peut vous aider gratuitement à construire votre projet : [mon-cep.org](https://mon-cep.org/).
-- Nous vous proposons aussi un **premier échange téléphonique gratuit**, sans engagement, pour faire le point sur votre projet.
+- Nous vous proposons aussi un **premier échange gratuit, en visio ou par téléphone**, sans engagement, pour faire le point sur votre projet.
 
 ## Étape 2 · Choisir le bon diplôme
 
