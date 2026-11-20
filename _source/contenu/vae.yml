@@ -3,7 +3,7 @@ prerequis: Avoir une expérience (salariée, bénévole, indépendante, stages�
 certificateurs: Ministère de l'Enseignement supérieur et de la Recherche, et ministère chargé des Solidarités.
 avertissement: La VAE n'est pas une transformation automatique de l'expérience en diplôme. Seul le jury de certification décide d'attribuer ou non le diplôme.
 financement: CPF, Transitions Pro (salariés du privé, jusqu'à 2 000 €), employeur, OPCO, France Travail ou financement personnel.
-delais_acces: "Premier échange téléphonique sous 7 jours après votre demande. L'accompagnement démarre dès la signature du contrat, en général dans le mois qui suit, au rythme du calendrier de dépôt de votre dossier."
+delais_acces: "Premier échange en visio ou par téléphone sous 7 jours après votre demande. L'accompagnement démarre dès la signature du contrat, en général dans le mois qui suit, au rythme du calendrier de dépôt de votre dossier."
 passerelles: "Chaque diplôme est découpé en blocs de compétences. Le jury peut valider tout le diplôme ou une partie des blocs ; les blocs validés vous restent acquis et vous pouvez compléter les autres par une nouvelle demande de VAE ou par la formation. Des équivalences partielles existent entre les diplômes du travail social : elles sont précisées sur la fiche France compétences de chaque diplôme."
 suites: "Après un diplôme de niveau 6, poursuite d'études possible (master, notamment en sciences de l'éducation ou en intervention sociale) ou évolution vers l'encadrement (CAFERUIS). Après le DEME ou le DEAES, accès aux diplômes de niveau supérieur par la formation ou par une nouvelle VAE. Les taux d'insertion, lorsqu'ils sont publiés par les certificateurs, figurent sur les fiches France compétences."
 
@@ -53,7 +53,7 @@ diplomes:
 
 etapes:
   - titre: Premier échange
-    texte: Rendez-vous téléphonique gratuit
+    texte: Rendez-vous gratuit en visio ou par téléphone
   - titre: Faisabilité
     texte: Parcours, devis, financement
   - titre: Recevabilité
